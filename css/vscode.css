@@ -1,0 +1,489 @@
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-sidebar: #252526;
+  --vscode-text: #d4d4d4;
+  --vscode-active: #37373d;
+  --vscode-border: #474747;
+}
+
+.vscode-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+}
+
+/* 左侧资源管理器样式 */
+.sidebar-explorer {
+  width: 250px;
+  background: var(--vscode-sidebar);
+  border-right: 1px solid var(--vscode-border);
+  padding: 10px 0;
+}
+
+.explorer-header {
+  padding: 0 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #858585;
+}
+
+.explorer-section {
+  margin: 10px 0;
+}
+
+.section-header {
+  padding: 3px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #858585;
+}
+
+.section-header:hover {
+  background: var(--vscode-active);
+}
+
+.section-content {
+  padding: 5px 12px;
+}
+
+.folder, .file, .tag-item {
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.folder:hover, .file:hover, .tag-item:hover {
+  background: var(--vscode-active);
+}
+
+.folder i {
+  color: #dcb67a;
+}
+
+.file i {
+  color: #519aba;
+}
+
+.count {
+  color: #808080;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* 主要内容区域样式 */
+.editor-content {
+  flex: 1;
+  background: var(--vscode-bg);
+}
+
+.tab-bar {
+  height: 35px;
+  background: var(--vscode-sidebar);
+  border-bottom: 1px solid var(--vscode-border);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.tab {
+  height: 100%;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--vscode-bg);
+  border-right: 1px solid var(--vscode-border);
+  font-size: 13px;
+  color: var(--vscode-text);
+}
+
+.tab.active {
+  background: var(--vscode-bg);
+  border-top: 1px solid var(--vscode-accent);
+}
+
+.tab i {
+  color: #519aba;
+}
+
+.content-area {
+  padding: 20px;
+  overflow-y: auto;
+  max-width: 100%;      /* 确保内容区域不会溢出 */
+}
+
+/* 文章卡片样式 */
+.post-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post-header i {
+  color: #519aba;
+}
+
+.post-title a {
+  color: var(--vscode-accent);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.post-meta {
+  font-size: 12px;
+  color: #858585;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.post-meta i {
+  margin-right: 4px;
+}
+
+.post-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: var(--vscode-text);
+}
+
+.post-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #569cd6;
+  text-decoration: none;
+  padding: 6px 12px;
+  background: var(--vscode-active);
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.read-more:hover {
+  background: var(--vscode-highlight);
+}
+
+/* 分页样式 */
+.pagination-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.pagination-info {
+  color: #808080;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 5px 10px;
+  border: 1px solid var(--vscode-border);
+  color: var(--vscode-text);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: var(--vscode-active);
+}
+
+.page-number, .extend {
+  padding: 4px 8px;
+  background: var(--vscode-active);
+  border-radius: 3px;
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.page-number:hover, .extend:hover {
+  background: var(--vscode-highlight);
+}
+
+.page-number.current {
+  background: var(--vscode-accent);
+}
+
+/* 标签样式 */
+.tag-item i {
+  color: #c2975b;
+  font-size: 12px;
+}
+
+.tag-item a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  flex: 1;
+}
+
+.tag-item:hover a {
+  color: var(--vscode-accent);
+}
+
+.tag-item .count {
+  font-size: 11px;
+  color: #808080;
+  margin-left: auto;
+}
+
+/* 折叠/展开动画 */
+.section-header i {
+  transition: transform 0.2s ease;
+}
+
+.section-header.collapsed i {
+  transform: rotate(-90deg);
+}
+
+.section-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.section-content.collapsed {
+  max-height: 0;
+}
+
+/* 代码块相关样式 */
+pre {
+  position: relative;
+  padding: 2.5em 1em 1em;
+  margin: 1em 0;
+  background: var(--vscode-bg);
+  border-radius: 4px;
+  overflow-x: auto;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--vscode-active);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  color: var(--vscode-text);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 100;
+  /* 移除点击时的外边框 */
+  outline: none;
+  /* 移除点击时的高亮 */
+  -webkit-tap-highlight-color: transparent;
+  /* 禁用文本选择 */
+  user-select: none;
+}
+
+.copy-button:focus {
+  /* 移除焦点时的外边框 */
+  outline: none;
+  box-shadow: none;
+}
+
+pre:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  background: var(--vscode-border);
+}
+
+.copy-button.copied {
+  background: var(--vscode-accent);
+  border-color: var(--vscode-accent);
+}
+
+/* Tooltip 样式 */
+.copy-button::before {
+  content: "复制代码";
+  position: absolute;
+  top: -2em;
+  right: 0;
+  background: var(--vscode-sidebar);
+  color: var(--vscode-text);
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.copy-button:hover::before {
+  opacity: 1;
+}
+
+/* 确保只有代码块内的复制按钮可见 */
+pre:not(:has(code)) .copy-button {
+  display: none;
+}
+
+/* 移除所有可能的轮廓 */
+pre, pre code, .copy-button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 代码块容器样式 */
+.hljs {
+  width: 100%;
+  max-width: 100%;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  white-space: pre-wrap;  /* 允许代码自动换行 */
+  word-break: break-word; /* 允许在单词内换行 */
+  word-wrap: break-word;
+  overflow-x: auto;
+  padding: 0.5em;
+  min-width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 优化移动端显示 */
+@media (max-width: 768px) {
+  pre {
+    margin: 1em 0;
+    border-radius: 4px;
+    padding: 2.5em 0.5em 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .hljs {
+    padding: 0.3em;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .copy-button {
+    opacity: 1;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  
+  /* 优化移动端滚动体验 */
+  pre, .hljs {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  
+  /* 自定义滚动条样式 */
+  pre::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  pre::-webkit-scrollbar-thumb {
+    background: var(--vscode-border);
+    border-radius: 2px;
+  }
+  
+  /* 确保链接不会溢出容器 */
+  a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    display: inline-block;
+  }
+  
+  /* 优化页脚样式 */
+  .footer {
+    position: relative;
+    height: auto;
+  }
+  
+  .status-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 5px;
+  }
+  
+  .status-item {
+    margin: 5px;
+    text-align: center;
+  }
+  
+  .status-item.github {
+    margin-left: 5px;
+  }
+}
+
+/* 小屏幕设备的额外优化 */
+@media screen and (max-width: 480px) {
+  .hljs {
+    font-size: 12px;    /* 更小屏幕上进一步减小字体 */
+    line-height: 1.4;   /* 减小行高 */
+  }
+  
+  pre {
+    padding: 2em 0.5em 0.5em;  /* 进一步减少内边距 */
+  }
+  
+  /* 优化小屏幕上的代码显示 */
+  code {
+    font-size: 12px;
+  }
+}
+
+/* 横屏模式优化 */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  pre {
+    max-height: 80vh;   /* 限制最大高度 */
+    overflow-y: auto;   /* 允许垂直滚动 */
+  }
+}

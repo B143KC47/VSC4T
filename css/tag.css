@@ -1,0 +1,76 @@
+/* 标签页头部样式 */
+.tag-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.tag-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--vscode-text);
+}
+
+.tag-header i {
+  color: #dcb67a;
+}
+
+.tag-count {
+  padding: 0.25rem 0.75rem;
+  background: var(--vscode-active);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--vscode-text);
+}
+
+/* 标签列表项样式 */
+.tag-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tag-item.active {
+  background: var(--vscode-highlight);
+}
+
+.tag-item:hover {
+  background: var(--vscode-active);
+}
+
+.tag-item i {
+  margin-right: 0.5rem;
+  color: #dcb67a;
+  font-size: 0.9rem;
+}
+
+.tag-item a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  flex: 1;
+}
+
+.tag-item .count {
+  color: #808080;
+  font-size: 0.8rem;
+}
+
+/* 文章卡片在标签页的特殊样式 */
+.tag-page .post-card {
+  border-left: 3px solid #dcb67a;
+}
+
+.tag-page .post-header i {
+  color: #dcb67a;
+}

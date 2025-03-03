@@ -1,0 +1,177 @@
+/* 隐藏滚动条但保持可滚动 */
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .vscode-container {
+        flex-direction: column;
+    }
+
+    .sidebar-explorer {
+        width: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .editor-content {
+        width: 100%;
+    }
+
+    .post-card {
+        margin: 10px 0;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .post-header h1 {
+        font-size: 1.5em;
+    }
+
+    /* 基础文字大小设置 */
+    .post-content {
+        font-size: 15px;
+        line-height: 1.8;
+        letter-spacing: 0.02em;
+    }
+
+    /* 文章标题自适应 */
+    .post-title h1 {
+        font-size: 1.8em;
+        line-height: 1.4;
+    }
+
+    .post-title h2 {
+        font-size: 1.5em;
+        line-height: 1.4;
+    }
+
+    /* 文章卡片自适应 */
+    .post-card {
+        padding: 15px;
+    }
+
+    .post-card .post-title {
+        font-size: 1.4em;
+    }
+
+    .post-card .post-excerpt {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 侧边栏文字自适应 */
+    .sidebar-section h3 {
+        font-size: 1.2em;
+    }
+
+    .sidebar-section {
+        font-size: 14px;
+    }
+
+    /* 目录文字自适应 */
+    .toc-content {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    /* 底部状态栏自适应 */
+    .status-bar {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .post-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .post-card .post-excerpt {
+        font-size: 0.9em;
+    }
+
+    .tab-bar {
+        overflow-x: auto;
+    }
+
+    .tag-cloud {
+        padding: 10px;
+    }
+
+    /* 进一步缩小文字大小 */
+    .post-content {
+        font-size: 14px;
+    }
+
+    .post-card .post-title {
+        font-size: 1.3em;
+    }
+
+    .post-card .post-excerpt {
+        font-size: 13px;
+    }
+
+    /* 文章页面标题 */
+    .post-title h1 {
+        font-size: 1.6em;
+    }
+
+    .post-title h2 {
+        font-size: 1.3em;
+    }
+
+    /* 元信息文字 */
+    .post-meta {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    /* 标签和分类 */
+    .tag-item, 
+    .category-item {
+        font-size: 12px;
+    }
+
+    /* 代码块 */
+    pre, code {
+        font-size: 13px;
+    }
+}
+
+/* 超小屏幕的极限优化 */
+@media screen and (max-width: 320px) {
+    .post-content {
+        font-size: 13px;
+    }
+
+    .post-card .post-title {
+        font-size: 1.2em;
+    }
+
+    .post-meta {
+        font-size: 11px;
+    }
+
+    .sidebar-section {
+        font-size: 12px;
+    }
+
+    .status-bar {
+        font-size: 11px;
+    }
+}

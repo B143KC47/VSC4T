@@ -1,0 +1,135 @@
+.vscode-markdown {
+  color: var(--vscode-text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.vscode-markdown h1,
+.vscode-markdown h2,
+.vscode-markdown h3,
+.vscode-markdown h4,
+.vscode-markdown h5,
+.vscode-markdown h6 {
+  color: #fff;
+  font-weight: 600;
+  margin: 1.5em 0 1em;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.vscode-markdown h1::before,
+.vscode-markdown h2::before,
+.vscode-markdown h3::before,
+.vscode-markdown h4::before,
+.vscode-markdown h5::before,
+.vscode-markdown h6::before {
+  content: '#';
+  position: absolute;
+  left: 0;
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.vscode-markdown p {
+  margin: 1em 0;
+}
+
+.vscode-markdown a {
+  color: #569cd6;
+  text-decoration: none;
+  border-bottom: 1px dashed #569cd6;
+}
+
+.vscode-markdown a:hover {
+  border-bottom-style: solid;
+}
+
+.vscode-markdown blockquote {
+  border-left: 4px solid #569cd6;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: var(--vscode-active);
+  color: #d4d4d4;
+}
+
+.vscode-markdown ul,
+.vscode-markdown ol {
+  padding-left: 2em;
+  margin: 1em 0;
+}
+
+.vscode-markdown li {
+  margin: 0.5em 0;
+}
+
+.vscode-markdown img {
+  max-width: 100%;
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+}
+
+/* 文章导航样式 */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid var(--vscode-border);
+}
+
+.post-nav a {
+  flex: 1;
+  padding: 1em;
+  color: var(--vscode-text);
+  text-decoration: none;
+  background: var(--vscode-active);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.post-nav a:hover {
+  background: var(--vscode-highlight);
+  transform: translateY(-2px);
+}
+
+.post-nav .prev {
+  margin-right: 1em;
+}
+
+.post-nav .next {
+  text-align: right;
+}
+
+/* TOC样式优化 */
+.toc {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc-child {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.toc-link {
+  display: block;
+  padding: 4px 8px;
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+  background: var(--vscode-active);
+  border-left-color: #569cd6;
+  color: #fff;
+}
+
+.toc-link.active {
+  background: var(--vscode-active);
+  border-left-color: #569cd6;
+  color: #569cd6;
+}

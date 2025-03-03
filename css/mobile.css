@@ -1,0 +1,212 @@
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    padding: 10px;
+    background: #1e1e1e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .sidebar-explorer {
+        position: fixed;
+        left: -100%;
+        top: 10%;
+        height: 100%;
+        width: 80%;
+        max-width: 300px;
+        z-index: 999;
+        transition: left 0.3s ease;
+        background: #252526;
+    }
+
+    .sidebar-explorer.show {
+        left: 0;
+    }
+
+    .wrapper {
+        padding-top: 50px;
+    }
+    
+    /* 优化移动端文章内容 */
+    .post-content {
+        padding: 1rem;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* 确保链接不会溢出容器 */
+    a {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* 优化代码块在移动端的显示 */
+    pre {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 1rem 0;
+        border-radius: 4px;
+        font-size: 0.9em;
+        padding: 2.5em 0.5em 0.5em;
+    }
+    
+    code {
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    
+    /* 优化表格在移动端的显示 */
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+    }
+    
+    /* 页脚样式优化 */
+    .footer {
+        position: relative;  /* 改为相对定位，避免遮挡内容 */
+        margin-top: 2rem;
+        padding: 0.5rem 0;
+    }
+    
+    .status-bar {
+        flex-wrap: wrap;  /* 允许项目换行 */
+        justify-content: center;  /* 居中对齐 */
+        padding: 8px 5px;
+        gap: 10px;  /* 项目之间的间距 */
+    }
+    
+    .status-item {
+        margin-right: 0;  /* 移除右边距 */
+        font-size: 11px;  /* 稍微减小字体 */
+    }
+    
+    .status-item.github {
+        margin-left: 0;  /* 移除左边距 */
+    }
+    
+    /* 确保所有状态项目样式一致 */
+    .status-item, .status-item.github {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* 代码内容自适应 */
+    pre code, .hljs {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9em;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+    
+    /* 长链接处理 */
+    a {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+}
+
+@media (max-width: 768px) {
+  .copy-button {
+    opacity: 1;  /* 在移动端始终显示复制按钮 */
+    top: 0.3em;
+    right: 0.3em;
+  }
+  
+  pre {
+    padding: 2em 0.8em 0.8em;  /* 调整移动端padding */
+  }
+  
+  /* 优化移动端图片显示 */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 优化移动端文章标题 */
+  .post-title h1, .post-title h2 {
+    font-size: 1.5rem;
+    word-break: break-word;
+  }
+  
+  /* 优化移动端文章元数据 */
+  .post-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  /* 优化移动端内容区域 */
+  .content-area {
+    padding: 10px;
+  }
+  
+  /* 优化移动端代码高亮 */
+  .highlight {
+    margin: 0 -10px;
+  }
+  
+  .highlight pre {
+    border-radius: 0;
+  }
+  
+  /* 优化移动端TOC */
+  .toc-container {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+/* 小屏幕设备额外优化 */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 10px;
+  }
+  
+  .post-content {
+    padding: 0.8rem;
+  }
+  
+  pre {
+    padding: 2em 0.4em 0.4em;
+    font-size: 0.8em;
+  }
+  
+  .post-title h1, .post-title h2 {
+    font-size: 1.3rem;
+  }
+  
+  /* 页脚在小屏幕上的额外优化 */
+  .status-bar {
+    flex-direction: column;  /* 垂直排列 */
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .status-item {
+    margin: 3px 0;
+    font-size: 10px;
+  }
+  
+  /* 小屏幕代码块进一步优化 */
+  pre code, .hljs {
+    font-size: 0.8em;
+    line-height: 1.4;
+  }
+}

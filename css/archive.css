@@ -1,0 +1,155 @@
+/* 归档页面头部样式 */
+.archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.archive-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--vscode-text);
+}
+
+.archive-header i {
+  color: #569cd6;
+}
+
+.archive-count {
+  padding: 0.25rem 0.75rem;
+  background: var(--vscode-active);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--vscode-text);
+}
+
+/* 时间线容器样式 */
+.timeline-container {
+  padding: 1rem;
+}
+
+.timeline-year {
+  margin-bottom: 2rem;
+}
+
+.year-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--vscode-active);
+  border-radius: 4px;
+  color: var(--vscode-text);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.year-header i {
+  color: #569cd6;
+}
+
+.year-count {
+  font-size: 0.9rem;
+  color: #858585;
+  margin-left: 0.5rem;
+}
+
+/* 文章时间线样式 */
+.timeline-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-left: 2px solid var(--vscode-border);
+  transition: all 0.2s ease;
+}
+
+.timeline-post:hover {
+  background: var(--vscode-active);
+  border-left-color: #569cd6;
+}
+
+.post-date {
+  min-width: 100px;
+  color: #858585;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-info {
+  flex: 1;
+}
+
+.post-info a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.post-info a:hover {
+  color: #569cd6;
+}
+
+.post-meta {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #858585;
+  display: flex;
+  gap: 1rem;
+}
+
+/* 左侧归档树样式 */
+.archive-year {
+  margin-bottom: 0.5rem;
+}
+
+.archive-year .folder {
+  cursor: pointer;
+}
+
+.archive-posts {
+  margin-left: 1.2rem;
+  border-left: 1px solid var(--vscode-border);
+}
+
+.archive-posts .file {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.archive-posts .file.active {
+  background: var(--vscode-highlight);
+}
+
+.archive-posts .file a {
+  color: var(--vscode-text);
+  text-decoration: none;
+}
+
+.archive-posts .file:hover {
+  background: var(--vscode-active);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .timeline-post {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .post-date {
+    min-width: auto;
+  }
+}

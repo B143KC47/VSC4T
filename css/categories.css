@@ -1,0 +1,142 @@
+/* 分类项目样式 */
+.category-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-item.active {
+  background: var(--vscode-highlight);
+}
+
+.category-item:hover {
+  background: var(--vscode-active);
+}
+
+.category-item i {
+  margin-right: 0.5rem;
+  color: #dcb67a;
+  font-size: 0.9rem;
+}
+
+.category-item a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  flex: 1;
+}
+
+.category-item .count {
+  color: #808080;
+  font-size: 0.8rem;
+}
+
+/* 分类概览样式 */
+.categories-overview {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.category-section {
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--vscode-active);
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.category-header i {
+  color: #dcb67a;
+  font-size: 1.1rem;
+}
+
+.category-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--vscode-text);
+  flex: 1;
+}
+
+.category-header .count {
+  padding: 0.25rem 0.75rem;
+  background: var(--vscode-sidebar);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.category-posts {
+  padding: 1rem;
+}
+
+.post-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.post-item:hover {
+  background: var(--vscode-active);
+}
+
+.post-item i {
+  color: #519aba;
+  font-size: 1rem;
+}
+
+.post-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.post-info a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.post-info a:hover {
+  color: var(--vscode-accent);
+}
+
+.post-info .date {
+  color: #808080;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-info .date i {
+  color: #808080;
+  font-size: 0.85rem;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .post-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .category-header {
+    flex-wrap: wrap;
+  }
+}

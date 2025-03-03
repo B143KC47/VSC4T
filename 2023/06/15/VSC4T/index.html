@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>VSC4T - A Dark and Elegant Hexo Theme | BlackCat</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/main.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- 添加代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../../../../css/code.css">
+  <link rel="stylesheet" href="../../../../css/vscode.css">
+  <link rel="stylesheet" href="../../../../css/post.css">
+  <link rel="stylesheet" href="../../../../css/tag.css">
+  <link rel="stylesheet" href="../../../../css/categories.css">
+  <link rel="stylesheet" href="../../../../css/archive.css">
+  <link rel="stylesheet" href="../../../../css/mobile.css">
+  <link rel="stylesheet" href="../../../../css/responsive.css">
+
+  <!-- 添加 JetBrains Mono 字体 -->  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Add any custom head content here -->
+
+  <script src="../../../../js/explorer.js"></script>
+  <script src="../../../../js/code-copy.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+  <body>
+    <div class="wrapper">
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <header class="vs-header">
+  <nav class="vs-nav">
+    <div class="nav-left">
+      <a href="../../../../index.html" class="nav-brand">
+        <i class="fas fa-terminal"></i>
+        BlackCat
+      </a>
+    </div>
+    
+    <div class="nav-right">
+      <a href="../../../../index.html" class="nav-item ">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="../../../../archives" class="nav-item ">
+        <i class="fas fa-archive"></i>
+        <span>Archives</span>
+      </a>
+      <a href="../../../../categories/" class="nav-item ">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="../../../../tags/" class="nav-item ">
+        <i class="fas fa-tags"></i>
+        <span>Tags</span>
+      </a>
+      <a href="../../../../about" class="nav-item ">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function smoothScroll(event, target) {
+    event.preventDefault();
+    const targetId = target.substring(target.indexOf('#') + 1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50, // 调整偏移量
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = target;
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.vs-header');
+    const nav = document.querySelector('.vs-nav');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+    
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 添加标签页切换动画
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('nav-ripple');
+      this.appendChild(ripple);
+      
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      setTimeout(() => ripple.remove(), 1000);
+    });
+  });
+</script>
+
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <!-- TOC导航 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="section-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VSCat-Hexo-Theme"><span class="toc-text">VSCat Hexo Theme</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Required-Configuration"><span class="toc-text">Required Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-Relative-Links"><span class="toc-text">Enable Relative Links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Required-Pages"><span class="toc-text">Create Required Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Theme-Configuration"><span class="toc-text">Theme Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Language-Configuration"><span class="toc-text">Language Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Supported-Languages"><span class="toc-text">Supported Languages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Configuration-Examples"><span class="toc-text">Language Configuration Examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Post-Settings"><span class="toc-text">Post Settings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-New-Posts"><span class="toc-text">Creating New Posts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custom-Styles"><span class="toc-text">Custom Styles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mobile-Optimization"><span class="toc-text">Mobile Optimization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Highlighting"><span class="toc-text">Code Highlighting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Support"><span class="toc-text">Support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+    
+    <!-- 相关文章 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-link"></i>
+        <span>RELATED POSTS</span>
+      </div>
+      <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../DEPLOYMENT/">VSC4T Blog Deploy Guide</a>
+          </div>
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="">VSC4T - A Dark and Elegant Hexo Theme</a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-file-alt"></i>
+        <span>VSC4T - A Dark and Elegant Hexo Theme.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <article class="post-content">
+        <div class="post-header">
+          <h1>VSC4T - A Dark and Elegant Hexo Theme</h1>
+          <div class="post-meta">
+            <span class="date">
+              <i class="fas fa-calendar-alt"></i>
+              2023-06-15
+            </span>
+            
+              <span class="categories">
+                <i class="fas fa-folder"></i>
+                <a class="category-link" href="../../../../categories/web-design/">web-design</a>, <a class="category-link" href="../../../../categories/web-design/themes/">themes</a>
+              </span>
+            
+            
+              <span class="tags">
+                <i class="fas fa-tags"></i>
+                <a class="tag-none-link" href="../../../../tags/dark-mode/" rel="tag">dark-mode</a>, <a class="tag-none-link" href="../../../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../../../tags/responsive/" rel="tag">responsive</a>, <a class="tag-none-link" href="../../../../tags/theme/" rel="tag">theme</a>
+              </span>
+            
+          </div>
+        </div>
+        
+        <div class="post-body vscode-markdown">
+          <h1 id="VSCat-Hexo-Theme"><a href="#VSCat-Hexo-Theme" class="headerlink" title="VSCat Hexo Theme"></a>VSCat Hexo Theme</h1><p>An elegant and minimalist Hexo theme featuring dark color scheme and code-style design aesthetics.</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>🌙 Dark mode optimized</li>
+<li>📱 Fully responsive layout</li>
+<li>🚀 Fast loading performance</li>
+<li>🎨 Clean minimalist design</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ol>
+<li>Navigate to your Hexo site’s themes directory:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> themes<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Clone this repository:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/B143KC47/VSC4T.git<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Set the theme in your site configuration:</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span> <span class="hljs-string">VSC4T</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Required-Configuration"><a href="#Required-Configuration" class="headerlink" title="Required Configuration"></a>Required Configuration</h2><h3 id="Enable-Relative-Links"><a href="#Enable-Relative-Links" class="headerlink" title="Enable Relative Links"></a>Enable Relative Links</h3><p>For proper theme deployment, set in your Hexo site’s <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">relative_link:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>The theme may not work correctly without relative links enabled.</p>
+<h3 id="Create-Required-Pages"><a href="#Create-Required-Pages" class="headerlink" title="Create Required Pages"></a>Create Required Pages</h3><p>This theme requires the following pages:</p>
+<ol>
+<li>Create categories page:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories<br></code></pre></td></tr></table></figure>
+<p>Then edit <code>source/categories/index.md</code> and add</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: categories<br>layout: categories<br>---<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Create tags page:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page tags<br></code></pre></td></tr></table></figure>
+<p>Then edit <code>source/tags/index.md</code> and add</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: tags<br>layout: tags<br>---<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Create about page:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+<p>And add personal information in <code>source/about/index.md</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: about<br>date: 2025-02-22 22:14:44<br>---<br><br>A very excellent minimalist theme<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="Theme-Configuration"><a href="#Theme-Configuration" class="headerlink" title="Theme Configuration"></a>Theme Configuration</h2><p>Modify <code>_config.yml</code> in the theme directory:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Basic Information</span><br><span class="hljs-attr">name:</span> <span class="hljs-string">BlackCat</span><br><span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">simple</span> <span class="hljs-string">dark</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">theme</span> <span class="hljs-string">inspired</span> <span class="hljs-string">by</span> <span class="hljs-string">code.</span><br><span class="hljs-attr">author:</span> <span class="hljs-string">YourName</span><br><br><span class="hljs-comment"># Menu Configuration</span><br><span class="hljs-attr">menu:</span><br>  <span class="hljs-attr">Home:</span> <span class="hljs-string">/</span><br>  <span class="hljs-attr">Archives:</span> <span class="hljs-string">/archives</span><br>  <span class="hljs-attr">Categories:</span> <span class="hljs-string">/categories</span><br>  <span class="hljs-attr">Tags:</span> <span class="hljs-string">/tags</span><br>  <span class="hljs-attr">About:</span> <span class="hljs-string">/about</span><br><br><span class="hljs-comment"># Social Links</span><br><span class="hljs-attr">social:</span><br>  <span class="hljs-attr">github:</span> <span class="hljs-string">your_github_username</span><br>  <span class="hljs-attr">twitter:</span> <span class="hljs-string">your_twitter_username</span><br>  <span class="hljs-attr">email:</span> <span class="hljs-string">your_email@example.com</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Language-Configuration"><a href="#Language-Configuration" class="headerlink" title="Language Configuration"></a>Language Configuration</h2><p>VSC4T theme supports multiple languages. To change the language, modify your site’s <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span> <span class="hljs-string">en</span>  <span class="hljs-comment"># Default language</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h3><ul>
+<li>English (en)</li>
+<li>Simplified Chinese (zh-CN)</li>
+<li>Japanese (ja)</li>
+<li>Korean (ko)</li>
+<li>French (fr)</li>
+<li>German (de)</li>
+<li>Spanish (es)</li>
+<li>Italian (it)</li>
+<li>Russian (ru)</li>
+<li>Portuguese (pt)</li>
+<li>Arabic (ar)</li>
+<li>Vietnamese (vi)</li>
+</ul>
+<h3 id="Language-Configuration-Examples"><a href="#Language-Configuration-Examples" class="headerlink" title="Language Configuration Examples"></a>Language Configuration Examples</h3><p>To use other languages, set the <code>language</code> parameter in your site’s <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># For Japanese</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">ja</span><br><br><span class="hljs-comment"># For Korean</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">ko</span><br><br><span class="hljs-comment"># For French</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">fr</span><br></code></pre></td></tr></table></figure>
+
+<p>You can also configure multiple languages:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">en</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">zh-CN</span><br></code></pre></td></tr></table></figure>
+
+<p>When multiple languages are configured, the first one will be the default.</p>
+<h3 id="Post-Settings"><a href="#Post-Settings" class="headerlink" title="Post Settings"></a>Post Settings</h3><h3 id="Creating-New-Posts"><a href="#Creating-New-Posts" class="headerlink" title="Creating New Posts"></a>Creating New Posts</h3><ol>
+<li>Use Hexo command to create a new post:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new post <span class="hljs-string">&quot;Post Title&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>This will create a new markdown file at <code>source/_posts/post-title.md</code></li>
+</ol>
+<p>Example post:</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs md">---<br>title: VSC4T - An Elegant Dark Hexo Theme<br>date: 2023-06-15 10:30:00<br>tags: [hexo, theme, dark-mode, responsive]<br>categories: [web-design, themes]<br>toc: true<br><span class="hljs-section">description: VSC4T is a code editor-inspired dark theme for Hexo.</span><br><span class="hljs-section">---</span><br><br>Here goes the post content...<br></code></pre></td></tr></table></figure>
+
+<h2 id="Custom-Styles"><a href="#Custom-Styles" class="headerlink" title="Custom Styles"></a>Custom Styles</h2><p>The theme supports custom CSS and JS. In theme configuration:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">custom_css:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/css/mobile.css</span><br><span class="hljs-attr">custom_js:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/js/code-copy.js</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/js/mobile-menu.js</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Mobile-Optimization"><a href="#Mobile-Optimization" class="headerlink" title="Mobile Optimization"></a>Mobile Optimization</h2><p>The theme is optimized for mobile devices. You can adjust mobile settings in theme configuration:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">mobile:</span><br>  <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">breakpoint:</span> <span class="hljs-number">768</span><br>  <span class="hljs-attr">nav_style:</span> <span class="hljs-string">&#x27;drawer&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Code-Highlighting"><a href="#Code-Highlighting" class="headerlink" title="Code Highlighting"></a>Code Highlighting</h2><p>This theme uses built-in code highlighting by default. You can adjust it with:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">auto_detect:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This theme is released under the MIT License.</p>
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>For any issues or help needed, please submit an issue on the GitHub repository.</p>
+<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+        </div>
+        
+        <!-- 文章导航 -->
+        <nav class="post-nav">
+          
+            <a class="prev" href="../DEPLOYMENT/">
+              <i class="fas fa-chevron-left"></i>
+              VSC4T Blog Deploy Guide
+            </a>
+          
+          
+        </nav>
+      </article>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <footer class="footer">
+  <div class="status-bar">
+    <div class="status-item">
+      <i class="fas fa-code-branch"></i>
+      master
+    </div>
+    <div class="status-item">
+      <i class="fas fa-sync"></i>
+      B143KC47
+    </div>
+    <div class="status-item">
+      <i class="fas fa-clock"></i>
+      2025-03-03
+    </div>
+    <div class="status-item">
+      Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
+    </div>
+    <div class="status-item github">
+      <a href="#" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- 这里可以放置自定义脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 代码高亮主题设置
+  hljs.configure({
+    theme: 'vs2015'
+  });
+  
+  // 添加平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
+<script src="../../../../js/toc.js"></script>
+
+    <script>
+      // 移动端菜单切换
+      $(document).ready(function() {
+        $('.mobile-menu-toggle').click(function() {
+          $('.sidebar-explorer').toggleClass('show');
+        });
+      });
+    </script>
+  </body>
+</html>

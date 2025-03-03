@@ -1,0 +1,627 @@
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-sidebar: #252526;
+  --vscode-text: #d4d4d4;
+  --vscode-active: #37373d;
+  --vscode-highlight: #264f78;
+  --vscode-accent: #0078d4;
+}
+
+/* 基本样式 */
+body {
+  background-color: var(--vscode-bg);
+  color: var(--vscode-text);
+  font-family: 'Consolas', 'Source Code Pro', monospace;
+  line-height: 1.6;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: calc(100vh - 30px);
+  padding-bottom: 40px;
+}
+
+/* 文章列表样式 */
+.post-item {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  background-color: var(--vscode-sidebar);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+/* 导航栏样式 */
+.navbar {
+  background-color: var(--vscode-sidebar);
+  border-bottom: 1px solid var(--vscode-active);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  color: var(--vscode-text) !important;
+  font-weight: bold;
+}
+
+/* 链接样式 */
+a {
+  color: var(--vscode-accent);
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+a:hover {
+  color: #5caeef;
+  text-decoration: none;
+}
+
+/* 代码块样式 */
+pre {
+  background-color: var(--vscode-sidebar);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Footer 样式 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--vscode-sidebar);
+  border-top: 1px solid var(--vscode-active);
+  z-index: 1000;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--vscode-text);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.status-item i {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.status-item a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.status-item a:hover {
+  color: var(--vscode-accent);
+}
+
+.status-item.github {
+  margin-left: auto;
+}
+
+.status-item.github i {
+  font-size: 16px;
+}
+
+/* 修改TOC样式，从固定定位改为普通文档流 */
+.toc-container {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.toc-header {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--vscode-text);
+  border-bottom: 1px solid var(--vscode-active);
+  padding-bottom: 0.5rem;
+}
+
+.toc-content {
+  font-size: 0.9em;
+}
+
+.toc-content ol {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.toc-content a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+  padding: 4px 0;
+}
+
+.toc-content a:hover {
+  color: var(--vscode-accent);
+}
+
+/* 文章内容样式优化 */
+.post-content {
+  background-color: var(--vscode-sidebar);
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  color: var(--vscode-text);
+  margin-bottom: 2rem;
+}
+
+.post-meta span {
+  margin-right: 1rem;
+}
+
+.post-meta i {
+  margin-right: 0.5rem;
+}
+
+/* 文章卡片样式优化 */
+.posts-container {
+  margin-top: 2rem;
+}
+
+.post-title h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.post-excerpt {
+  margin: 1rem 0;
+  color: #a0a0a0;
+  font-size: 0.95rem;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--vscode-active);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.read-more:hover {
+  background-color: var(--vscode-highlight);
+}
+
+.read-more i {
+  margin-left: 0.5rem;
+}
+
+/* 侧边栏样式优化 */
+.sidebar-section {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vscode-active);
+}
+
+.sidebar-section h3 i {
+  margin-right: 0.5rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.about-info p {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+/* 分页样式 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.page-number,
+.extend {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  background-color: var(--vscode-active);
+  border-radius: 4px;
+  color: var(--vscode-text);
+}
+
+.current {
+  background-color: var(--vscode-highlight);
+}
+
+/* 分页容器样式 */
+.pagination-container {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-info {
+  color: var(--vscode-text);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vscode-active);
+}
+
+.pagination-info i {
+  margin-right: 0.5rem;
+  color: var(--vscode-accent);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.5rem;
+  background-color: var(--vscode-active);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--vscode-text);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+  background-color: var(--vscode-highlight);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.page-btn.current {
+  background-color: var(--vscode-accent);
+  color: #fff;
+  cursor: default;
+}
+
+.page-btn.prev,
+.page-btn.next {
+  background-color: transparent;
+  border-color: var(--vscode-active);
+}
+
+.page-btn.prev:hover,
+.page-btn.next:hover {
+  background-color: var(--vscode-active);
+  border-color: var(--vscode-accent);
+}
+
+/* 移除之前的分页样式 */
+.pagination .page-number,
+.pagination .extend {
+  display: none;
+}
+
+/* 系列文章样式 */
+.series-container {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.explorer-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--vscode-text);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--vscode-active);
+  margin-bottom: 1rem;
+}
+
+.explorer-title i {
+  margin-right: 0.5rem;
+  color: var(--vscode-accent);
+}
+
+.series-item {
+  margin-bottom: 0.5rem;
+}
+
+.series-header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.series-header:hover {
+  background-color: var(--vscode-active);
+}
+
+.series-header i {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.series-name {
+  flex-grow: 1;
+  color: var(--vscode-text);
+}
+
+.series-count {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 1rem;
+}
+
+.series-posts {
+  display: none;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.series-post {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.series-post:hover {
+  background-color: var(--vscode-active);
+}
+
+.series-post i {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--vscode-accent);
+}
+
+.series-post a {
+  flex-grow: 1;
+  color: var(--vscode-text);
+  text-decoration: none;
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* 推荐文章样式 */
+.recommended-posts {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.recommended-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--vscode-text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vscode-active);
+}
+
+.recommended-header i {
+  margin-right: 0.5rem;
+  color: var(--vscode-accent);
+}
+
+.recommended-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.recommended-item {
+  background-color: var(--vscode-active);
+  border-radius: 4px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.recommended-item:hover {
+  transform: translateY(-2px);
+  background-color: var(--vscode-highlight);
+}
+
+.recommended-link {
+  display: block;
+  padding: 1rem;
+  color: var(--vscode-text);
+  text-decoration: none;
+}
+
+.recommended-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--vscode-text);
+}
+
+.recommended-title i {
+  margin-right: 0.5rem;
+  color: var(--vscode-accent);
+}
+
+.recommended-meta {
+  font-size: 0.8rem;
+  color: #888;
+  display: flex;
+  gap: 1rem;
+}
+
+.series-tag i,
+.date-tag i {
+  margin-right: 0.3rem;
+}
+
+.series-tag {
+  color: var(--vscode-accent);
+}
+
+/* 标签页面样式 */
+.tag-container {
+  background-color: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tag-title {
+  color: var(--vscode-text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vscode-active);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+  
+  .post-content {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* 确保所有内容都不会溢出容器 */
+  img, video, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 优化表格在移动端的显示 */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 优化移动端文章标题 */
+  h1, h2, h3 {
+    word-break: break-word;
+  }
+  
+  /* 页脚在移动端的样式 */
+  .footer {
+    position: relative;
+    margin-top: 2rem;
+  }
+  
+  .status-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 5px;
+  }
+  
+  .status-item, .status-item.github {
+    margin: 0;
+    font-size: 11px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 确保所有页脚项目样式一致 */
+  .status-item i, .status-item.github i {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  
+  /* 移动端内容区域底部留出空间 */
+  .wrapper {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  /* 确保内容不会被页脚遮挡 */
+  body {
+    margin-bottom: 0;
+  }
+}
+
+/* 小屏幕设备的额外优化 */
+@media (max-width: 480px) {
+  .status-bar {
+    padding: 5px;
+  }
+  
+  .status-item, .status-item.github {
+    font-size: 10px;
+  }
+}
