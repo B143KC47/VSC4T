@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/tag.css">
   <link rel="stylesheet" href="../css/categories.css">
   <link rel="stylesheet" href="../css/archive.css">
+  <link rel="stylesheet" href="../css/search.css">
   <link rel="stylesheet" href="../css/mobile.css">
   <link rel="stylesheet" href="../css/responsive.css">
 
@@ -62,6 +63,10 @@
       <a href="../tags/" class="nav-item ">
         <i class="fas fa-tags"></i>
         <span>Tags</span>
+      </a>
+      <a href="../search/" class="nav-item ">
+        <i class="fas fa-search"></i>
+        <span>Search</span>
       </a>
       <a href="../about" class="nav-item ">
         <i class="fas fa-info-circle"></i>
@@ -277,7 +282,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-03-08
+      2025-03-09
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -314,6 +319,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script src="../js/toc.js"></script>
+
+<!-- Scripts -->
+<script>
+  // 将语言文件中的翻译传递给前端
+  window.HEXO_CONFIG = {
+    language: "en",
+    search_placeholder: "Type to search...",
+    search_no_results: "No results found",
+    search_result: "result",
+    search_results: "results",
+    search_results_found: "Found undefined results",
+    search_in: "Search in",
+    search_in_title: "Title",
+    search_in_content: "Content",
+    search_in_tags: "Tags",
+    search_in_categories: "Categories",
+    search_filters: "Search Filters",
+    search_recent: "Recent Searches",
+    search_clear: "Clear",
+    search_loading: "Loading...",
+    search_error: "Error loading search data"
+  };
+</script>
+
+
+
+<!-- 添加所有需要的脚本 -->
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
 
     <script>
       // 移动端菜单切换
