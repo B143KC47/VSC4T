@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>VSC4T - A Dark and Elegant Hexo Theme | VSC4T</title>
 
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../../css/main.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+  
+  <!-- 确保只加载一次highlight.js样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <!-- 添加代码高亮样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="../../../../css/code.css">
   <link rel="stylesheet" href="../../../../css/vscode.css">
   <link rel="stylesheet" href="../../../../css/post.css">
@@ -28,11 +30,24 @@
 
   <!-- Add any custom head content here -->
 
+  <!-- 先加载highlight.js -->
+  <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+  <!-- 然后加载其他脚本 -->
   <script src="../../../../js/explorer.js"></script>
   <script src="../../../../js/code-copy.js"></script>
+  <script>
+    // 初始化highlight.js
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    });
+  </script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 
+    <!-- 移除此处的重复 highlight.js 引用 -->
+  </head>
   <body>
     <div class="wrapper">
       <div class="mobile-menu-toggle">
@@ -206,49 +221,49 @@
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ol>
 <li>Navigate to your Hexo site’s themes directory:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> themes<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>Clone this repository:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/B143KC47/VSC4T.git<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/B143KC47/VSC4T.git</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>Set the theme in your site configuration:</li>
 </ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span> <span class="hljs-string">VSC4T</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">VSC4T</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Required-Configuration"><a href="#Required-Configuration" class="headerlink" title="Required Configuration"></a>Required Configuration</h2><h3 id="Enable-Relative-Links"><a href="#Enable-Relative-Links" class="headerlink" title="Enable Relative Links"></a>Enable Relative Links</h3><p>For proper theme deployment, set in your Hexo site’s <code>_config.yml</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">relative_link:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">relative_link:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>The theme may not work correctly without relative links enabled.</p>
 <h3 id="Create-Required-Pages"><a href="#Create-Required-Pages" class="headerlink" title="Create Required Pages"></a>Create Required Pages</h3><p>This theme requires the following pages:</p>
 <ol>
 <li>Create categories page:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
 <p>Then edit <code>source/categories/index.md</code> and add</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: categories<br>layout: categories<br>---<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">layout: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>Create tags page:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page tags<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
 <p>Then edit <code>source/tags/index.md</code> and add</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: tags<br>layout: tags<br>---<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">layout: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>Create about page:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
 <p>And add personal information in <code>source/about/index.md</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">---<br>title: about<br>date: 2025-02-22 22:14:44<br>---<br><br>A very excellent minimalist theme<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: 2025-02-22 22:14:44</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">A very excellent minimalist theme</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="Theme-Configuration"><a href="#Theme-Configuration" class="headerlink" title="Theme Configuration"></a>Theme Configuration</h2><p>Modify <code>_config.yml</code> in the theme directory:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Basic Information</span><br><span class="hljs-attr">name:</span> <span class="hljs-string">BlackCat</span><br><span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">simple</span> <span class="hljs-string">dark</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">theme</span> <span class="hljs-string">inspired</span> <span class="hljs-string">by</span> <span class="hljs-string">code.</span><br><span class="hljs-attr">author:</span> <span class="hljs-string">YourName</span><br><br><span class="hljs-comment"># Menu Configuration</span><br><span class="hljs-attr">menu:</span><br>  <span class="hljs-attr">Home:</span> <span class="hljs-string">/</span><br>  <span class="hljs-attr">Archives:</span> <span class="hljs-string">/archives</span><br>  <span class="hljs-attr">Categories:</span> <span class="hljs-string">/categories</span><br>  <span class="hljs-attr">Tags:</span> <span class="hljs-string">/tags</span><br>  <span class="hljs-attr">About:</span> <span class="hljs-string">/about</span><br><br><span class="hljs-comment"># Social Links</span><br><span class="hljs-attr">social:</span><br>  <span class="hljs-attr">github:</span> <span class="hljs-string">your_github_username</span><br>  <span class="hljs-attr">twitter:</span> <span class="hljs-string">your_twitter_username</span><br>  <span class="hljs-attr">email:</span> <span class="hljs-string">your_email@example.com</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Basic Information</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">BlackCat</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">A</span> <span class="string">simple</span> <span class="string">dark</span> <span class="string">Hexo</span> <span class="string">theme</span> <span class="string">inspired</span> <span class="string">by</span> <span class="string">code.</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">YourName</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Menu Configuration</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">Home:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">Archives:</span> <span class="string">/archives</span></span><br><span class="line">  <span class="attr">Categories:</span> <span class="string">/categories</span></span><br><span class="line">  <span class="attr">Tags:</span> <span class="string">/tags</span></span><br><span class="line">  <span class="attr">About:</span> <span class="string">/about</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Social Links</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">github:</span> <span class="string">your_github_username</span></span><br><span class="line">  <span class="attr">twitter:</span> <span class="string">your_twitter_username</span></span><br><span class="line">  <span class="attr">email:</span> <span class="string">your_email@example.com</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Language-Configuration"><a href="#Language-Configuration" class="headerlink" title="Language Configuration"></a>Language Configuration</h2><p>VSC4T theme supports multiple languages. To change the language, modify your site’s <code>_config.yml</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span> <span class="hljs-string">en</span>  <span class="hljs-comment"># Default language</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">en</span>  <span class="comment"># Default language</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h3><ul>
 <li>English (en)</li>
@@ -265,45 +280,45 @@
 <li>Vietnamese (vi)</li>
 </ul>
 <h3 id="Language-Configuration-Examples"><a href="#Language-Configuration-Examples" class="headerlink" title="Language Configuration Examples"></a>Language Configuration Examples</h3><p>To use other languages, set the <code>language</code> parameter in your site’s <code>_config.yml</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># For Japanese</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">ja</span><br><br><span class="hljs-comment"># For Korean</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">ko</span><br><br><span class="hljs-comment"># For French</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">fr</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For Japanese</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">ja</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Korean</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">ko</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For French</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">fr</span></span><br></pre></td></tr></table></figure>
 
 <p>You can also configure multiple languages:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">en</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">zh-CN</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">en</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure>
 
 <p>When multiple languages are configured, the first one will be the default.</p>
 <h3 id="Post-Settings"><a href="#Post-Settings" class="headerlink" title="Post Settings"></a>Post Settings</h3><h3 id="Creating-New-Posts"><a href="#Creating-New-Posts" class="headerlink" title="Creating New Posts"></a>Creating New Posts</h3><ol>
 <li>Use Hexo command to create a new post:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new post <span class="hljs-string">&quot;Post Title&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;Post Title&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>This will create a new markdown file at <code>source/_posts/post-title.md</code></li>
 </ol>
 <p>Example post:</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs md">---<br>title: VSC4T - An Elegant Dark Hexo Theme<br>date: 2023-06-15 10:30:00<br>tags: [hexo, theme, dark-mode, responsive]<br>categories: [web-design, themes]<br>toc: true<br><span class="hljs-section">description: VSC4T is a code editor-inspired dark theme for Hexo.</span><br><span class="hljs-section">---</span><br><br>Here goes the post content...<br></code></pre></td></tr></table></figure>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: VSC4T - An Elegant Dark Hexo Theme</span><br><span class="line">date: 2023-06-15 10:30:00</span><br><span class="line">tags: [hexo, theme, dark-mode, responsive]</span><br><span class="line">categories: [web-design, themes]</span><br><span class="line">toc: true</span><br><span class="line"><span class="section">description: VSC4T is a code editor-inspired dark theme for Hexo.</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">Here goes the post content...</span><br></pre></td></tr></table></figure>
 
 <h2 id="Custom-Styles"><a href="#Custom-Styles" class="headerlink" title="Custom Styles"></a>Custom Styles</h2><p>The theme supports custom CSS and JS. In theme configuration:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">custom_css:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/css/mobile.css</span><br><span class="hljs-attr">custom_js:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/js/code-copy.js</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/js/mobile-menu.js</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_css:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/css/mobile.css</span></span><br><span class="line"><span class="attr">custom_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/js/code-copy.js</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/js/mobile-menu.js</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Mobile-Optimization"><a href="#Mobile-Optimization" class="headerlink" title="Mobile Optimization"></a>Mobile Optimization</h2><p>The theme is optimized for mobile devices. You can adjust mobile settings in theme configuration:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">mobile:</span><br>  <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">breakpoint:</span> <span class="hljs-number">768</span><br>  <span class="hljs-attr">nav_style:</span> <span class="hljs-string">&#x27;drawer&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mobile:</span></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">breakpoint:</span> <span class="number">768</span></span><br><span class="line">  <span class="attr">nav_style:</span> <span class="string">&#x27;drawer&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Code-Highlighting"><a href="#Code-Highlighting" class="headerlink" title="Code Highlighting"></a>Code Highlighting</h2><p>This theme uses built-in code highlighting by default. You can adjust it with:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">auto_detect:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This theme is released under the MIT License.</p>
 <h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>For any issues or help needed, please submit an issue on the GitHub repository.</p>
 <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
@@ -352,23 +367,44 @@
 
     <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+    <script>
+      // 确保 highlight.js 正确初始化
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof hljs !== 'undefined') {
+          hljs.highlightAll();
+        } else {
+          console.error('highlight.js 未能正确加载');
+        }
+      });
+    </script>
     <!-- 这里可以放置自定义脚本 -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 代码高亮主题设置
-  hljs.configure({
-    theme: 'vs2015'
-  });
+  if (typeof hljs !== 'undefined') {
+    hljs.configure({
+      theme: 'vs2015'
+    });
+    
+    // 确保页面上所有代码都被高亮
+    try {
+      hljs.highlightAll();
+    } catch (e) {
+      console.error('代码高亮错误:', e);
+    }
+  }
   
   // 添加平滑滚动
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      const targetEl = document.querySelector(this.getAttribute('href'));
+      if (targetEl) {
+        targetEl.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
     });
   });
 });
