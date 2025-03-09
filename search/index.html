@@ -228,6 +228,16 @@
         }
       });
     }
+    
+    // 添加错误处理
+    window.addEventListener('error', function(e) {
+      console.error('Search script error:', e.error);
+      const resultsEl = document.getElementById('vs-search-results');
+      if (resultsEl) {
+        resultsEl.innerHTML = '<div class="vs-no-results"><i class="fas fa-exclamation-circle"></i><span>Error: ' + 
+          (e.error ? e.error.message : 'Unknown error') + '</span></div>';
+      }
+    });
   });
 </script>
     </div>
@@ -285,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
   // 将语言文件中的翻译传递给前端
   window.HEXO_CONFIG = {
+    root: "/VSC4T/",
     language: "en",
     search_placeholder: "Type to search...",
     search_no_results: "No results found",
