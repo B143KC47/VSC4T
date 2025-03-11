@@ -1,0 +1,25 @@
+home: 首頁
+archives: 檔館
+categories: 分類
+tags: 標簽
+about: 關於
+search: 搜尋
+previous: 上一篇
+next: 下一篇
+read_more: 閲讀更多
+
+# 搜索功能
+search_placeholder: 輸入關鍵字以搜索...
+search_no_results: 未找到相關結果
+search_results_found: 找到 %s 個结果
+search_results: 搜尋結果
+search_in: 搜尋範圍
+search_in_title: 標題
+search_in_content: 内容
+search_in_tags: 標簽
+search_in_categories: 分類
+search_filters: 搜尋過濾器
+search_recent: 最近搜尋
+search_clear: 清除
+search_loading: 正在加載...
+search_error: 加載搜索搜尋結果時發生錯誤!
