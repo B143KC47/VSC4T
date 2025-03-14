@@ -40,8 +40,26 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Get the correct root path for search.json
-  const rootPath = window.HEXO_CONFIG && window.HEXO_CONFIG.root ? window.HEXO_CONFIG.root : '/';
-  const searchJsonPath = `${rootPath.replace(/\/$/, '')}/search.json`;
+  let rootPath = '/';
+  if (window.VSC4T_SEARCH && window.VSC4T_SEARCH.root) {
+    rootPath = window.VSC4T_SEARCH.root;
+  } else if (window.HEXO_CONFIG && window.HEXO_CONFIG.root) {
+    rootPath = window.HEXO_CONFIG.root;
+  }
+  
+  // Ensure the root path has a trailing slash
+  if (!rootPath.endsWith('/')) {
+    rootPath += '/';
+  }
+  
+  const searchJsonPath = `${rootPath}search.json`;
+  console.log('[VSC4T] Loading search index from:', searchJsonPath);
+
+  // Show loading state
+  searchResults.innerHTML = `<div class="vs-search-loading">
+    <i class="fas fa-spinner fa-spin"></i>
+    <span>Loading search data...</span>
+  </div>`;
 
   // Load search data
   fetch(searchJsonPath)
@@ -52,12 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(data => {
+      console.log('[VSC4T] Search index loaded successfully, entries:', data.length);
       searchData = data;
       initSearch();
+      // Clear loading state and prepare for search
+      clearResults();
     })
     .catch(error => {
-      console.error('Error loading search data:', error);
-      searchContainer.innerHTML = `<div class="vs-no-results"><i class="fas fa-exclamation-circle"></i><span>${loadingErrorText}</span></div>`;
+      console.error('Error loading search data:', error, 'Path:', searchJsonPath);
+      searchResults.innerHTML = `<div class="vs-no-results">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>${loadingErrorText}</span>
+        <div class="vs-error-details">
+          Check that search.json is being generated correctly.<br>
+          Path: ${searchJsonPath}<br>
+          Error: ${error.message}
+        </div>
+      </div>`;
     });
 
   // Initialize search functionality
@@ -97,12 +126,12 @@ document.addEventListener('DOMContentLoaded', function() {
       let match = false;
       
       // Match title
-      if (filterTitle && item.title.toLowerCase().includes(query)) {
+      if (filterTitle && item.title && item.title.toLowerCase().includes(query)) {
         match = true;
       }
       
       // Match content
-      if (!match && filterContent && item.content.toLowerCase().includes(query)) {
+      if (!match && filterContent && item.content && item.content.toLowerCase().includes(query)) {
         match = true;
       }
       
@@ -194,8 +223,8 @@ document.addEventListener('DOMContentLoaded', function() {
       resultItem.dataset.index = index;
       
       // Highlight matched text
-      let titleHtml = highlightText(item.title, query);
-      let contentPreview = getContentPreview(item.content, query, 150);
+      let titleHtml = highlightText(item.title || '', query);
+      let contentPreview = getContentPreview(item.content || '', query, 150);
       let contentHtml = highlightText(contentPreview, query);
       
       // Create file icon based on categories or default
@@ -223,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="vs-result-meta">
             <span class="vs-result-date">
               <i class="fas fa-calendar-alt"></i> 
-              ${item.date}
+              ${item.date || ''}
             </span>
             ${item.tags && item.tags.length ? 
               `<span class="vs-result-tags">
@@ -314,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (searchCounter) {
       searchCounter.textContent = count > 0 ? 
         `${count} ${count === 1 ? resultText : resultsText}` : 
-        noResultsText.split(' ')[0] || 'No results';
+        '0 ' + resultsText;
     }
   }
   
@@ -386,6 +415,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Escape HTML special characters
   function escapeHTML(text) {
+    if (typeof text !== 'string') return '';
     return text.replace(/[&<>"']/g, match => {
       switch (match) {
         case '&': return '&amp;';
