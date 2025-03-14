@@ -102,6 +102,50 @@
 }
 
 /* TOC样式优化 */
+.toc-container {
+  position: sticky;
+  top: 60px; /* 头部导航栏高度 + 一些间距 */
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  /* 添加平滑滚动 */
+  scroll-behavior: smooth;
+  /* 隐藏滚动条但保持功能 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--vscode-border) transparent;
+}
+
+.toc-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-container::-webkit-scrollbar-thumb {
+  background-color: var(--vscode-border);
+  border-radius: 2px;
+}
+
+.toc-header {
+  position: sticky;
+  top: 0;
+  background: var(--vscode-sidebar);
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vscode-border);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
 .toc {
   list-style: none;
   padding-left: 0;
@@ -110,6 +154,8 @@
 .toc-child {
   list-style: none;
   padding-left: 1em;
+  border-left: 1px solid var(--vscode-border);
+  margin-left: 0.5em;
 }
 
 .toc-link {
@@ -120,16 +166,130 @@
   font-size: 13px;
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
+  line-height: 1.4;
 }
 
 .toc-link:hover {
   background: var(--vscode-active);
-  border-left-color: #569cd6;
+  border-left-color: var(--vscode-accent);
   color: #fff;
 }
 
 .toc-link.active {
   background: var(--vscode-active);
-  border-left-color: #569cd6;
-  color: #569cd6;
+  border-left-color: var(--vscode-accent);
+  color: var(--vscode-accent);
+}
+
+/* TOC样式优化 */
+.vs-toc {
+  position: fixed;
+  top: 60px; /* 头部导航栏高度 + 间距 */
+  right: 20px;
+  width: 280px;
+  max-height: calc(100vh - 80px);
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+.vs-toc .toc-header {
+  position: sticky;
+  top: 0;
+  padding: 12px 16px;
+  background: var(--vscode-sidebar);
+  border-bottom: 1px solid var(--vscode-border);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.vs-toc .toc-content {
+  position: relative;
+  overflow-y: auto;
+  max-height: calc(100vh - 140px);
+  padding: 16px;
+}
+
+.vs-toc .toc-scroll-container {
+  position: relative;
+}
+
+.vs-toc .toc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vs-toc .toc-child {
+  padding-left: 1em;
+  border-left: 1px solid var(--vscode-border);
+  margin: 0.5em 0 0.5em 0.5em;
+  list-style: none;
+}
+
+.vs-toc .toc-link {
+  display: block;
+  padding: 4px 8px;
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vs-toc .toc-link:hover {
+  background: var(--vscode-active);
+  border-left-color: var(--vscode-accent);
+  color: #fff;
+}
+
+.vs-toc .toc-link.active {
+  background: var(--vscode-active);
+  border-left-color: var(--vscode-accent);
+  color: var(--vscode-accent);
+}
+
+/* 自定义滚动条 */
+.vs-toc .toc-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vs-toc .toc-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vs-toc .toc-content::-webkit-scrollbar-thumb {
+  background-color: var(--vscode-border);
+  border-radius: 2px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1280px) {
+  .vs-toc {
+    position: sticky;
+    top: 60px;
+    right: auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vs-toc {
+    max-height: 300px;
+  }
+  
+  .vs-toc .toc-content {
+    max-height: 250px;
+  }
 }
