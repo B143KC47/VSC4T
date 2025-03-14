@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const tocContainer = document.querySelector('.vs-toc');
   let activeLink = null;
   let ticking = false;
+  let isMouseOver = false;
 
   // 防抖函数
   function debounce(func, wait) {
@@ -38,6 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // 目录容器鼠标事件
+  if (tocContainer) {
+    tocContainer.addEventListener('mouseenter', () => {
+      isMouseOver = true;
+    });
+
+    tocContainer.addEventListener('mouseleave', () => {
+      isMouseOver = false;
+    });
+  }
+
   // 更新活动目录项
   function updateActiveLink() {
     if (!ticking) {
@@ -63,17 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
           if (activeLink) {
             activeLink.classList.add('active');
 
-            // 确保活动项在视图中
-            const container = document.querySelector('.toc-content');
-            if (container) {
-              const linkRect = activeLink.getBoundingClientRect();
-              const containerRect = container.getBoundingClientRect();
-              
-              if (linkRect.bottom > containerRect.bottom || linkRect.top < containerRect.top) {
-                activeLink.scrollIntoView({
-                  block: 'center',
-                  behavior: 'smooth'
-                });
+            // 如果目录容器没有被鼠标悬停，则自动滚动
+            if (!isMouseOver) {
+              const container = document.querySelector('.toc-content');
+              if (container) {
+                const linkRect = activeLink.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                if (linkRect.bottom > containerRect.bottom || linkRect.top < containerRect.top) {
+                  activeLink.scrollIntoView({
+                    block: 'center',
+                    behavior: 'smooth'
+                  });
+                }
               }
             }
           }

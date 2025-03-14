@@ -188,25 +188,119 @@
   right: 20px;
   width: 280px;
   max-height: calc(100vh - 80px);
-  background: var(--vscode-sidebar);
-  border: 1px solid var(--vscode-border);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(30, 30, 30, 0.2); /* 默认状态下更透明 */
+  border: 1px solid rgba(86, 156, 214, 0.1); /* 边框也更透明 */
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(86, 156, 214, 0.1);
+  backdrop-filter: blur(3px);
   z-index: 100;
+  transition: all 0.3s ease; /* 平滑过渡效果 */
+  opacity: 0.2; /* 默认状态下的透明度 */
+  overflow: hidden; /* 修改这里，防止外层出现滚动条 */
+}
+
+/* 鼠标悬停时的效果 */
+.vs-toc:hover {
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid #569cd6;
+  box-shadow: 0 0 10px rgba(86, 156, 214, 0.3),
+              inset 0 0 15px rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 1;
+}
+
+/* 添加极客风格的顶部装饰条 */
+.vs-toc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    #569cd6,
+    transparent
+  );
+  animation: scanline 2s linear infinite;
+  opacity: 0.3;
   transition: opacity 0.3s ease;
+}
+
+.vs-toc:hover::before {
+  opacity: 1;
+}
+
+.vs-toc::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(86, 156, 214, 0.3);
+  border-radius: 50%;
+  opacity: 0.2;
+  background: 
+    radial-gradient(circle at center,
+      rgba(86, 156, 214, 0.1) 0%,
+      transparent 70%
+    );
+  animation: pulse 2s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.vs-toc:hover::after {
+  opacity: 0.5;
 }
 
 .vs-toc .toc-header {
   position: sticky;
   top: 0;
   padding: 12px 16px;
-  background: var(--vscode-sidebar);
-  border-bottom: 1px solid var(--vscode-border);
+  background: rgba(30, 30, 30, 0.95);
+  border-bottom: 1px solid rgba(86, 156, 214, 0.3);
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 8px;
   z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  color: #569cd6;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* 鼠标悬停时标题显现 */
+.vs-toc:hover .toc-header {
+  opacity: 1;
+}
+
+/* 添加科技感动画 */
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
 }
 
 .vs-toc .toc-content {
@@ -214,10 +308,46 @@
   overflow-y: auto;
   max-height: calc(100vh - 140px);
   padding: 16px;
+  /* 隐藏滚动条 */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* 添加平滑滚动 */
+  scroll-behavior: smooth;
+  /* 添加滚动阴影效果 */
+  background: 
+    linear-gradient(to bottom, 
+      rgba(30, 30, 30, 0.95) 0%,
+      rgba(30, 30, 30, 0) 5%,
+      rgba(30, 30, 30, 0) 95%,
+      rgba(30, 30, 30, 0.95) 100%
+    );
+  mask-image: linear-gradient(to bottom,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+/* 为 Webkit 浏览器（Chrome、Safari等）隐藏滚动条 */
+.vs-toc .toc-content::-webkit-scrollbar {
+  display: none;
 }
 
 .vs-toc .toc-scroll-container {
   position: relative;
+  padding-right: 4px; /* 添加一点右侧间距 */
+  transition: opacity 0.3s ease;
+}
+
+.vs-toc:not(:hover) .toc-scroll-container {
+  opacity: 0.6;
 }
 
 .vs-toc .toc {
@@ -228,49 +358,111 @@
 
 .vs-toc .toc-child {
   padding-left: 1em;
-  border-left: 1px solid var(--vscode-border);
+  border-left: 1px solid rgba(86, 156, 214, 0.2);
   margin: 0.5em 0 0.5em 0.5em;
-  list-style: none;
+  position: relative;
+}
+
+.vs-toc .toc-child::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom,
+    rgba(86, 156, 214, 0.1),
+    rgba(86, 156, 214, 0.5),
+    rgba(86, 156, 214, 0.1)
+  );
 }
 
 .vs-toc .toc-link {
-  display: block;
-  padding: 4px 8px;
-  color: var(--vscode-text);
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  color: #d4d4d4;
   text-decoration: none;
   font-size: 13px;
   border-left: 2px solid transparent;
-  transition: all 0.2s ease;
-  line-height: 1.4;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  transform: translateX(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.vs-toc .toc-link:hover {
-  background: var(--vscode-active);
-  border-left-color: var(--vscode-accent);
-  color: #fff;
+.vs-toc:not(:hover) .toc-link {
+  transform: translateX(-4px);
+}
+
+/* 鼠标悬停时链接显现 */
+.vs-toc:hover .toc-link {
+  opacity: 1;
+}
+
+.vs-toc .toc-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #569cd6;
+  transform: scaleY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vs-toc .toc-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(86, 156, 214, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vs-toc .toc-link:hover::before {
+  transform: scaleY(1);
+}
+
+.vs-toc .toc-link:hover::after {
+  transform: translateX(0);
 }
 
 .vs-toc .toc-link.active {
-  background: var(--vscode-active);
-  border-left-color: var(--vscode-accent);
-  color: var(--vscode-accent);
+  background: rgba(86, 156, 214, 0.15);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(86, 156, 214, 0.5);
+}
+
+.vs-toc .toc-link.active::before {
+  transform: scaleY(1);
 }
 
 /* 自定义滚动条 */
 .vs-toc .toc-content::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 .vs-toc .toc-content::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 2px;
 }
 
 .vs-toc .toc-content::-webkit-scrollbar-thumb {
-  background-color: var(--vscode-border);
+  background: linear-gradient(to bottom, #569cd6, #4d88bf);
   border-radius: 2px;
+  box-shadow: 0 0 5px rgba(86, 156, 214, 0.5);
 }
 
 /* 响应式设计 */
@@ -291,5 +483,52 @@
   
   .vs-toc .toc-content {
     max-height: 250px;
+  }
+}
+
+/* 响应式设计优化 */
+@media (max-width: 1280px) {
+  .vs-toc {
+    position: sticky;
+    top: 60px;
+    right: auto;
+    width: 100%;
+    margin: 20px 0;
+    background: rgba(30, 30, 30, 0.98);
+  }
+  
+  .vs-toc::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .vs-toc {
+    max-height: 300px;
+    margin: 15px 0;
+  }
+  
+  .vs-toc .toc-content {
+    max-height: 250px;
+  }
+  
+  .vs-toc .toc-header {
+    padding: 8px 12px;
+    font-size: 0.85em;
+  }
+  
+  .vs-toc .toc-link {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (hover: none) {
+  .vs-toc .toc-link:hover::after {
+    display: none;
+  }
+  
+  .vs-toc .toc-link:active {
+    background: rgba(86, 156, 214, 0.2);
   }
 }
