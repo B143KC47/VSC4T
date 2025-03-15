@@ -18,17 +18,20 @@
     .sidebar-explorer {
         position: fixed;
         left: -100%;
-        top: 10%;
-        height: 100%;
+        top: 48px; /* 与头部导航栏对齐 */
+        height: calc(100vh - 48px);
         width: 80%;
         max-width: 300px;
         z-index: 999;
         transition: left 0.3s ease;
         background: #252526;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .sidebar-explorer.show {
         left: 0;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
     }
 
     .wrapper {
@@ -208,5 +211,19 @@
   pre code, .hljs {
     font-size: 0.8em;
     line-height: 1.4;
+  }
+    
+  /* 优化移动端TOC */
+  .toc-container {
+    position: relative;
+    top: 0;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .toc-content {
+    max-height: 200px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

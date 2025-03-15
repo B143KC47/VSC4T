@@ -93,28 +93,6 @@
     .status-bar {
         font-size: 12px;
     }
-
-    /* 目录在移动端的显示 */
-    .toc-container {
-        position: relative;
-        top: 0;
-        max-height: 300px;
-        margin: 1rem 0;
-        border-radius: 4px;
-    }
-
-    .toc-header {
-        position: sticky;
-        top: 0;
-        background: var(--vscode-sidebar);
-        z-index: 2;
-    }
-
-    /* 调整目录链接在移动端的显示 */
-    .toc-link {
-        padding: 8px;
-        font-size: 14px;
-    }
 }
 
 @media screen and (max-width: 480px) {

@@ -19,6 +19,26 @@
   background: var(--vscode-sidebar);
   border-right: 1px solid var(--vscode-border);
   padding: 10px 0;
+  position: sticky; /* 添加固定定位 */
+  top: 48px; /* 头部导航栏高度 */
+  height: calc(100vh - 48px); /* 减去头部导航栏高度 */
+  overflow-y: auto; /* 允许内容滚动 */
+  scrollbar-width: thin; /* Firefox 细滚动条 */
+  scrollbar-color: var(--vscode-border) transparent; /* Firefox 滚动条颜色 */
+}
+
+/* 自定义滚动条样式 */
+.sidebar-explorer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-explorer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-explorer::-webkit-scrollbar-thumb {
+  background: var(--vscode-border);
+  border-radius: 3px;
 }
 
 .explorer-header {
