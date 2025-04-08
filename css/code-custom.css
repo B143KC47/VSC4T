@@ -1,0 +1,95 @@
+/* 代码块复制按钮样式优化 */
+/* 隐藏复制按钮文本，只显示图标 */
+.copy-btn::before, 
+.copy-button::before {
+  content: "";
+  display: none !important;
+}
+
+.copy-btn, 
+.copy-button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vscode-active);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  color: var(--vscode-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+}
+
+/* 代码块容器悬停时显示复制按钮 */
+pre:hover .copy-btn,
+figure.highlight:hover .copy-button,
+.highlight:hover .copy-button {
+  opacity: 1;
+}
+
+/* 复制按钮悬停和激活状态 */
+.copy-btn:hover,
+.copy-button:hover {
+  background: var(--vscode-highlight);
+}
+
+.copy-btn.copied,
+.copy-button.copied {
+  background: var(--vscode-accent);
+  color: #fff;
+}
+
+/* 代码块容器样式 */
+figure.highlight {
+  margin: 1.5em 0;
+  background: #1e1e1e;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* 代码区域 */
+.highlight {
+  position: relative;
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+.highlight pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+/* 行号样式 */
+.highlight .gutter {
+  background: #252526;
+  border-right: 1px solid #3e3e3e;
+  color: #858585;
+  user-select: none;
+  padding-right: 10px;
+}
+
+/* 代码块标题栏 */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.code-language {
+  font-family: 'JetBrains Mono', monospace, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  color: #858585;
+}

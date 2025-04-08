@@ -296,9 +296,12 @@
 }
 
 .section-content {
-  max-height: 500px;
-  overflow: hidden;
+  max-height: 60vh; /* 使用更大的相对高度，适应更多内容 */
+  overflow-y: auto; /* 添加垂直滚动条 */
+  overflow-x: hidden; /* 防止水平溢出 */
   transition: max-height 0.3s ease;
+  scrollbar-width: thin; /* Firefox细滚动条 */
+  scrollbar-color: var(--vscode-border) transparent; /* Firefox滚动条颜色 */
 }
 
 .section-content.collapsed {

@@ -212,8 +212,7 @@
     font-size: 0.8em;
     line-height: 1.4;
   }
-    
-  /* 优化移动端TOC */
+      /* 优化移动端TOC */
   .toc-container {
     position: relative;
     top: 0;
@@ -222,7 +221,7 @@
   }
 
   .toc-content {
-    max-height: 200px;
+    max-height: 50vh; /* 使用视口高度的50%，更灵活地适应不同设备 */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }

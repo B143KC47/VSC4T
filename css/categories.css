@@ -6,6 +6,8 @@
   border-radius: 4px;
   transition: all 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--vscode-text);
 }
 
 .category-item.active {
@@ -22,15 +24,14 @@
   font-size: 0.9rem;
 }
 
-.category-item a {
+.category-item span {
   color: var(--vscode-text);
-  text-decoration: none;
-  flex: 1;
 }
 
 .category-item .count {
   color: #808080;
   font-size: 0.8rem;
+  margin-left: 5px;
 }
 
 /* 分类概览样式 */
@@ -44,6 +45,12 @@
   border: 1px solid var(--vscode-border);
   border-radius: 4px;
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .category-header {
@@ -53,18 +60,47 @@
   padding: 1rem;
   background: var(--vscode-active);
   border-bottom: 1px solid var(--vscode-border);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.category-header:hover {
+  background: var(--vscode-highlight);
 }
 
 .category-header i {
   color: #dcb67a;
   font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.category-header .toggle-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  color: var(--vscode-text);
+}
+
+.category-header.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.category-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.category-link:hover h2 {
+  color: var(--vscode-accent);
 }
 
 .category-header h2 {
   margin: 0;
   font-size: 1.2rem;
   color: var(--vscode-text);
-  flex: 1;
+  transition: color 0.2s ease;
 }
 
 .category-header .count {
@@ -73,10 +109,35 @@
   border-radius: 12px;
   font-size: 0.9rem;
   color: #808080;
+  flex-shrink: 0;
 }
 
 .category-posts {
   padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.category-posts.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.category-posts::-webkit-scrollbar {
+  width: 6px;
+}
+
+.category-posts::-webkit-scrollbar-track {
+  background: var(--vscode-sidebar);
+}
+
+.category-posts::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
 }
 
 .post-item {
@@ -86,6 +147,7 @@
   padding: 0.75rem;
   border-radius: 4px;
   transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
 }
 
 .post-item:hover {
@@ -95,6 +157,7 @@
 .post-item i {
   color: #519aba;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .post-info {
@@ -121,11 +184,20 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .post-info .date i {
   color: #808080;
   font-size: 0.85rem;
+}
+
+/* 单个分类详情页 */
+.category-detail {
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 /* 响应式布局 */
@@ -138,5 +210,25 @@
   
   .category-header {
     flex-wrap: wrap;
+  }
+  
+  .vscode-container {
+    flex-direction: column;
+  }
+  
+  .sidebar-explorer {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+  
+  .editor-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .categories-overview {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

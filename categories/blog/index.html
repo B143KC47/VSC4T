@@ -126,60 +126,75 @@
 </script>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h1>Categories: blog</h1>
-      <ul>
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-folder-open"></i>
+        <span>CATEGORIES</span>
+      </div>
+      <div class="section-content">
         
-          <li>
-            <a href="../../2023/06/15/DEPLOYMENT/">VSC4T Blog Deploy Guide</a>
-            <span>2023-06-15</span>
-          </li>
+          <a class="category-item active" href="">
+            <i class="fas fa-folder"></i>
+            <span>blog</span>
+            <span class="count">(1)</span>
+          </a>
         
-      </ul>
+          <a class="category-item " href="../web-design/themes/">
+            <i class="fas fa-folder"></i>
+            <span>themes</span>
+            <span class="count">(1)</span>
+          </a>
+        
+          <a class="category-item " href="themes/">
+            <i class="fas fa-folder"></i>
+            <span>themes</span>
+            <span class="count">(1)</span>
+          </a>
+        
+          <a class="category-item " href="../web-design/">
+            <i class="fas fa-folder"></i>
+            <span>web-design</span>
+            <span class="count">(1)</span>
+          </a>
+        
+      </div>
     </div>
-    <div class="col-md-4">
-      <aside class="sidebar">
-  <!-- 关于我 -->
-  <div class="sidebar-section about">
-    <h3><i class="fas fa-user"></i> About</h3>
-    <div class="about-info">
-      <img src="../../images/avatar.png" alt="avatar" class="avatar">
-      <p>A simple dark Hexo theme inspired by code.</p>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-folder-open"></i>
+        <span>blog.md</span>
+      </div>
     </div>
-  </div>
-
-  <!-- 分类 -->
-  <div class="sidebar-section categories">
-    <h3><i class="fas fa-folder"></i> Categories</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="">blog</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="themes/">themes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../web-design/">web-design</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../web-design/themes/">themes</a></li></ul></li></ul>
-  </div>
-
-  <!-- 标签云 -->
-  <div class="sidebar-section tags">
-    <h3><i class="fas fa-tags"></i> Tags</h3>
-    <a href="../../tags/dark-mode/" style="font-size: 24px; color: #fff">dark-mode</a> <a href="../../tags/deploy/" style="font-size: 12px; color: #999">deploy</a> <a href="../../tags/hexo/" style="font-size: 24px; color: #fff">hexo</a> <a href="../../tags/responsive/" style="font-size: 24px; color: #fff">responsive</a> <a href="../../tags/theme/" style="font-size: 24px; color: #fff">theme</a>
-  </div>
-</aside>
-
-<script>
-  function smoothScroll(event, target) {
-    event.preventDefault();
-    const targetId = target.substring(target.indexOf('#') + 1);
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 50, // 调整偏移量
-        behavior: 'smooth'
-      });
-    } else {
-      window.location.href = target;
-    }
-  }
-</script>
-
+    
+    <div class="content-area">
+      <div class="category-detail">
+        <div class="category-header">
+          <i class="fas fa-folder"></i>
+          <h2>blog</h2>
+          <span class="count">1 posts</span>
+        </div>
+        <div class="category-posts">
+          
+            <div class="post-item">
+              <i class="fas fa-file-alt"></i>
+              <div class="post-info">
+                <a href="../../2023/06/15/DEPLOYMENT/">VSC4T Blog Deploy Guide</a>
+                <span class="date">
+                  <i class="fas fa-calendar-alt"></i>
+                  2023-06-15
+                </span>
+              </div>
+            </div>
+          
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -197,7 +212,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-03-17
+      2025-04-08
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -277,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- 添加所有需要的脚本 -->
 <script src="../../js/main.js"></script>
 <script src="../../js/search.js"></script>
+
 
     <script>
       // 移动端菜单切换
