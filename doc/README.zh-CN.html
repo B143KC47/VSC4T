@@ -1,0 +1,182 @@
+<h1 id="🐱-VSCat-Hexo-主题"><a href="#🐱-VSCat-Hexo-主题" class="headerlink" title="🐱 VSCat Hexo 主题"></a>🐱 VSCat Hexo 主题</h1><blockquote>
+<p>一个优雅简约的 Hexo 主题，采用深色配色方案和代码风格设计美学。</p>
+</blockquote>
+<p><a href="README.md"><img src="https://img.shields.io/badge/docs-English-blue" alt="English Documentation"></a></p>
+<div align="center">
+  <img src="..\image\cat.jpg" alt="黑猫坐在电脑前" width="600">
+  <p><em>图片来源：<a href="https://pixabay.com/photos/cat-black-cat-work-computer-963931/">Pixabay 的工作中的黑猫</a></em></p>
+</div>
+
+<div align="center">
+  <img src="..\image\VSC4T.png" alt="演示截图" width="800">
+</div>
+
+<div align="center">
+  <img src="..\image\VSC4T2.png" alt="Demo Screenshot" width="800">
+</div>
+
+
+<h2 id="✨-特点"><a href="#✨-特点" class="headerlink" title="✨ 特点"></a>✨ 特点</h2><ul>
+<li>🌙 <strong>深色模式优化</strong> - 为舒适阅读精心设计</li>
+<li>📱 <strong>完全响应式布局</strong> - 完美适配各种设备</li>
+<li>🚀 <strong>快速加载性能</strong> - 优化的性能表现</li>
+<li>🎨 <strong>简洁极简设计</strong> - 优雅的界面设计</li>
+</ul>
+<h2 id="🚀-安装"><a href="#🚀-安装" class="headerlink" title="🚀 安装"></a>🚀 安装</h2><ol>
+<li><p>进入 Hexo 站点的主题目录：</p>
+<pre><code class="language-bash">cd themes
+</code></pre>
+</li>
+<li><p>克隆此仓库：</p>
+<pre><code class="language-bash">git clone https://github.com/B143KC47/VSC4T.git
+</code></pre>
+</li>
+<li><p>在站点配置中设置主题：</p>
+<pre><code class="language-yaml">theme: VSC4T
+</code></pre>
+</li>
+</ol>
+<h2 id="📝-必要配置"><a href="#📝-必要配置" class="headerlink" title="📝 必要配置"></a>📝 必要配置</h2><h3 id="启用相对链接"><a href="#启用相对链接" class="headerlink" title="启用相对链接"></a>启用相对链接</h3><p>为正确部署主题，请在 Hexo 站点的 <code>_config.yml</code> 中设置：</p>
+<pre><code class="language-yaml">relative_link: true
+</code></pre>
+<p>如不启用相对链接，主题可能无法正常工作。</p>
+<h3 id="创建必需页面"><a href="#创建必需页面" class="headerlink" title="创建必需页面"></a>创建必需页面</h3><details>
+<summary>点击展开必需页面配置详情</summary>
+
+<ol>
+<li><p>创建分类页面：</p>
+<pre><code class="language-bash">hexo new page categories
+</code></pre>
+<p>然后编辑 <code>source/categories/index.md</code> 并添加</p>
+<pre><code>---
+title: categories
+layout: categories
+---
+</code></pre>
+</li>
+<li><p>创建标签页面：</p>
+<pre><code class="language-bash">hexo new page tags
+</code></pre>
+<p>然后编辑 <code>source/tags/index.md</code> 并添加</p>
+<pre><code>---
+title: tags
+layout: tags
+---
+</code></pre>
+</li>
+<li><p>创建关于页面：</p>
+<pre><code class="language-bash">hexo new page about
+</code></pre>
+<p>并在 <code>source/about/index.md</code> 中添加个人信息</p>
+<pre><code>---
+title: about
+date: 2025-02-22 22:14:44
+---
+
+一个非常优秀的简约主题
+</code></pre>
+</li>
+<li><p>创建搜索页面：</p>
+<pre><code class="language-bash">hexo new page search
+</code></pre>
+<p>然后编辑 <code>source/search/index.md</code> 并添加：</p>
+<pre><code>---
+title: search
+layout: search
+---
+</code></pre>
+</li>
+</ol>
+</details>
+
+<h2 id="⚙️-主题配置"><a href="#⚙️-主题配置" class="headerlink" title="⚙️ 主题配置"></a>⚙️ 主题配置</h2><p>修改主题目录下的 <code>_config.yml</code>：</p>
+<pre><code class="language-yaml"># 基本信息
+name: BlackCat
+description: A simple dark Hexo theme inspired by code.
+author: YourName
+
+# 界面设置
+url: https://B143KC47.github.io/xxxxx # 修改为你实际的网站 URL
+root: /xxxxxx/  # 如果你的网站部署在子目录中，需要设置 root 属性  若没有则为/
+
+# 代码高亮配置
+syntax_highlighter: highlight.js
+highlight:
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: &quot;&quot;
+  exclude_languages:
+    - example
+  wrap: true
+  hljs: false
+</code></pre>
+<h2 id="🌍-语言配置"><a href="#🌍-语言配置" class="headerlink" title="🌍 语言配置"></a>🌍 语言配置</h2><details>
+<summary>点击展开支持的语言</summary>
+
+<ul>
+<li>🇨🇳 简体中文 (zh-CN)</li>
+<li>🇺🇸 英语 (en)</li>
+<li>🇯🇵 日语 (ja)</li>
+<li>🇰🇷 韩语 (ko)</li>
+<li>🇫🇷 法语 (fr)</li>
+<li>🇩🇪 德语 (de)</li>
+<li>🇪🇸 西班牙语 (es)</li>
+<li>🇮🇹 意大利语 (it)</li>
+<li>🇷🇺 俄语 (ru)</li>
+<li>🇵🇹 葡萄牙语 (pt)</li>
+<li>🇦🇪 阿拉伯语 (ar)</li>
+<li>🇻🇳 越南语 (vi)</li>
+</ul>
+</details>
+
+<h3 id="语言设置示例"><a href="#语言设置示例" class="headerlink" title="语言设置示例"></a>语言设置示例</h3><p>在站点的 <code>_config.yml</code> 中设置 <code>language</code> 参数：</p>
+<pre><code class="language-yaml"># 单语言设置
+language: zh-CN
+
+# 多语言设置
+language: 
+  - zh-CN
+  - en
+</code></pre>
+<h2 id="📝-文章设置"><a href="#📝-文章设置" class="headerlink" title="📝 文章设置"></a>📝 文章设置</h2><h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><pre><code class="language-bash">hexo new post &quot;文章标题&quot;
+</code></pre>
+<details>
+<summary>点击查看示例文章格式</summary>
+
+<pre><code class="language-markdown">---
+title: VSC4T - 一个优雅的暗色系 Hexo 主题
+date: 2023-06-15 10:30:00
+tags: [hexo, 主题, 暗色模式, 响应式]
+categories: [网页设计, 主题]
+toc: true
+description: VSC4T 是一个受代码编辑器启发的 Hexo 暗色主题。
+---
+
+这里是文章内容...
+</code></pre>
+</details>
+
+<h2 id="🎨-自定义样式"><a href="#🎨-自定义样式" class="headerlink" title="🎨 自定义样式"></a>🎨 自定义样式</h2><p>主题支持自定义 CSS 和 JS：</p>
+<pre><code class="language-yaml">custom_css:
+  - /css/mobile.css
+custom_js:
+  - /js/code-copy.js
+  - /js/mobile-menu.js
+</code></pre>
+<h2 id="📱-移动端优化"><a href="#📱-移动端优化" class="headerlink" title="📱 移动端优化"></a>📱 移动端优化</h2><p>主题已针对移动设备优化：</p>
+<ul>
+<li>响应式设计</li>
+<li>触摸友好的导航</li>
+<li>优化的阅读体验</li>
+</ul>
+<h2 id="🔍-搜索功能"><a href="#🔍-搜索功能" class="headerlink" title="🔍 搜索功能"></a>🔍 搜索功能</h2><p>主题包含强大的搜索功能：</p>
+<ul>
+<li>全文搜索支持</li>
+<li>标题、内容、标签、分类过滤</li>
+<li>键盘导航（↑↓方向键和回车）</li>
+<li>搜索结果高亮</li>
+<li>上下文预览</li>
+</ul>
+<h2 id="📄-许可证"><a href="#📄-许可证" class="headerlink" title="📄 许可证"></a>📄 许可证</h2><p>本主题基于 <a href="LICENSE">MIT 许可证</a> 发布。</p>
+<h2 id="💬-支持"><a href="#💬-支持" class="headerlink" title="💬 支持"></a>💬 支持</h2><p>如有任何问题或需要帮助，请在 <a href="https://github.com/B143KC47/VSC4T/issues">GitHub 仓库</a> 提交 issue。</p>
