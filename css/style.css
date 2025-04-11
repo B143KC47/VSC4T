@@ -1,0 +1,310 @@
+/* VS Code inspired header styles */
+.vs-header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #2d2d2d;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.vs-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.vs-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: 
+    repeating-linear-gradient(
+      to right,
+      #2d2d2d 0px,
+      #2d2d2d 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  opacity: 0.5;
+}
+
+.vs-nav::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    #569cd6 0%,
+    #569cd6 var(--scroll-percent, 0%),
+    #2d2d2d var(--scroll-percent, 0%),
+    #2d2d2d 100%
+  );
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-brand {
+  color: #d4d4d4;
+  font-size: 1.2em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  padding: 0 15px;
+  position: relative;
+}
+
+/* 添加品牌悬停效果 */
+.nav-brand::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #569cd6;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-brand:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-right {
+  display: flex;
+  gap: 5px;
+}
+
+.nav-item {
+  color: #d4d4d4;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  position: relative;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+  border: 1px solid transparent;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(45, 45, 45, 0.5) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  margin: 0 2px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 45, 45, 0.3),
+    rgba(30, 30, 30, 0.5)
+  );
+  border-bottom: none;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #569cd6,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-position: 0 0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(86, 156, 214, 0.1);
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 45, 45, 0.5),
+    rgba(35, 35, 35, 0.7)
+  );
+  border-color: #404040;
+}
+
+.nav-item:hover::before {
+  height: 100%;
+  opacity: 1;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-item.active {
+  background-color: rgba(45, 45, 45, 0.8);
+  box-shadow: 
+    inset 0 0 0 1px rgba(86, 156, 214, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #1e1e1e;
+  border-color: #404040;
+  border-bottom-color: #1e1e1e;
+}
+
+.nav-item.active::before {
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #569cd6,
+    rgba(86, 156, 214, 0.3)
+  );
+  opacity: 1;
+  background: #569cd6;
+}
+
+.nav-item.active::after {
+  background: #569cd6;
+}
+
+.nav-item i {
+  font-size: 1em;
+  color: #569cd6;
+  filter: drop-shadow(0 0 2px rgba(86, 156, 214, 0.2));
+  transition: all 0.3s ease;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+.nav-item span {
+  position: relative;
+  color: #d4d4d4;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.nav-item span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(86, 156, 214, 0.5),
+    transparent
+  );
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    #569cd6,
+    transparent
+  );
+}
+
+.nav-item:hover span::after {
+  transform: scaleX(1);
+}
+
+/* 添加底部装饰线 */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%, transparent 40%,
+    #404040 40%, #404040 60%,
+    transparent 60%, transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  opacity: 1;
+}
+
+/* Add margin to main content to account for fixed header */
+.container {
+  margin-top: 60px;
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+  .nav-item span {
+    display: none;
+  }
+  
+  .nav-item {
+    padding: 6px 10px;
+  }
+  
+  .nav-item i {
+    font-size: 1.1em;
+    filter: drop-shadow(0 0 3px rgba(86, 156, 214, 0.3));
+    margin-right: 0;
+  }
+  
+  .nav-right {
+    gap: 2px;
+  }
+  
+  .vs-nav::before {
+    background: linear-gradient(90deg,
+      #569cd6 0%, #569cd6 30%,
+      transparent 30%, transparent 70%,
+      #569cd6 70%, #569cd6 100%
+    );
+  }
+
+  .vs-nav::after {
+    width: 50%;
+  }
+}
+
+/* 添加滚动阴影效果 */
+.vs-header.scrolled {
+  background-color: rgba(30, 30, 30, 0.95);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(86, 156, 214, 0.1);
+}

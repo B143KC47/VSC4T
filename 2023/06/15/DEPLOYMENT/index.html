@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="../../../../css/categories.css">
   <link rel="stylesheet" href="../../../../css/archive.css">
   <link rel="stylesheet" href="../../../../css/search.css">
-  <link rel="stylesheet" href="../../../../css/mobile.css">
-  <link rel="stylesheet" href="../../../../css/responsive.css">
+  <link rel="stylesheet" href="../../../../css/mobile.css">  <link rel="stylesheet" href="../../../../css/responsive.css">
+  <link rel="stylesheet" href="../../../../css/elements.css">
 
   <!-- 添加 JetBrains Mono 字体 -->  
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -219,17 +219,20 @@
             <span class="date">
               <i class="fas fa-calendar-alt"></i>
               2023-06-15
-            </span>
-            
+            </span>            
               <span class="categories">
                 <i class="fas fa-folder"></i>
-                <a class="category-link" href="../../../../categories/blog/">blog</a>, <a class="category-link" href="../../../../categories/blog/themes/">themes</a>
+                <div class="categories-list">
+                  <ul class="category-item-post-list"><li class="category-item-post-list-item"><a class="category-item-post-list-link" href="../../../../categories/blog/">blog</a><ul class="category-item-post-list-child"><li class="category-item-post-list-item"><a class="category-item-post-list-link" href="../../../../categories/blog/themes/">themes</a></li></ul></li></ul>
+                </div>
               </span>
             
             
               <span class="tags">
                 <i class="fas fa-tags"></i>
-                <a class="tag-none-link" href="../../../../tags/dark-mode/" rel="tag">dark-mode</a>, <a class="tag-none-link" href="../../../../tags/deploy/" rel="tag">deploy</a>, <a class="tag-none-link" href="../../../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../../../tags/responsive/" rel="tag">responsive</a>, <a class="tag-none-link" href="../../../../tags/theme/" rel="tag">theme</a>
+                <div class="tags-list">
+                  <ul class="tag-item-post-list" itemprop="keywords"><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/dark-mode/" rel="tag">dark-mode</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/deploy/" rel="tag">deploy</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/hexo/" rel="tag">hexo</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/responsive/" rel="tag">responsive</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/theme/" rel="tag">theme</a></li></ul>
+                </div>
               </span>
             
           </div>
@@ -311,7 +314,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-04-09
+      2025-04-12
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>

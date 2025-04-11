@@ -134,3 +134,66 @@
   border-left-color: #569cd6;
   color: #569cd6;
 }
+
+/* 分类和标签垂直排列样式 */
+.categories-list,
+.tags-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.categories-list ul,
+.tags-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories-list li,
+.tags-list li {
+  margin-bottom: 0.3rem;
+}
+
+.category-item-post a,
+.tag-item-post a {
+  display: block;
+  text-decoration: none;
+  color: var(--vscode-text);
+  padding: 0.3rem 0.5rem;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+
+.category-item-post a:hover,
+.tag-item-post a:hover {
+  background: var(--vscode-active);
+  border-left-color: #569cd6;
+  color: #569cd6;
+}
+
+/* 文章元信息样式优化 */
+.post-meta {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-meta > span {
+  display: flex;
+  align-items: flex-start;
+}
+
+.post-meta i {
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.post-meta .categories i {
+  color: #dcb67a;
+}
+
+.post-meta .tags i {
+  color: #569cd6;
+}

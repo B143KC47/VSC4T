@@ -1,12 +1,17 @@
 /* VS Code 风格的代码块容器 */
 figure.highlight {
-    margin: 1.5em 0;
+    margin: 2em 0;
     background: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     overflow: hidden;
     width: 100%;
     max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+figure.highlight:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 /* 代码块标题栏 */
@@ -35,7 +40,7 @@ figure.highlight {
 
 .highlight pre {
     margin: 0;
-    padding: 16px;
+    padding: 16px 0;
     background: transparent;
     tab-size: 4;
     -moz-tab-size: 4;
@@ -43,15 +48,17 @@ figure.highlight {
     white-space: pre;
     overflow-x: auto;
     width: 100%;
+    position: relative;
 }
 
 .highlight code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
     tab-size: 4;
     -moz-tab-size: 4;
     -o-tab-size: 4;
+    letter-spacing: 0.05em;
 }
 
 /* 行号样式 */
@@ -61,21 +68,36 @@ figure.highlight {
     border-right: 1px solid #404040;
     color: #858585;
     user-select: none;
+    text-align: right;
+    min-width: 40px;
+}
+
+.highlight .gutter pre {
+    margin: 0;
+    padding: 0;
 }
 
 .highlight .code {
     padding: 16px;
+    width: 100%;
 }
 
 /* VS Code 风格的代码高亮 */
-.highlight .keyword { color: #569cd6; }
+.highlight .keyword { color: #569cd6; font-weight: 500; }
 .highlight .string { color: #ce9178; }
-.highlight .comment { color: #6a9955; }
+.highlight .comment { color: #6a9955; font-style: italic; }
 .highlight .function { color: #dcdcaa; }
 .highlight .number { color: #b5cea8; }
 .highlight .operator { color: #d4d4d4; }
-.highlight .class { color: #4ec9b0; }
+.highlight .class { color: #4ec9b0; font-weight: 500; }
 .highlight .variable { color: #9cdcfe; }
+.highlight .params { color: #9cdcfe; }
+.highlight .builtin { color: #4ec9b0; }
+.highlight .attr { color: #9cdcfe; }
+.highlight .value { color: #ce9178; }
+.highlight .title { color: #dcdcaa; font-weight: normal; }
+.highlight .meta { color: #569cd6; }
+.highlight .tag { color: #569cd6; }
 
 /* 复制按钮 */
 .copy-btn {

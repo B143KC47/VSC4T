@@ -1,0 +1,149 @@
+/* VS Code 风格的普通元素样式
+ * 包括表格、分隔线、行内代码等元素
+ * 保持与主题整体VSCode风格的一致性
+ */
+
+/* 变量定义 - 与VSCode主题颜色保持一致 */
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-bg-light: #252526;
+  --vscode-border: #404040;
+  --vscode-text: #d4d4d4;
+  --vscode-text-light: #a7a7a7;
+  --vscode-accent: #0e639c;
+  --vscode-accent-light: #3794ff;
+  --vscode-selection: rgba(38, 79, 120, 0.6);
+  --vscode-line-highlight: rgba(255, 255, 255, 0.04);
+  --vscode-shadow: rgba(0, 0, 0, 0.24);
+}
+
+/* ==================== 表格样式 ==================== */
+table {
+  width: 100%;
+  margin: 1.5em 0;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--vscode-shadow);
+  background-color: var(--vscode-bg);
+  font-size: 0.95em;
+}
+
+/* 表头样式 */
+thead {
+  background-color: var(--vscode-bg-light);
+  border-bottom: 1px solid var(--vscode-border);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th {
+  padding: 10px 15px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--vscode-accent-light);
+  border-right: 1px solid var(--vscode-border);
+}
+
+th:last-child {
+  border-right: none;
+}
+
+/* 表格内容 */
+td {
+  padding: 10px 15px;
+  border-right: 1px solid var(--vscode-border);
+  border-bottom: 1px solid var(--vscode-border);
+  transition: background-color 0.2s;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* 表格行悬停效果 */
+tbody tr:hover {
+  background-color: var(--vscode-line-highlight);
+}
+
+/* 斑马纹表格效果 */
+tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* 表格标题和说明 */
+.table-caption {
+  margin-bottom: 0.5em;
+  color: var(--vscode-text-light);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* 响应式表格 */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==================== 分隔线样式 ==================== */
+hr {
+  height: 1px;
+  margin: 2em 0;
+  background-color: var(--vscode-border);
+  border: none;
+  position: relative;
+  overflow: visible;
+}
+
+/* 带有装饰效果的分隔线 */
+hr.decorated {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--vscode-accent-light), transparent);
+}
+
+/* 分隔线中间装饰 */
+hr.decorated::after {
+  content: "●";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--vscode-bg);
+  color: var(--vscode-accent-light);
+  padding: 0 10px;
+  font-size: 0.8em;
+}
+
+/* ==================== 行内代码样式 ==================== */
+code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background-color: rgba(30, 30, 30, 0.6); /* 更深的背景色，接近VS Code */
+  color: #ce9178; /* 更准确的VS Code字符串颜色 */
+  padding: 0.2em 0.4em;
+  margin: 0 0.2em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid rgba(97, 97, 97, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* 轻微阴影增强立体感 */
+  letter-spacing: 0.05em; /* 字母间距略微调整 */
+  font-feature-settings: "calt" 1; /* 连字特性，VS Code默认启用 */
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  letter-spacing: normal;
+}
+
