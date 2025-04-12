@@ -1,0 +1,343 @@
+/* 代码语言图标和颜色样式
+ * 为各种编程语言定义特定颜色和图标样式
+ * 与VSCode主题风格保持一致
+ */
+
+/* 代码语言标题基本样式 - VSCode 文件标签样式 */
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.75rem 0.3rem 0.75rem;
+  background: #252526;
+  border-bottom: 1px solid #404040;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #d4d4d4;
+  line-height: 1.5;
+  position: relative;
+  height: 30px; /* 固定高度，更接近VSCode标签栏 */
+  box-sizing: border-box;
+}
+
+/* 模拟VSCode标签选中效果 - 顶部边框 */
+.code-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #569cd6; /* VSCode蓝色 */
+  opacity: 0.8;
+}
+
+/* 代码标题左侧区域 - 包含语言标签 */
+.code-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 代码标题右侧区域 - 可放置操作按钮 */
+.code-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 代码头部按钮样式 */
+.code-header-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  color: #9d9d9d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  font-size: 12px;
+}
+
+/* 按钮悬停效果 */
+.code-header-button:hover {
+  background-color: #37373d;
+  color: #d4d4d4;
+}
+
+/* 按钮活动状态 */
+.code-header-button:active {
+  background-color: #094771;
+  color: #ffffff;
+}
+
+/* 复制成功状态 */
+.code-header-button:has(i.fa-check) {
+  background-color: #0078d4;
+  color: #ffffff;
+}
+
+/* 语言标签基本样式 - 类似VSCode文件标签 */
+.code-language {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  color: #d4d4d4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  cursor: default;
+  position: relative;
+  padding-left: 22px; /* 为图标留出空间 */
+}
+
+/* 语言标签悬停效果 */
+.code-language:hover {
+  background-color: #37373d; /* VSCode悬停背景色 */
+}
+
+/* 语言标签图标基本样式 */
+.code-language::before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+/* JavaScript */
+.code-language.language-javascript,
+.code-language.language-js {
+  color: #dbcb74; /* JS黄色 */
+}
+
+.code-language.language-javascript::before,
+.code-language.language-js::before {
+  content: "\f3b8"; /* fa-js图标 */
+  color: #dbcb74;
+}
+
+/* TypeScript */
+.code-language.language-typescript,
+.code-language.language-ts {
+  color: #519aba; /* TS蓝色 */
+}
+
+.code-language.language-typescript::before,
+.code-language.language-ts::before {
+  content: "\f3b8"; /* fa-js图标 (TS没有专用图标,使用JS图标) */
+  color: #519aba;
+}
+
+/* Python */
+.code-language.language-python,
+.code-language.language-py {
+  color: #4584b6; /* Python蓝色 */
+}
+
+.code-language.language-python::before,
+.code-language.language-py::before {
+  content: "\f3e2"; /* fa-python图标 */
+  color: #4584b6;
+}
+
+/* HTML */
+.code-language.language-html {
+  color: #e37933; /* HTML橙色 */
+}
+
+.code-language.language-html::before {
+  content: "\f13b"; /* fa-html5图标 */
+  color: #e37933;
+}
+
+/* CSS */
+.code-language.language-css {
+  color: #519aba; /* CSS蓝色 */
+}
+
+.code-language.language-css::before {
+  content: "\f38b"; /* fa-css3-alt图标 */
+  color: #519aba;
+}
+
+/* PHP */
+.code-language.language-php {
+  color: #a074c4; /* PHP紫色 */
+}
+
+.code-language.language-php::before {
+  content: "\f457"; /* fa-php图标 */
+  color: #a074c4;
+}
+
+/* Ruby */
+.code-language.language-ruby,
+.code-language.language-rb {
+  color: #cc342d; /* Ruby红色 */
+}
+
+.code-language.language-ruby::before,
+.code-language.language-rb::before {
+  content: "\f219"; /* fa-gem图标 */
+  color: #cc342d;
+}
+
+/* C */
+.code-language.language-c {
+  color: #519aba; /* C蓝色 */
+}
+
+.code-language.language-c::before {
+  content: "\f121"; /* fa-code图标 */
+  color: #519aba;
+}
+
+/* C++ */
+.code-language.language-cpp,
+.code-language.language-c\+\+ {
+  color: #649ad2; /* C++蓝色 */
+}
+
+.code-language.language-cpp::before,
+.code-language.language-c\+\+::before {
+  content: "\f121"; /* fa-code图标 */
+  color: #649ad2;
+}
+
+/* C# */
+.code-language.language-csharp,
+.code-language.language-cs {
+  color: #68217a; /* C#紫色 */
+}
+
+.code-language.language-csharp::before,
+.code-language.language-cs::before {
+  content: "\f121"; /* fa-code图标 */
+  color: #68217a;
+}
+
+/* Java */
+.code-language.language-java {
+  color: #cc3e44; /* Java红色 */
+}
+
+.code-language.language-java::before {
+  content: "\f085"; /* fa-cogs图标 */
+  color: #cc3e44;
+}
+
+/* Go */
+.code-language.language-go,
+.code-language.language-golang {
+  color: #5dc9e2; /* Go浅蓝色 */
+}
+
+.code-language.language-go::before,
+.code-language.language-golang::before {
+  content: "\f7b7"; /* fa-golf-ball图标 */
+  color: #5dc9e2;
+}
+
+/* Swift */
+.code-language.language-swift {
+  color: #f05138; /* Swift橙红色 */
+}
+
+.code-language.language-swift::before {
+  content: "\f135"; /* fa-rocket图标 */
+  color: #f05138;
+}
+
+/* Rust */
+.code-language.language-rust,
+.code-language.language-rs {
+  color: #dea584; /* Rust橙褐色 */
+}
+
+.code-language.language-rust::before,
+.code-language.language-rs::before {
+  content: "\f1b2"; /* fa-cube图标 */
+  color: #dea584;
+}
+
+/* Markdown */
+.code-language.language-markdown,
+.code-language.language-md {
+  color: #519aba; /* Markdown蓝色 */
+}
+
+.code-language.language-markdown::before,
+.code-language.language-md::before {
+  content: "\f1c9"; /* fa-file-alt图标 */
+  color: #519aba;
+}
+
+/* SQL */
+.code-language.language-sql {
+  color: #cecb00; /* SQL黄色 */
+}
+
+.code-language.language-sql::before {
+  content: "\f1c0"; /* fa-database图标 */
+  color: #cecb00;
+}
+
+/* JSON */
+.code-language.language-json {
+  color: #5a5a5a; /* JSON灰色 */
+}
+
+.code-language.language-json::before {
+  content: "\f1c9"; /* fa-file-alt图标 */
+  color: #5a5a5a;
+}
+
+/* YAML */
+.code-language.language-yaml,
+.code-language.language-yml {
+  color: #cb9c64; /* YAML棕色 */
+}
+
+.code-language.language-yaml::before,
+.code-language.language-yml::before {
+  content: "\f15b"; /* fa-file图标 */
+  color: #cb9c64;
+}
+
+/* Shell/Bash */
+.code-language.language-shell,
+.code-language.language-bash,
+.code-language.language-sh {
+  color: #89e051; /* Shell绿色 */
+}
+
+.code-language.language-shell::before,
+.code-language.language-bash::before,
+.code-language.language-sh::before {
+  content: "\f120"; /* fa-terminal图标 */
+  color: #89e051;
+}
+
+/* 对于没有特定匹配的语言，使用默认颜色和图标 */
+.code-language.language-default {
+  color: #a9a9a9; /* 默认灰色 */
+}
+
+.code-language.language-default::before {
+  content: "\f121"; /* fa-code图标 */
+  color: #a9a9a9;
+}

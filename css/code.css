@@ -1,208 +1,93 @@
-/* VS Code 风格的代码块容器 */
+/* code.css：负责
+
+代码块的基本结构和布局
+标题栏的基本样式
+行号样式
+语法高亮颜色定义 */
+
+
+
+
+
+
+/* 代码块容器 */
 figure.highlight {
-    margin: 2em 0;
-    background: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    overflow: hidden;
-    width: 100%;
-    max-width: 100%;
-    transition: all 0.3s ease;
+  margin: 2em 0;
+  background: #2b2b2b;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
-figure.highlight:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+/* 行号pre样式 - 修复宽度问题 */
+.line-numbers-pre {
+  padding: 6px;
+  margin: 0;
+  background: #252526;
+  border-right: 1px solid #404040;
+  color: #858585;
+  user-select: none;
+  text-align: right;
+  min-width: auto; /* 移除最小宽度限制 */
+  width: auto; /* 根据内容自动调整宽度 */
+  flex-shrink: 0; /* 防止被压缩 */
+  overflow-y: hidden;
+  box-sizing: border-box; /* 确保边框盒模型一致 */
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* 代码块标题栏 */
-.code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    background: #2d2d2d;
-    border-bottom: 1px solid #404040;
+/* 行号内的每个数字样式 */
+.line-numbers-pre .line-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  height: 1.5em; /* 明确指定高度 */
+  display: block;
+  padding-right: 0.5em; /* 确保数字右侧有适当空间 */
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  white-space: nowrap;
+  box-sizing: border-box; /* 确保盒模型一致 */
 }
 
-.code-language {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: #858585;
+/* 代码内容pre样式优化 */
+.code-content {
+  padding: 16px;
+  margin: 0;
+  flex-shrink: 1; /* 允许在必要时收缩 */
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d4d4d4;
+  background: #1e1e1e;
+  width: 0; /* 关键修改: 初始宽度为0，依靠flex-grow扩展 */
+  min-width: 0; /* 确保可以收缩到容器大小 */
+  box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
-/* 代码区域 */
-.highlight {
-    position: relative;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* 平滑滚动 */
-    width: 100%;
+/* 确保代码元素内容可见 */
+.code-content code {
+  display: block;
+  white-space: pre;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
-.highlight pre {
-    margin: 0;
-    padding: 16px 0;
-    background: transparent;
-    tab-size: 4;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    white-space: pre;
-    overflow-x: auto;
-    width: 100%;
-    position: relative;
-}
-
-.highlight code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    tab-size: 4;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    letter-spacing: 0.05em;
-}
-
-/* 行号样式 */
-.highlight .gutter {
-    padding: 16px 12px;
-    background: #252526;
-    border-right: 1px solid #404040;
-    color: #858585;
-    user-select: none;
-    text-align: right;
-    min-width: 40px;
-}
-
-.highlight .gutter pre {
-    margin: 0;
-    padding: 0;
-}
-
-.highlight .code {
-    padding: 16px;
-    width: 100%;
-}
-
-/* VS Code 风格的代码高亮 */
-.highlight .keyword { color: #569cd6; font-weight: 500; }
-.highlight .string { color: #ce9178; }
-.highlight .comment { color: #6a9955; font-style: italic; }
-.highlight .function { color: #dcdcaa; }
-.highlight .number { color: #b5cea8; }
-.highlight .operator { color: #d4d4d4; }
-.highlight .class { color: #4ec9b0; font-weight: 500; }
-.highlight .variable { color: #9cdcfe; }
-.highlight .params { color: #9cdcfe; }
-.highlight .builtin { color: #4ec9b0; }
-.highlight .attr { color: #9cdcfe; }
-.highlight .value { color: #ce9178; }
-.highlight .title { color: #dcdcaa; font-weight: normal; }
-.highlight .meta { color: #569cd6; }
-.highlight .tag { color: #569cd6; }
-
-/* 复制按钮 */
-.copy-btn {
-    background: #333333;
-    border: 1px solid #404040;
-    border-radius: 4px;
-    color: #858585;
-    padding: 4px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 10;
-}
-
-.copy-btn:hover {
-    background: #404040;
-    color: #fff;
-}
-
-.copy-btn i {
-    font-size: 14px;
-}
-
-/* 代码块滚动条 */
-.highlight::-webkit-scrollbar {
-    height: 8px;
-}
-
-.highlight::-webkit-scrollbar-track {
-    background: #1e1e1e;
-}
-
-.highlight::-webkit-scrollbar-thumb {
-    background: #404040;
-    border-radius: 4px;
-}
-
-.highlight::-webkit-scrollbar-thumb:hover {
-    background: #4d4d4d;
-}
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-    figure.highlight {
-        margin: 1em 0;
-        border-radius: 4px;
-    }
-    
-    .highlight pre {
-        padding: 12px 8px;
-        font-size: 13px;
-        /* 保持原始格式，不自动换行 */
-        white-space: pre;
-        overflow-x: auto;
-    }
-    
-    .highlight code {
-        font-size: 13px;
-        /* 确保缩进正确显示 */
-        tab-size: 4;
-        -moz-tab-size: 4;
-        -o-tab-size: 4;
-    }
-    
-    /* 删除滚动提示 */
-    
-    /* 优化复制按钮 */
-    .copy-btn {
-        opacity: 1;
-        top: 4px;
-        right: 4px;
-        padding: 3px 6px;
-        font-size: 11px;
-    }
-    
-    /* 隐藏复制按钮的提示文字 */
-    .copy-btn::before {
-        display: none !important;
-    }
-    
-    /* 优化滚动条 */
-    .highlight::-webkit-scrollbar {
-        height: 4px;
-    }
-}
-
-/* 小屏幕设备额外优化 */
-@media (max-width: 480px) {
-    .highlight pre,
-    .highlight code {
-        font-size: 12px;
-        line-height: 1.4;
-    }
-    
-    .code-header {
-        padding: 6px 10px;
-    }
-    
-    .code-language {
-        font-size: 10px;
-    }
+/* 改进code-pre-wrapper布局 */
+.code-pre-wrapper {
+  display: flex;
+  overflow: hidden;
+  background: #2b2b2b;
+  width: 100%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  align-items: stretch; /* 确保子元素拉伸对齐 */
 }

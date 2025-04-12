@@ -1,3 +1,12 @@
+/* 
+code-custom.css：负责
+
+复制按钮功能及样式
+颜色主题覆盖
+特定字体覆盖
+ */
+
+
 /* 代码块复制按钮样式优化 */
 /* 隐藏复制按钮文本，只显示图标 */
 .copy-btn::before, 
@@ -6,6 +15,7 @@
   display: none !important;
 }
 
+/* 复制按钮统一样式 */
 .copy-btn, 
 .copy-button {
   width: 32px;
@@ -14,49 +24,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--vscode-active);
-  border: 1px solid var(--vscode-border);
+  background: #2d2d2d;
+  border: 1px solid #3c3c3c;
   border-radius: 4px;
-  color: var(--vscode-text);
+  color: #9d9d9d;
   cursor: pointer;
   transition: all 0.2s ease;
   position: absolute;
   top: 8px;
   right: 8px;
   opacity: 0;
+  z-index: 5;
 }
 
 /* 代码块容器悬停时显示复制按钮 */
-pre:hover .copy-btn,
-figure.highlight:hover .copy-button,
-.highlight:hover .copy-button {
+pre:hover .copy-button,
+.code-block-container:hover .copy-btn {
   opacity: 1;
 }
 
 /* 复制按钮悬停和激活状态 */
 .copy-btn:hover,
 .copy-button:hover {
-  background: var(--vscode-highlight);
+  background: #3c3c3c;
+  color: #d4d4d4;
 }
 
 .copy-btn.copied,
 .copy-button.copied {
-  background: var(--vscode-accent);
-  color: #fff;
+  background: #0078d4;
+  color: #ffffff;
+  border-color: #0078d4;
 }
 
-/* 代码块容器样式 */
-figure.highlight {
-  margin: 1.5em 0;
-  background: #1e1e1e;
-  border-radius: 6px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  overflow: hidden;
-}
-
-/* 代码区域 */
+/* 代码区域颜色覆盖 - 仅保留颜色相关覆盖，布局由 code.css 负责 */
 .highlight {
-  position: relative;
   background: #1e1e1e;
   color: #d4d4d4;
 }
@@ -64,32 +66,136 @@ figure.highlight {
 .highlight pre {
   background: #1e1e1e;
   color: #d4d4d4;
-  padding: 1rem;
+  padding: 16px; /* 从 1rem 改为 16px，保持一致 */
   overflow-x: auto;
   border-radius: 6px;
 }
 
-/* 行号样式 */
-.highlight .gutter {
-  background: #252526;
-  border-right: 1px solid #3e3e3e;
-  color: #858585;
-  user-select: none;
-  padding-right: 10px;
-}
-
-/* 代码块标题栏 */
-.code-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
-  background: #2d2d2d;
-  border-bottom: 1px solid #404040;
-}
-
+/* 特殊字体覆盖 */
 .code-language {
   font-family: 'JetBrains Mono', monospace, 'Segoe UI', sans-serif;
   font-size: 12px;
-  color: #858585;
 }
+
+/* 美化普通代码块 */
+pre:not(.line-numbers-pre):not(.code-content) {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 16px;
+  margin: 2em 0;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* 统一行号和代码颜色 */
+.hljs {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+}
+
+/* 添加代码类型标记到普通代码块 */
+pre:not(.line-numbers-pre):not(.code-content)::before {
+  content: "code";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #252526;
+  color: #9d9d9d;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-bottom-left-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+
+/* 滚动指示效果 */
+.scrollable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(90deg, rgba(30,30,30,0) 0%, rgba(30,30,30,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 滚动时的指示效果 */
+.scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(270deg, rgba(30,30,30,0) 0%, rgba(30,30,30,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 确保代码块中的内容正确显示 */
+.code-pre-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 行号区域宽度自适应 */
+.line-numbers-pre {
+  width: auto;
+  flex: 0 0 auto;
+  padding: 16px; /* 统一内边距与代码区域保持一致 */
+}
+
+/* 代码内容区域自适应 */
+.code-content {
+  flex: 1;
+  width: 0; /* 初始宽度为0，通过flex-grow伸展 */
+  min-width: 0; /* 允许内容区域收缩 */
+  overflow-x: auto;
+  padding: 16px !important; /* 强制设置 padding 为 16px，与行号区域保持一致 */
+}
+
+/* 提高代码可读性 */
+.hljs {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  max-width: 100%; /* 确保不会超出父容器 */
+  box-sizing: border-box; /* 确保padding不会导致宽度计算问题 */
+}
+
+/* 超长代码换行控制 */
+.code-content code {
+  white-space: pre;
+  word-wrap: normal;
+  tab-size: 4;
+}
+
+/* 在小屏幕上优化显示 */
+@media (max-width: 768px) {
+  .line-numbers-pre {
+    padding: 16px 8px; /* 保持水平对称，减小水平内边距 */
+  }
+  
+  .code-content {
+    padding: 16px 8px; /* 与行号区域保持一致 */
+  }
+  
+  /* 确保移动设备上行号与代码内容对齐 */
+  .line-numbers-pre .line-num,
+  .code-content code {
+    line-height: 1.5;
+    height: 1.5em;
+  }
+}
+
