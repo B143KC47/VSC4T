@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 增强代码块功能
+    // 增强代码块功能（已包含添加复制按钮）
     enhanceCodeBlocks();
     
-    // 添加复制按钮
-    addCopyButtons();
+    // 注释掉重复的复制按钮添加功能，避免功能重叠
+    // addCopyButtons();
     
     // 处理Python代码的特殊缩进
     fixPythonIndentation();
@@ -37,6 +37,35 @@ function enhancePlainCodeBlocks() {
                 this.classList.remove('scrolled');
             }
         });
+        
+        // 添加复制按钮 - 确保按钮不会与"code"标签重叠
+        if (!pre.querySelector('.copy-button')) {
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-button';
+            copyBtn.title = '复制代码';
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            
+            // 添加复制功能
+            copyBtn.addEventListener('click', function() {
+                const code = pre.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    // 复制成功反馈 - 只改变图标
+                    this.innerHTML = '<i class="fas fa-check"></i>';
+                    this.classList.add('copied');
+                    
+                    // 2秒后恢复
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-copy"></i>';
+                        this.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                });
+            });
+            
+            // 将按钮添加到代码块中
+            pre.appendChild(copyBtn);
+        }
         
         // 标记为已增强
         pre.classList.add('enhanced');
@@ -73,10 +102,21 @@ function enhanceCodeBlocks() {
         // 创建左侧区域（包含语言标签）
         const headerLeft = document.createElement('div');
         headerLeft.className = 'code-header-left';
-        
-        // 创建右侧区域（可放置操作按钮）
+          // 创建右侧区域（可放置操作按钮）
         const headerRight = document.createElement('div');
         headerRight.className = 'code-header-right';
+          // 创建折叠/展开按钮
+        const toggleButton = document.createElement('button');
+        toggleButton.className = 'code-header-button toggle-btn';
+        toggleButton.title = '折叠/展开代码块';
+        toggleButton.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        headerRight.appendChild(toggleButton);
+        
+        // 创建复制按钮 (无文字提示) - 将在后面添加到code-pre-wrapper中
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-btn';
+        copyButton.title = '复制代码';
+        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
         
         // 创建语言标签
         const langLabel = document.createElement('span');
@@ -99,7 +139,7 @@ function enhanceCodeBlocks() {
             const lineDiv = document.createElement('div');
             lineDiv.className = 'line-num';
             lineDiv.textContent = lineNum;
-            lineDiv.style.height = '1.5em'; // 确保每行高度一致
+            // lineDiv.style.height = '1.5em'; // 移除此行，让CSS控制高度
             lineNumbersPre.appendChild(lineDiv);
         });
         
@@ -107,13 +147,21 @@ function enhanceCodeBlocks() {
         const codePre = document.createElement('pre');
         codePre.className = `code-content hljs ${language}`;
         codePre.innerHTML = codeContent;
-        
-        // 创建包含两个pre的容器
+          // 创建包含两个pre的容器
         const codeBlockWrapper = document.createElement('div');
         codeBlockWrapper.className = 'code-pre-wrapper';
         codeBlockWrapper.appendChild(lineNumbersPre);
         codeBlockWrapper.appendChild(codePre);
         
+        // 将复制按钮添加到code-pre-wrapper中，使其悬浮在代码上方
+        codeBlockWrapper.appendChild(copyButton);
+          // 检测代码行数并应用相应样式
+        const lineCount = gutterLines.length;
+        if (lineCount < 4) {
+            codeBlockWrapper.classList.add('few-lines');
+            codeBlockWrapper.classList.add(`line-count-${lineCount}`);
+        }
+          
         // 组装结构
         container.appendChild(header);
         container.appendChild(codeBlockWrapper);
@@ -131,6 +179,38 @@ function enhanceCodeBlocks() {
         // 同步滚动
         codePre.addEventListener('scroll', function() {
             lineNumbersPre.scrollTop = this.scrollTop;
+        });
+          // 处理折叠/展开功能
+        const toggleBtn = header.querySelector('.toggle-btn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                codeBlockWrapper.classList.toggle('collapsed');
+                const icon = this.querySelector('i');
+                if (codeBlockWrapper.classList.contains('collapsed')) {
+                    icon.className = 'fas fa-chevron-right';
+                } else {
+                    icon.className = 'fas fa-chevron-down';
+                }
+            });
+        }        // 处理复制功能（现在直接使用复制按钮引用，不再需要查询）
+        copyButton.addEventListener('click', function() {
+            // 获取代码内容
+            const code = codePre.textContent;
+            
+            // 复制到剪贴板
+            navigator.clipboard.writeText(code).then(() => {
+                // 复制成功反馈 (只改变图标，不显示文字)
+                this.innerHTML = '<i class="fas fa-check"></i>';
+                this.classList.add('copied');
+                
+                // 2秒后恢复
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-copy"></i>';
+                    this.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('无法复制代码:', err);
+            });
         });
     });
 }

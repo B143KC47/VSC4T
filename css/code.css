@@ -23,7 +23,7 @@ figure.highlight {
 
 /* 行号pre样式 - 修复宽度问题 */
 .line-numbers-pre {
-  padding: 6px;
+  padding: 4px 6px; /* 减小垂直内边距与code-content保持一致 */
   margin: 0;
   background: #252526;
   border-right: 1px solid #404040;
@@ -45,7 +45,8 @@ figure.highlight {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
-  height: 1.5em; /* 明确指定高度 */
+  /* height: 1.5em; */ /* 移除固定高度，避免空间浪费 */
+  min-height: 1.5em; /* 改用最小高度 */
   display: block;
   padding-right: 0.5em; /* 确保数字右侧有适当空间 */
   padding-top: 0;
@@ -57,7 +58,7 @@ figure.highlight {
 
 /* 代码内容pre样式优化 */
 .code-content {
-  padding: 16px;
+  padding: 4px 8px; /* 减小垂直内边距以适应少行代码 */
   margin: 0;
   flex-shrink: 1; /* 允许在必要时收缩 */
   overflow-x: auto;
@@ -71,15 +72,21 @@ figure.highlight {
   box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
-/* 确保代码元素内容可见 */
+/* 超长代码换行控制 */
 .code-content code {
-  display: block;
   white-space: pre;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  word-wrap: normal;
+  tab-size: 4;
   line-height: 1.5;
-  margin: 0;
-  padding: 0;
+}
+
+/* 确保代码内容中的每一行与行号对齐 */
+.code-content .line {
+  min-height: 1.5em; /* 改为最小高度而非固定高度 */
+  line-height: 1.5;
+  margin: 0; /* 确保没有外边距 */
+  padding: 0; /* 确保没有内边距 */
+  box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
 /* 改进code-pre-wrapper布局 */
@@ -89,5 +96,12 @@ figure.highlight {
   background: #2b2b2b;
   width: 100%;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  align-items: stretch; /* 确保子元素拉伸对齐 */
+  /* align-items: stretch; /* 改为stretch让所有元素高度一致 */
+  align-items: flex-start; /* 修改对齐方式 */
+  min-height: 0; /* 确保能够正确计算高度 */
+  height: auto !important;
+  position: relative; /* 为复制按钮提供定位上下文 */
+  margin: 0; /* 确保没有外边距 */
+  padding: 0; /* 确保没有内边距 */
+  box-sizing: border-box; /* 确保边框盒模型一致 */
 }

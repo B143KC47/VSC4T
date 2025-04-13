@@ -6,6 +6,18 @@ code-custom.css：负责
 特定字体覆盖
  */
 
+/* 代码块容器基本样式 */
+.code-block-container {
+  margin-top: 5px;
+  margin-bottom: 2em;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  height: auto !important;
+}
+
 
 /* 代码块复制按钮样式优化 */
 /* 隐藏复制按钮文本，只显示图标 */
@@ -35,6 +47,7 @@ code-custom.css：负责
   right: 8px;
   opacity: 0;
   z-index: 5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* 代码块容器悬停时显示复制按钮 */
@@ -148,13 +161,21 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  align-items: flex-start; /* 确保不拉伸内部元素 */
+  min-height: 0; /* 确保能够正确计算高度 */
+  box-sizing: border-box;
+  background: #2b2b2b;
+  padding: 0; /* 确保没有默认内边距 */
+  margin: 0; /* 确保没有默认外边距 */
 }
 
 /* 行号区域宽度自适应 */
 .line-numbers-pre {
   width: auto;
   flex: 0 0 auto;
-  padding: 16px; /* 统一内边距与代码区域保持一致 */
+  padding: 4px 6px; /* 减小垂直内边距与code.css保持一致 */
+  margin: 0;
+  box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
 /* 代码内容区域自适应 */
@@ -163,7 +184,9 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   width: 0; /* 初始宽度为0，通过flex-grow伸展 */
   min-width: 0; /* 允许内容区域收缩 */
   overflow-x: auto;
-  padding: 16px !important; /* 强制设置 padding 为 16px，与行号区域保持一致 */
+  padding: 4px 8px !important; /* 减小垂直内边距与code.css保持一致 */
+  margin: 0;
+  box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
 /* 提高代码可读性 */
@@ -172,6 +195,8 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   color: #d4d4d4 !important;
   max-width: 100%; /* 确保不会超出父容器 */
   box-sizing: border-box; /* 确保padding不会导致宽度计算问题 */
+  padding: 0; /* 移除内边距 */
+  margin: 0; /* 移除外边距 */
 }
 
 /* 超长代码换行控制 */
@@ -179,23 +204,102 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   white-space: pre;
   word-wrap: normal;
   tab-size: 4;
+  line-height: 1.5;
+}
+
+/* 确保代码内容中的每一行与行号对齐 */
+.code-content .line {
+  min-height: 1.5em; /* 确保行有最小高度 */
+  line-height: 1.5;
+}
+
+/* 处理特殊高度的代码行 */
+.code-content .line img,
+.code-content .line svg,
+.code-content .line pre,
+.code-content .line div {
+  max-height: none; /* 确保内联元素不会导致行高异常 */
+  vertical-align: middle; /* 确保垂直对齐一致 */
 }
 
 /* 在小屏幕上优化显示 */
 @media (max-width: 768px) {
   .line-numbers-pre {
-    padding: 16px 8px; /* 保持水平对称，减小水平内边距 */
+    padding: 4px 6px; /* 与非移动版保持一致 */
   }
   
   .code-content {
-    padding: 16px 8px; /* 与行号区域保持一致 */
+    padding: 4px 8px !important; /* 与非移动版保持一致 */
   }
   
   /* 确保移动设备上行号与代码内容对齐 */
   .line-numbers-pre .line-num,
-  .code-content code {
+  .code-content .line {
     line-height: 1.5;
-    height: 1.5em;
+    min-height: 1.5em; /* 改为最小高度而非固定高度 */
+    margin: 0;
+    padding: 0;
   }
+}
+
+/* 折叠状态的代码块 */
+.code-pre-wrapper.collapsed {
+  height: 0 !important;
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+/* 确保按钮在折叠和展开状态下都有正确的视觉效果 */
+.toggle-btn .fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn .fa-chevron-right {
+  transition: transform 0.3s ease;
+}
+
+/* 调整普通代码块复制按钮位置，避免与code标签重叠 */
+pre:not(.line-numbers-pre):not(.code-content) .copy-button {
+  right: 45px; /* 向左移动，给"code"标签留出空间 */
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.2s ease; /* 平滑显示/隐藏过渡 */
+}
+
+/* 仅在鼠标悬停时显示普通代码块的复制按钮 */
+pre:not(.line-numbers-pre):not(.code-content):hover .copy-button {
+  opacity: 1;
+}
+
+/* 少行代码的行元素高度精确控制 */
+.code-pre-wrapper.few-lines .code-content .line,
+.code-pre-wrapper.few-lines .line-numbers-pre .line-num {
+  min-height: auto; /* 覆盖默认的最小高度 */
+  height: auto; /* 让高度由内容决定 */
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+/* 自动根据行数调整代码块内边距 - 设置更精确的值 */
+.code-pre-wrapper.line-count-1 .line-numbers-pre,
+.code-pre-wrapper.line-count-1 .code-content {
+  padding-top: 0 !important; /* 移除顶部内边距 */
+  padding-bottom: 0 !important; /* 移除底部内边距 */
+}
+
+.code-pre-wrapper.line-count-2 .line-numbers-pre,
+.code-pre-wrapper.line-count-2 .code-content {
+  padding-top: 1px !important; /* 最小的内边距 */
+  padding-bottom: 1px !important;
+}
+
+.code-pre-wrapper.line-count-3 .line-numbers-pre,
+.code-pre-wrapper.line-count-3 .code-content {
+  padding-top: 2px !important; /* 稍大一点的内边距 */
+  padding-bottom: 2px !important;
 }
 
