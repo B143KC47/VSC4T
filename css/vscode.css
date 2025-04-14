@@ -311,14 +311,13 @@
 /* 代码块相关样式 */
 pre {
   position: relative;
-  padding: 2.5em 1em 1em;
+  padding: 1em; /* Adjusted padding */
   margin: 1em 0;
   background: var(--vscode-bg);
   border-radius: 4px;
   overflow-x: auto;
   width: 100%;
   box-sizing: border-box;
-  min-height: 100px;
 }
 
 .copy-button {
@@ -418,7 +417,7 @@ pre, pre code, .copy-button {
   pre {
     margin: 1em 0;
     border-radius: 4px;
-    padding: 2.5em 0.5em 0.5em;
+    padding: 1em 0.5em; /* Adjusted padding */
     width: 100%;
     box-sizing: border-box;
   }
@@ -494,7 +493,7 @@ pre, pre code, .copy-button {
   }
   
   pre {
-    padding: 2em 0.5em 0.5em;  /* 进一步减少内边距 */
+    padding: 1em 0.5em; /* Adjusted padding */
   }
   
   /* 优化小屏幕上的代码显示 */

@@ -207,12 +207,6 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   line-height: 1.5;
 }
 
-/* 确保代码内容中的每一行与行号对齐 */
-.code-content .line {
-  min-height: 1.5em; /* 确保行有最小高度 */
-  line-height: 1.5;
-}
-
 /* 处理特殊高度的代码行 */
 .code-content .line img,
 .code-content .line svg,
@@ -230,15 +224,6 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   
   .code-content {
     padding: 4px 8px !important; /* 与非移动版保持一致 */
-  }
-  
-  /* 确保移动设备上行号与代码内容对齐 */
-  .line-numbers-pre .line-num,
-  .code-content .line {
-    line-height: 1.5;
-    min-height: 1.5em; /* 改为最小高度而非固定高度 */
-    margin: 0;
-    padding: 0;
   }
 }
 
@@ -272,34 +257,5 @@ pre:not(.line-numbers-pre):not(.code-content) .copy-button {
 /* 仅在鼠标悬停时显示普通代码块的复制按钮 */
 pre:not(.line-numbers-pre):not(.code-content):hover .copy-button {
   opacity: 1;
-}
-
-/* 少行代码的行元素高度精确控制 */
-.code-pre-wrapper.few-lines .code-content .line,
-.code-pre-wrapper.few-lines .line-numbers-pre .line-num {
-  min-height: auto; /* 覆盖默认的最小高度 */
-  height: auto; /* 让高度由内容决定 */
-  line-height: 1.5;
-  padding: 0;
-  margin: 0;
-}
-
-/* 自动根据行数调整代码块内边距 - 设置更精确的值 */
-.code-pre-wrapper.line-count-1 .line-numbers-pre,
-.code-pre-wrapper.line-count-1 .code-content {
-  padding-top: 0 !important; /* 移除顶部内边距 */
-  padding-bottom: 0 !important; /* 移除底部内边距 */
-}
-
-.code-pre-wrapper.line-count-2 .line-numbers-pre,
-.code-pre-wrapper.line-count-2 .code-content {
-  padding-top: 1px !important; /* 最小的内边距 */
-  padding-bottom: 1px !important;
-}
-
-.code-pre-wrapper.line-count-3 .line-numbers-pre,
-.code-pre-wrapper.line-count-3 .code-content {
-  padding-top: 2px !important; /* 稍大一点的内边距 */
-  padding-bottom: 2px !important;
 }
 

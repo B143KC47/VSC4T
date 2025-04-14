@@ -46,7 +46,7 @@ figure.highlight {
   font-size: 14px;
   line-height: 1.5;
   /* height: 1.5em; */ /* 移除固定高度，避免空间浪费 */
-  min-height: 1.5em; /* 改用最小高度 */
+  /* min-height: 1.5em; */ /* 改用最小高度 - 注释掉此行 */
   display: block;
   padding-right: 0.5em; /* 确保数字右侧有适当空间 */
   padding-top: 0;
@@ -82,7 +82,7 @@ figure.highlight {
 
 /* 确保代码内容中的每一行与行号对齐 */
 .code-content .line {
-  min-height: 1.5em; /* 改为最小高度而非固定高度 */
+  /* min-height: 1.5em; */ /* 改为最小高度而非固定高度 - 注释掉此行 */
   line-height: 1.5;
   margin: 0; /* 确保没有外边距 */
   padding: 0; /* 确保没有内边距 */

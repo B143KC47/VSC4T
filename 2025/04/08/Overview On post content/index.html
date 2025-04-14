@@ -419,7 +419,7 @@ mjx-container[display="true"] + br {
 <h3 id="代码-Code"><a href="#代码-Code" class="headerlink" title="代码 (Code)"></a>代码 (Code)</h3><p>使用<code>console.log()</code>函数打印信息。</p>
 <h3 id="图片-Images"><a href="#图片-Images" class="headerlink" title="图片 (Images)"></a>图片 (Images)</h3><p><img src="https://cdn.pixabay.com/photo/2015/09/29/13/47/cat-963931_1280.jpg" alt="BlackCat"></p>
 <h2 id="其他元素-Miscellaneous"><a href="#其他元素-Miscellaneous" class="headerlink" title="其他元素 (Miscellaneous)"></a>其他元素 (Miscellaneous)</h2><h3 id="删除线-Strikethrough"><a href="#删除线-Strikethrough" class="headerlink" title="删除线 (Strikethrough)"></a>删除线 (Strikethrough)</h3><p><del>这是删除线文本</del></p>
-<h3 id="自动链接-Automatic-Links"><a href="#自动链接-Automatic-Links" class="headerlink" title="自动链接 (Automatic Links)"></a>自动链接 (Automatic Links)</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#97;&#x64;&#100;&#114;&#x65;&#x73;&#115;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">address@example.com</a></p>
+<h3 id="自动链接-Automatic-Links"><a href="#自动链接-Automatic-Links" class="headerlink" title="自动链接 (Automatic Links)"></a>自动链接 (Automatic Links)</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#97;&#100;&#100;&#x72;&#101;&#x73;&#115;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#109;">address@example.com</a></p>
 <h3 id="转义字符-Backslash-Escapes"><a href="#转义字符-Backslash-Escapes" class="headerlink" title="转义字符 (Backslash Escapes)"></a>转义字符 (Backslash Escapes)</h3><p>*这不是斜体* </p>
 <h3 id="内联HTML-Inline-HTML"><a href="#内联HTML-Inline-HTML" class="headerlink" title="内联HTML (Inline HTML)"></a>内联HTML (Inline HTML)</h3><p><span style="color: red;">这是红色文本</span></p>
 <h3 id="LaTeX公式-Math-Equations"><a href="#LaTeX公式-Math-Equations" class="headerlink" title="LaTeX公式 (Math Equations)"></a>LaTeX公式 (Math Equations)</h3><p>Mathjax: </p>
@@ -504,19 +504,41 @@ mjx-container[display="true"] + br {
     <script>hljs.highlightAll();</script>
     <!-- 这里可以放置自定义脚本 -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // 代码高亮主题设置
-  hljs.configure({
-    theme: 'vs2015'
-  });
-  
-  // 添加平滑滚动
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Apply smooth scroll to non-TOC anchor links
+  document.querySelectorAll('a[href^="#"]:not(.toc-link)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      // Check if querySelector is valid before using it
+      try {
+        const targetSelector = this.getAttribute('href');
+        // Basic check for potentially invalid selectors (though not exhaustive)
+        if (targetSelector && targetSelector.length > 1) { 
+          const targetElement = document.querySelector(targetSelector);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          } else {
+            console.warn('Smooth scroll target not found:', targetSelector);
+          }
+        } else {
+           console.warn('Invalid href for smooth scroll:', targetSelector);
+        }
+      } catch (error) {
+        console.error('Error during smooth scroll:', error, 'Selector:', this.getAttribute('href'));
+        // Fallback or alternative behavior if needed
+        // For example, try getElementById if it's just an ID
+        const targetId = this.getAttribute('href').slice(1);
+        try {
+            const targetElementById = document.getElementById(decodeURIComponent(targetId));
+            if (targetElementById) {
+                targetElementById.scrollIntoView({ behavior: 'smooth' });
+            }
+        } catch (idError) {
+             console.error('Fallback getElementById also failed:', idError);
+        }
+      }
     });
   });
 });
