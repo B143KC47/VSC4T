@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>VSC4T Blog Deploy Guide | VSC4T</title>
+  <title>VSC4T Blog Deploy Guide | VSC4T博客部署指南 | VSC4T</title>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../../css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -143,7 +143,7 @@
         <span>TABLE OF CONTENTS</span>
       </div>
       <div class="section-content">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VSC4T-Deployment-Guide"><span class="toc-text">VSC4T Deployment Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deployment-Steps"><span class="toc-text">Deployment Steps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Issues"><span class="toc-text">Common Issues</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ERROR-Deployer-not-found-git"><span class="toc-text">ERROR Deployer not found: git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Path-Configuration"><span class="toc-text">Path Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resource-Path-Issues"><span class="toc-text">Resource Path Issues</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Notes"><span class="toc-text">Security Notes</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VSC4T-Deployment-Guide-VSC4T-%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97"><span class="toc-text">VSC4T Deployment Guide | VSC4T 部署指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites-%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">Prerequisites | 前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Essential-Configuration-%E5%BF%85%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">Essential Configuration | 必要的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-Relative-Links-%E5%90%AF%E7%94%A8%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5"><span class="toc-text">Enable Relative Links | 启用相对链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Required-Pages-%E7%A1%AE%E4%BF%9D%E5%88%9B%E5%BB%BA%E5%BF%85%E8%A6%81%E9%A1%B5%E9%9D%A2"><span class="toc-text">Create Required Pages | 确保创建必要页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deployment-Configuration-%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE"><span class="toc-text">Deployment Configuration | 部署配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL-and-Root-Directory-Configuration-URL%E5%92%8C%E6%A0%B9%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE"><span class="toc-text">URL and Root Directory Configuration | URL和根目录配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deployment-Steps-%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4"><span class="toc-text">Deployment Steps | 部署步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshooting-Common-Issues-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-text">Troubleshooting Common Issues | 常见问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ERROR-Deployer-not-found-git-%E9%94%99%E8%AF%AF%EF%BC%9ADeployer-not-found-git"><span class="toc-text">ERROR Deployer not found: git | 错误：Deployer not found: git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resource-Path-Issues-%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="toc-text">Resource Path Issues | 资源路径问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blank-Page-After-Deployment-%E9%83%A8%E7%BD%B2%E5%90%8E%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD"><span class="toc-text">Blank Page After Deployment | 部署后页面空白</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Notes-%E5%AE%89%E5%85%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">Security Notes | 安全注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-%E7%BB%93%E8%AF%AD"><span class="toc-text">Conclusion | 结语</span></a></li></ol></li></ol>
       </div>
     </div>
     
@@ -158,12 +158,12 @@
         
           <div class="file">
             <i class="fas fa-file-code"></i>
-            <a href="../../../../2025/04/14/Support%20of%20latex/">Complete Guide to LaTeX Support in VSCode for Themes</a>
+            <a href="../../../../2025/04/14/Support%20of%20latex/">Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南</a>
           </div>
         
           <div class="file">
             <i class="fas fa-file-code"></i>
-            <a href="../../../../2025/04/08/Overview%20On%20post%20content/">A overview on VSC4T theme Markdown element</a>
+            <a href="../../../../2025/04/08/Overview%20On%20post%20content/">Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览</a>
           </div>
         
       </div>
@@ -206,7 +206,7 @@
           <div class="tag-item">
             <i class="fas fa-tag"></i>
             <a href="../../../../tags/deploy/">deploy</a>
-            <span class="count">(2)</span>
+            <span class="count">(1)</span>
           </div>
         
       </div>
@@ -219,14 +219,14 @@
     <div class="tab-bar">
       <div class="tab active">
         <i class="fas fa-file-alt"></i>
-        <span>VSC4T Blog Deploy Guide.md</span>
+        <span>VSC4T Blog Deploy Guide | VSC4T博客部署指南.md</span>
       </div>
     </div>
     
     <div class="content-area">
       <article class="post-content">
         <div class="post-header">
-          <h1>VSC4T Blog Deploy Guide</h1>
+          <h1>VSC4T Blog Deploy Guide | VSC4T博客部署指南</h1>
           <div class="post-meta">
             <span class="date">
               <i class="fas fa-calendar-alt"></i>
@@ -251,45 +251,111 @@
         </div>
         
         <div class="post-body vscode-markdown">
-          <h1 id="VSC4T-Deployment-Guide"><a href="#VSC4T-Deployment-Guide" class="headerlink" title="VSC4T Deployment Guide"></a>VSC4T Deployment Guide</h1><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Before deployment, ensure you have the required plugins installed:</p>
+          <h1 id="VSC4T-Deployment-Guide-VSC4T-部署指南"><a href="#VSC4T-Deployment-Guide-VSC4T-部署指南" class="headerlink" title="VSC4T Deployment Guide | VSC4T 部署指南"></a>VSC4T Deployment Guide | VSC4T 部署指南</h1><p>This article provides a complete deployment process for Hexo blogs using the VSC4T theme, helping you successfully publish your blog to the internet.</p>
+<p>本文提供使用VSC4T主题的Hexo博客完整部署流程，帮助你顺利将博客发布到互联网。</p>
+<h2 id="Prerequisites-前置准备"><a href="#Prerequisites-前置准备" class="headerlink" title="Prerequisites | 前置准备"></a>Prerequisites | 前置准备</h2><p>Before starting deployment, please ensure:</p>
+<p>在开始部署前，请确保：</p>
+<ol>
+<li>You have completed the basic configuration of your Hexo blog<br>已完成Hexo博客基本配置</li>
+<li>You have correctly installed and configured the VSC4T theme<br>已正确安装并配置VSC4T主题</li>
+<li>You have installed the necessary deployment plugin:<br>已安装必要的部署插件：</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
 
-<h2 id="Deployment-Steps"><a href="#Deployment-Steps" class="headerlink" title="Deployment Steps"></a>Deployment Steps</h2><ol>
-<li>Clean cache files:</li>
+<h2 id="Essential-Configuration-必要的配置"><a href="#Essential-Configuration-必要的配置" class="headerlink" title="Essential Configuration | 必要的配置"></a>Essential Configuration | 必要的配置</h2><h3 id="Enable-Relative-Links-启用相对链接"><a href="#Enable-Relative-Links-启用相对链接" class="headerlink" title="Enable Relative Links | 启用相对链接"></a>Enable Relative Links | 启用相对链接</h3><p>To ensure the theme deploys correctly, set the following in your Hexo site’s <code>_config.yml</code>:</p>
+<p>为了确保主题正确部署，在Hexo站点的<code>_config.yml</code>中设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">relative_link:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>Without enabling relative links, the theme may not work properly.</p>
+<p>如不启用相对链接，主题可能无法正常工作。</p>
+<h3 id="Create-Required-Pages-确保创建必要页面"><a href="#Create-Required-Pages-确保创建必要页面" class="headerlink" title="Create Required Pages | 确保创建必要页面"></a>Create Required Pages | 确保创建必要页面</h3><p>The VSC4T theme requires the following pages. Please make sure they are created:</p>
+<p>VSC4T主题需要以下页面，请确保已创建：</p>
+<ol>
+<li>Categories page | 分类页面：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories<br></code></pre></td></tr></table></figure>
+<p>Then edit <code>source/categories/index.md</code> and add:<br>然后编辑<code>source/categories/index.md</code>并添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">categories</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">categories</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Tags page | 标签页面：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page tags<br></code></pre></td></tr></table></figure>
+<p>Then edit <code>source/tags/index.md</code> and add:<br>然后编辑<code>source/tags/index.md</code>并添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">tags</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">tags</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>About page | 关于页面：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+<p>And add your personal information to <code>source/about/index.md</code><br>并在<code>source/about/index.md</code>中添加个人信息</p>
+<ol start="4">
+<li>Search page | 搜索页面：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page search<br></code></pre></td></tr></table></figure>
+<p>Then edit <code>source/search/index.md</code> and add:<br>然后编辑<code>source/search/index.md</code>并添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">search</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">search</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Deployment-Configuration-部署配置"><a href="#Deployment-Configuration-部署配置" class="headerlink" title="Deployment Configuration | 部署配置"></a>Deployment Configuration | 部署配置</h2><p>Configure deployment information in your site’s <code>_config.yml</code>:</p>
+<p>在站点的<code>_config.yml</code>中配置部署信息：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/yourusername/your-repo-name.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">gh-pages</span>  <span class="hljs-comment"># or master, main</span><br>  <span class="hljs-attr">token:</span> <span class="hljs-string">Gh_token</span><br></code></pre></td></tr></table></figure>
+
+<p>For GitHub Pages personal sites (username.github.io), use:</p>
+<p>对于GitHub Pages个人站点（username.github.io），使用：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/yourusername/yourusername.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span>  <span class="hljs-comment"># or main</span><br>  <span class="hljs-attr">token:</span> <span class="hljs-string">Gh_token</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="URL-and-Root-Directory-Configuration-URL和根目录配置"><a href="#URL-and-Root-Directory-Configuration-URL和根目录配置" class="headerlink" title="URL and Root Directory Configuration | URL和根目录配置"></a>URL and Root Directory Configuration | URL和根目录配置</h2><p>Ensure the URL and root directory are correctly set in your site’s <code>_config.yml</code>:</p>
+<p>确保在站点的<code>_config.yml</code>中正确设置URL和根目录：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># For project sites | 对于项目站点</span><br><span class="hljs-attr">url:</span> <span class="hljs-string">https://yourusername.github.io/your-repo-name</span><br><span class="hljs-attr">root:</span> <span class="hljs-string">/your-repo-name/</span><br><br><span class="hljs-comment"># For personal sites | 对于个人站点</span><br><span class="hljs-attr">url:</span> <span class="hljs-string">https://yourusername.github.io</span><br><span class="hljs-attr">root:</span> <span class="hljs-string">/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Deployment-Steps-部署步骤"><a href="#Deployment-Steps-部署步骤" class="headerlink" title="Deployment Steps | 部署步骤"></a>Deployment Steps | 部署步骤</h2><ol>
+<li>Clean cache files | 清理缓存文件：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>Generate static files:</li>
+<li>Generate static files | 生成静态文件：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
+<p>Or use the shorthand | 或简写为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br></code></pre></td></tr></table></figure>
 
 <ol start="3">
-<li>Deploy to remote repository:</li>
+<li>Deploy to remote repository | 部署到远程仓库：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo deploy<br></code></pre></td></tr></table></figure>
+<p>Or use the shorthand | 或简写为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure>
 
-<p>Or use the shorthand command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy<br></code></pre></td></tr></table></figure>
-<p>Or</p>
+<p>The most commonly used combined command is | 最常用的组合命令是：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
 
-<h2 id="Common-Issues"><a href="#Common-Issues" class="headerlink" title="Common Issues"></a>Common Issues</h2><h3 id="ERROR-Deployer-not-found-git"><a href="#ERROR-Deployer-not-found-git" class="headerlink" title="ERROR Deployer not found: git"></a>ERROR Deployer not found: git</h3><p>If you encounter <code>ERROR Deployer not found: git</code>, install the git deployer plugin:</p>
+<h2 id="Troubleshooting-Common-Issues-常见问题解决"><a href="#Troubleshooting-Common-Issues-常见问题解决" class="headerlink" title="Troubleshooting Common Issues | 常见问题解决"></a>Troubleshooting Common Issues | 常见问题解决</h2><h3 id="ERROR-Deployer-not-found-git-错误：Deployer-not-found-git"><a href="#ERROR-Deployer-not-found-git-错误：Deployer-not-found-git" class="headerlink" title="ERROR Deployer not found: git | 错误：Deployer not found: git"></a>ERROR Deployer not found: git | 错误：Deployer not found: git</h3><p>If you encounter the error <code>ERROR Deployer not found: git</code>, please install the git deployment plugin:</p>
+<p>如果遇到<code>ERROR Deployer not found: git</code>错误，请安装git部署插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
 
-<h3 id="Path-Configuration"><a href="#Path-Configuration" class="headerlink" title="Path Configuration"></a>Path Configuration</h3><p>Ensure correct URL and root directory in <code>_config.yml</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">https://yourusername.github.io/your-repo-name</span><br><span class="hljs-attr">root:</span> <span class="hljs-string">/your-repo-name/</span><br></code></pre></td></tr></table></figure>
-
-<p>For user sites (username.github.io), set root to <code>/</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">https://yourusername.github.io</span><br><span class="hljs-attr">root:</span> <span class="hljs-string">/</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="Resource-Path-Issues"><a href="#Resource-Path-Issues" class="headerlink" title="Resource Path Issues"></a>Resource Path Issues</h3><p>If resource paths are incorrect, check:</p>
+<h3 id="Resource-Path-Issues-资源路径问题"><a href="#Resource-Path-Issues-资源路径问题" class="headerlink" title="Resource Path Issues | 资源路径问题"></a>Resource Path Issues | 资源路径问题</h3><p>If resources (images, CSS, JS, etc.) cannot load properly:</p>
+<p>如果资源（图片、CSS、JS等）无法正常加载：</p>
 <ol>
-<li>Correct <code>relative_link</code> setting in <code>_config.yml</code></li>
-<li>Use <code>url_for()</code> helper in theme templates</li>
-<li>Use forward slashes <code>/</code> instead of backslashes <code>\</code></li>
+<li>Check the <code>relative_link</code> setting in <code>_config.yml</code><br>检查<code>_config.yml</code>中的<code>relative_link</code>设置</li>
+<li>Use forward slashes <code>/</code> instead of backslashes <code>\</code> as path separators<br>使用正斜杠<code>/</code>而非反斜杠<code>\</code>作为路径分隔符</li>
+<li>Check if the root directory <code>root</code> configuration in <code>_config.yml</code> is correct<br>检查<code>_config.yml</code>中的根目录<code>root</code>配置是否正确</li>
 </ol>
-<h2 id="Security-Notes"><a href="#Security-Notes" class="headerlink" title="Security Notes"></a>Security Notes</h2><p><strong>Important:</strong> Never include sensitive keys or tokens in public config files. Use environment variables or GitHub Actions secrets.</p>
+<h3 id="Blank-Page-After-Deployment-部署后页面空白"><a href="#Blank-Page-After-Deployment-部署后页面空白" class="headerlink" title="Blank Page After Deployment | 部署后页面空白"></a>Blank Page After Deployment | 部署后页面空白</h3><ol>
+<li>Check if there are 404 errors in the browser console<br>检查浏览器控制台是否有404错误</li>
+<li>Check the URL and root directory configuration in <code>_config.yml</code><br>检查<code>_config.yml</code>中的URL和根目录配置</li>
+<li>Try cleaning the cache and regenerating and redeploying<br>尝试清理缓存后重新生成和部署</li>
+</ol>
+<h2 id="Security-Notes-安全注意事项"><a href="#Security-Notes-安全注意事项" class="headerlink" title="Security Notes | 安全注意事项"></a>Security Notes | 安全注意事项</h2><p><strong>Important:</strong> Never include sensitive keys or tokens in public configuration files. Use environment variables or GitHub Actions secrets for managing sensitive information.</p>
+<p><strong>重要：</strong> 切勿在公开的配置文件中包含敏感密钥或令牌。使用环境变量或GitHub Actions密钥进行敏感信息的管理。</p>
+<p>For situations requiring tokens for deployment, it is recommended to:</p>
+<p>对于需要使用令牌进行部署的情况，建议：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/yourusername/your-repo-name.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">gh-pages</span><br>  <span class="hljs-attr">token:</span> <span class="hljs-string">GH_TOKEN</span><br></code></pre></td></tr></table></figure>
+
+<p>Where <code>GH_TOKEN</code> is a GitHub personal access token </p>
+<p>其中<code>GH_TOKEN</code>是GitHub个人访问令牌。</p>
+<h2 id="Conclusion-结语"><a href="#Conclusion-结语" class="headerlink" title="Conclusion | 结语"></a>Conclusion | 结语</h2><p>Properly configuring and deploying your Hexo blog with the VSC4T theme will give you an elegant, responsive blog experience. For more questions, please refer to the <a target="_blank" rel="noopener" href="https://github.com/B143KC47/VSC4T">GitHub repository</a> or submit an issue.</p>
+<p>正确配置和部署VSC4T主题的Hexo博客，可以获得优雅、响应式的博客体验。如有更多疑问，请参考<a target="_blank" rel="noopener" href="https://github.com/B143KC47/VSC4T">GitHub仓库</a>或提交issue。</p>
 
         </div>
         
@@ -298,12 +364,12 @@
           
             <a class="prev" href="../../../../2025/04/08/Overview%20On%20post%20content/">
               <i class="fas fa-chevron-left"></i>
-              A overview on VSC4T theme Markdown element
+              Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览
             </a>
           
           
             <a class="next" href="../VSC4T/">
-              VSC4T - A Dark and Elegant Hexo Theme
+              VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题
               <i class="fas fa-chevron-right"></i>
             </a>
           
@@ -326,7 +392,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-04-14
+      2025-04-19
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
