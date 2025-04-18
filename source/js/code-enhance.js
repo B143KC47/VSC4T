@@ -90,8 +90,8 @@ function enhanceCodeBlocks() {
         const gutterLines = gutter ? Array.from(gutter.querySelectorAll('.line')).map(line => line.textContent) : [];
         
         // 获取代码内容
-        const code = table.querySelector('.code pre code');
-        const codeContent = code ? code.innerHTML : '';
+        const code = table.querySelector('.code pre');
+        const codeContent = code ? Array.from(code.querySelectorAll('.line')).map(line => line.textContent).join('\n') : '';
         
         // 创建外部容器来包裹标题栏和代码块
         const container = document.createElement('div');
@@ -145,8 +145,10 @@ function enhanceCodeBlocks() {
         
         // 创建代码内容区域 - 修改这部分，使用正确的结构
         const codePre = document.createElement('pre');
+        const codeElement = document.createElement('code');
+        codePre.appendChild(codeElement);
         codePre.className = `code-content hljs ${language}`;
-        codePre.innerHTML = codeContent;
+        codeElement.innerHTML = codeContent;
           // 创建包含两个pre的容器
         const codeBlockWrapper = document.createElement('div');
         codeBlockWrapper.className = 'code-pre-wrapper';
