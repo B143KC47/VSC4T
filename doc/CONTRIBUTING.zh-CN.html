@@ -1,0 +1,142 @@
+<h1 id="VSC4T-贡献指南"><a href="#VSC4T-贡献指南" class="headerlink" title="VSC4T 贡献指南"></a>VSC4T 贡献指南</h1><p>首先，感谢您花时间参与贡献！🎉👍</p>
+<p>以下是为 VSC4T（一个深色且优雅的 Hexo 主题）贡献代码的指南。这些主要是建议而非规则。请使用您的最佳判断，并随时通过 Pull Request 提出对本文档的修改建议。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%87%86%E5%88%99">行为准则</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE">如何贡献？</a><ul>
+<li><a href="#%E6%8A%A5%E5%91%8A%E9%97%AE%E9%A2%98">报告问题</a></li>
+<li><a href="#%E6%8F%90%E5%87%BA%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE">提出改进建议</a></li>
+<li><a href="#%E6%82%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BB%A3%E7%A0%81%E8%B4%A1%E7%8C%AE">您的第一次代码贡献</a></li>
+<li><a href="#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B">开发流程</a><ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">设置开发环境</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">文件结构</a></li>
+<li><a href="#%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97">风格指南</a></li>
+</ul>
+</li>
+<li><a href="#%E9%99%84%E5%8A%A0%E8%AF%B4%E6%98%8E">附加说明</a><ul>
+<li><a href="#%E9%97%AE%E9%A2%98%E6%A0%87%E7%AD%BE">问题标签</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="行为准则"><a href="#行为准则" class="headerlink" title="行为准则"></a>行为准则</h2><p>本项目和参与其中的每个人都受 VSC4T 行为准则的约束。通过参与，您应当遵守此准则。请向项目维护者报告任何不可接受的行为。</p>
+<h2 id="如何贡献"><a href="#如何贡献" class="headerlink" title="如何贡献"></a>如何贡献</h2><h3 id="报告问题"><a href="#报告问题" class="headerlink" title="报告问题"></a>报告问题</h3><p>本节指导您提交 VSC4T 的错误报告。遵循这些指南有助于维护者和社区理解您的报告，复现问题行为，并找到相关报告。</p>
+<p>在创建错误报告之前，请检查现有问题以查看是否已报告该问题。创建错误报告时，请尽可能包含更多细节：</p>
+<ul>
+<li><strong>使用清晰描述性的标题</strong>来标识问题。</li>
+<li><strong>详细描述重现问题的确切步骤</strong>。</li>
+<li><strong>提供具体示例</strong>来演示这些步骤。</li>
+<li><strong>描述按照步骤后观察到的行为</strong>，并指出该行为有什么问题。</li>
+<li><strong>解释您期望看到的行为</strong>以及原因。</li>
+<li><strong>包含截图和动画 GIF</strong>，显示您按照所述步骤操作并清晰地展示问题。</li>
+<li><strong>如果问题与性能或内存相关</strong>，请在报告中包含 CPU 配置文件捕获和内存堆快照。</li>
+<li><strong>包含有关您的配置和环境的详细信息</strong>：<ul>
+<li>您使用的 Hexo 版本是什么？</li>
+<li>您使用的操作系统名称和版本是什么？</li>
+<li>您使用的浏览器是什么？</li>
+</ul>
+</li>
+</ul>
+<h3 id="提出改进建议"><a href="#提出改进建议" class="headerlink" title="提出改进建议"></a>提出改进建议</h3><p>本节指导您提交 VSC4T 的增强建议，包括全新功能和对现有功能的小改进。</p>
+<p>在创建增强建议之前，请检查现有问题以查看是否已提出该增强。创建增强建议时，请尽可能包含更多细节：</p>
+<ul>
+<li><strong>使用清晰描述性的标题</strong>来标识建议。</li>
+<li><strong>提供建议增强的详细分步说明</strong>。</li>
+<li><strong>提供具体示例来演示步骤</strong>或为建议的增强提供明确的用例。</li>
+<li><strong>描述当前行为</strong>并<strong>解释您期望看到的行为</strong>以及原因。</li>
+<li><strong>解释为什么这种增强对大多数 VSC4T 用户有用</strong>。</li>
+<li><strong>如果可能，列出一些具有此增强功能的其他主题或应用程序</strong>。</li>
+</ul>
+<h3 id="您的第一次代码贡献"><a href="#您的第一次代码贡献" class="headerlink" title="您的第一次代码贡献"></a>您的第一次代码贡献</h3><p>不确定从哪里开始为 VSC4T 做贡献？您可以通过查看 <code>beginner</code> 和 <code>help-wanted</code> 标签的问题开始：</p>
+<ul>
+<li><strong>初学者问题</strong> - 只需要几行代码和一两个测试的问题。</li>
+<li><strong>需要帮助的问题</strong> - 比初学者问题更复杂的问题。</li>
+</ul>
+<h3 id="Pull-Requests"><a href="#Pull-Requests" class="headerlink" title="Pull Requests"></a>Pull Requests</h3><ul>
+<li>填写必要的模板</li>
+<li>不要在 PR 标题中包含问题编号</li>
+<li>尽可能在 Pull Request 中包含截图和动画 GIF</li>
+<li>遵循风格指南</li>
+<li>确保所有文件以换行符结尾</li>
+<li>避免平台相关的代码</li>
+</ul>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><h3 id="设置开发环境"><a href="#设置开发环境" class="headerlink" title="设置开发环境"></a>设置开发环境</h3><ol>
+<li>在 GitHub 上 Fork 仓库</li>
+<li>在本地克隆您的 Fork</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/您的用户名/VSC4T.git
+cd VSC4T
+</code></pre>
+<ol start="3">
+<li>添加原始仓库作为远程源以保持更新：</li>
+</ol>
+<pre><code class="language-bash">git remote add upstream https://github.com/B143KC47/VSC4T.git
+</code></pre>
+<ol start="4">
+<li>设置测试 Hexo 站点来测试您的更改：</li>
+</ol>
+<pre><code class="language-bash"># 在单独的目录中
+hexo init test-site
+cd test-site
+</code></pre>
+<ol start="5">
+<li>将您的主题链接到测试站点：</li>
+</ol>
+<pre><code class="language-bash"># 删除默认主题
+rm -rf themes/landscape
+# 创建到您的主题的符号链接
+ln -s /path/to/your/VSC4T themes/VSC4T
+</code></pre>
+<ol start="6">
+<li>通过编辑 <code>_config.yml</code> 配置测试站点使用您的主题：</li>
+</ol>
+<pre><code class="language-yaml">theme: VSC4T
+</code></pre>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>主题结构如下：</p>
+<ul>
+<li><code>_config.yml</code> - 主题配置文件</li>
+<li><code>languages/</code> - 国际化文件</li>
+<li><code>layout/</code> - EJS 格式的主题模板文件</li>
+<li><code>scripts/</code> - Hexo 脚本文件</li>
+<li><code>source/</code> - 主题资源（CSS、JavaScript、图像等）<ul>
+<li><code>css/</code> - 样式表</li>
+<li><code>js/</code> - JavaScript 文件</li>
+<li><code>image/</code> - 图像文件</li>
+<li><code>doc/</code> - 文档文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="风格指南"><a href="#风格指南" class="headerlink" title="风格指南"></a>风格指南</h3><h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><ul>
+<li>适当使用 ES6 功能</li>
+<li>使用分号</li>
+<li>2 个空格缩进</li>
+<li>优先使用单引号而非双引号</li>
+<li>遵循 <a href="https://github.com/airbnb/javascript">Airbnb JavaScript 风格指南</a></li>
+</ul>
+<h4 id="CSS-SCSS"><a href="#CSS-SCSS" class="headerlink" title="CSS&#x2F;SCSS"></a>CSS&#x2F;SCSS</h4><ul>
+<li>尽可能使用 SCSS</li>
+<li>2 个空格缩进</li>
+<li>每行写一个属性</li>
+<li>使用连字符命名法（如 <code>.my-class-name</code>）</li>
+<li>遵循 <a href="https://github.com/airbnb/css">Airbnb CSS&#x2F;SASS 风格指南</a></li>
+</ul>
+<h4 id="EJS-模板"><a href="#EJS-模板" class="headerlink" title="EJS 模板"></a>EJS 模板</h4><ul>
+<li>2 个空格缩进</li>
+<li>将模板中的逻辑保持在最低限度</li>
+<li>对部分使用一致的命名约定</li>
+</ul>
+<h2 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h2><h3 id="问题标签"><a href="#问题标签" class="headerlink" title="问题标签"></a>问题标签</h3><p>本项目使用以下标签跟踪问题：</p>
+<ul>
+<li><code>bug</code> - 有些功能不正常</li>
+<li><code>documentation</code> - 对文档的改进或补充</li>
+<li><code>duplicate</code> - 此问题或 pull request 已存在</li>
+<li><code>enhancement</code> - 新功能或请求</li>
+<li><code>good first issue</code> - 适合新手</li>
+<li><code>help wanted</code> - 需要额外关注</li>
+<li><code>invalid</code> - 看起来不对</li>
+<li><code>question</code> - 需要进一步信息</li>
+<li><code>wontfix</code> - 不会处理此问题</li>
+</ul>
+<hr>
+<p>感谢您为 VSC4T 做出贡献！🎉</p>

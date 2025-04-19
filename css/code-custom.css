@@ -30,8 +30,8 @@ code-custom.css：负责
 /* 复制按钮统一样式 */
 .copy-btn, 
 .copy-button {
-  width: 32px;
-  height: 32px;
+  width:  26px;
+  height: 26px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -43,8 +43,8 @@ code-custom.css：负责
   cursor: pointer;
   transition: all 0.2s ease;
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 4px;
+  right: 4px;
   opacity: 0;
   z-index: 5;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);

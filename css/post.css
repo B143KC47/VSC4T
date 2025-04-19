@@ -1,7 +1,9 @@
 .vscode-markdown {
   color: var(--vscode-text);
-  line-height: 1.6;
-  font-size: 16px;
+  line-height: 1.65;  /* 优化行高，提高行间距，增加可读性 */
+  font-size: 16px;    /* 调整为更舒适的阅读大小 */
+  letter-spacing: 0.01em; /* 微调字母间距，提高可读性 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; /* 使用系统UI字体，提高可读性 */
 }
 
 .vscode-markdown h1,
@@ -12,9 +14,37 @@
 .vscode-markdown h6 {
   color: #fff;
   font-weight: 600;
-  margin: 1.5em 0 1em;
+  margin: 1.8em 0 0.9em; /* 进一步优化标题前后间距，增加前置空间 */
   position: relative;
-  padding-left: 1.5em;
+  padding-left: 1.5em; /* 保持左内边距适中 */
+  line-height: 1.4; /* 标题行高略微紧凑，但保持清晰 */
+  letter-spacing: 0.01em; /* 微调标题字母间距 */
+}
+
+/* 为不同级别标题设置更小的字体大小 */
+.vscode-markdown h1 {
+  font-size: 1.8em; /* 原来一般为2em */
+}
+
+.vscode-markdown h2 {
+  font-size: 1.5em; /* 原来一般为1.75em */
+}
+
+.vscode-markdown h3 {
+  font-size: 1.3em; /* 原来一般为1.5em */
+}
+
+.vscode-markdown h4 {
+  font-size: 1.1em; /* 原来一般为1.25em */
+}
+
+.vscode-markdown h5 {
+  font-size: 1em; /* 原来一般为1em */
+}
+
+.vscode-markdown h6 {
+  font-size: 0.9em; /* 原来一般为0.875em */
+  color: #d4d4d4; /* 稍微淡化最小标题 */
 }
 
 .vscode-markdown h1::before,
@@ -25,47 +55,76 @@
 .vscode-markdown h6::before {
   content: '#';
   position: absolute;
-  left: 0;
+  left: 0.4em; /* 微调位置使视觉平衡更好 */
   color: #569cd6;
   font-weight: bold;
+  font-size: 0.95em; /* 调整大小使其与文本更协调 */
+  opacity: 0.75; /* 进一步降低不透明度，减少视觉干扰 */
+  transform: translateY(0.05em); /* 微调垂直位置，与标题文本更加对齐 */
 }
 
 .vscode-markdown p {
-  margin: 1em 0;
+  margin: 1em 0 1.2em; /* 增加段落间的垂直空间，特别是底部空间 */
+  max-width: 70ch; /* 限制理想的行宽，大约为70个字符宽度，提高可读性 */
 }
 
 .vscode-markdown a {
   color: #569cd6;
   text-decoration: none;
-  border-bottom: 1px dashed #569cd6;
+  border-bottom: 1px solid rgba(86, 156, 214, 0.4);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .vscode-markdown a:hover {
-  border-bottom-style: solid;
+  color: #78b8ff;
+  border-bottom-color: #78b8ff;
+  background: rgba(86, 156, 214, 0.08);
 }
 
 .vscode-markdown blockquote {
   border-left: 4px solid #569cd6;
-  margin: 1em 0;
-  padding: 0.5em 1em;
-  background: var(--vscode-active);
-  color: #d4d4d4;
+  margin: 1.5em 0 1.7em;
+  padding: 0.8em 1.2em;
+  background: rgba(86, 156, 214, 0.07); /* 使用半透明的主题色作为背景 */
+  color: #e0e0e0; /* 略微提亮引用文字颜色 */
+  border-radius: 0 4px 4px 0; /* 添加右侧圆角 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 添加微妙阴影 */
+  font-style: italic; /* 斜体强调引用文本 */
 }
 
 .vscode-markdown ul,
 .vscode-markdown ol {
-  padding-left: 2em;
-  margin: 1em 0;
+  padding-left: 2.2em;
+  margin: 1.2em 0 1.4em;
 }
 
 .vscode-markdown li {
-  margin: 0.5em 0;
+  margin: 0.4em 0 0.6em;
+  padding-left: 0.3em;
+  position: relative;
+}
+
+/* 优化列表项的视觉效果 */
+.vscode-markdown ul li::marker {
+  color: #569cd6; /* 使列表符号带有主题色 */
+  opacity: 0.8;
 }
 
 .vscode-markdown img {
   max-width: 100%;
   border: 1px solid var(--vscode-border);
-  border-radius: 4px;
+  border-radius: 6px;
+  margin: 1.5em auto;
+  display: block;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.vscode-markdown img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 /* 文章导航样式 */
@@ -148,16 +207,20 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .categories-list li,
 .tags-list li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  margin-right: 5px;
 }
 
 .category-item-post a,
 .tag-item-post a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   color: var(--vscode-text);
   padding: 0.3rem 0.5rem;
@@ -176,18 +239,19 @@
 .post-meta {
   margin-bottom: 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;  /* 修改为横向排列 */
+  flex-wrap: wrap;      /* 添加换行，确保在小屏幕上也能正常显示 */
+  gap: 1rem;            /* 增加间距，使横向排列时更美观 */
 }
 
 .post-meta > span {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .post-meta i {
   margin-right: 0.5rem;
-  margin-top: 0.2rem;
+  margin-top: 0;        /* 移除顶部边距，因为现在是居中对齐 */
 }
 
 .post-meta .categories i {
