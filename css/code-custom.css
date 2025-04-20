@@ -115,7 +115,7 @@ pre:not(.line-numbers-pre):not(.code-content) {
 }
 
 /* 添加代码类型标记到普通代码块 */
-pre:not(.line-numbers-pre):not(.code-content)::before {
+pre:not(.line-numbers-pre):not(.code-content):not(.mermaid.enhanced)::before {
   content: "code";
   position: absolute;
   top: 0;
@@ -127,6 +127,32 @@ pre:not(.line-numbers-pre):not(.code-content)::before {
   border-bottom-left-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
+}
+
+/* Enhanced Mermaid block label */
+pre.mermaid.enhanced::before {
+  content: "mermaid";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #2c2c2c, #3a3a3a);
+  color: #a0a0a0;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', 'Segoe UI', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+pre.mermaid.enhanced:hover::before {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #3a3a3a, #2c2c2c);
+  color: #b8b8b8;
 }
 
 /* 滚动指示效果 */

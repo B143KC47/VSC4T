@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化mermaid
+    if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            fontFamily: 'JetBrains Mono, Consolas, Monaco, monospace'
+        });
+    }
+    
     // 增强代码块功能（已包含添加复制按钮）
     enhanceCodeBlocks();
     
@@ -13,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 美化普通代码块
     enhancePlainCodeBlocks();
+
+    // 渲染mermaid图表
+    renderMermaidDiagrams();
+    
 });
 
 // 美化普通代码块
@@ -292,4 +306,128 @@ function addScrollIndicators() {
             }
         });
     });
+}
+// 渲染mermaid图表
+function renderMermaidDiagrams() {
+    // 检查mermaid是否可用
+    if (typeof mermaid === 'undefined') {
+        console.warn('Mermaid library not loaded');
+        return;
+    }
+    
+    // 查找所有mermaid代码块
+    const mermaidBlocks = document.querySelectorAll('pre.mermaid');
+    
+    if (mermaidBlocks.length === 0) {
+        return; // 没有找到mermaid代码块
+    }
+    
+    // 处理每个mermaid代码块
+    mermaidBlocks.forEach((codeBlock, index) => {
+        // 获取父元素
+        const preElement = codeBlock.previousElementSibling;
+        if (!preElement) return;
+        
+        // 避免重复处理
+        if (preElement.classList.contains('mermaid-processed')) return;
+        
+        // 获取mermaid代码
+        const mermaidCode = codeBlock.textContent;
+        if (!mermaidCode.trim()) return;
+        
+        // 创建新的div用于渲染mermaid图表
+        const mermaidContainer = document.createElement('div');
+        mermaidContainer.className = 'mermaid-diagram';
+        mermaidContainer.style.textAlign = 'center';
+        mermaidContainer.style.margin = '20px 0';
+        mermaidContainer.style.cursor = 'pointer';
+        
+        // 创建唯一ID
+        const mermaidId = `mermaid-diagram-${index}`;
+        mermaidContainer.id = mermaidId;
+        
+        // 将mermaid代码放入容器
+        mermaidContainer.textContent = mermaidCode;
+        
+        const parentElement = preElement.parentElement;
+        if (parentElement) {
+            // 渲染mermaid图表
+            try {
+                mermaid.render(mermaidId, mermaidCode).then(result => {
+                    codeBlock.innerHTML = '';
+                    mermaidContainer.innerHTML = result.svg;
+                    codeBlock.appendChild(mermaidContainer);
+                    // 添加放大功能
+                    mermaidContainer.addEventListener('click', function() {
+                        enlargeDiagram(this);
+                    });
+                }).catch(error => {
+                console.error('Mermaid rendering error:', error);
+                // 恢复原始代码块
+                mermaidContainer.innerHTML = `<pre><code class="mermaid">${mermaidCode}</code></pre>`;
+                mermaidContainer.classList.add('mermaid-error');
+                });
+            } catch (error) {
+                console.error('Mermaid rendering error:', error);
+                // 恢复原始代码块
+                mermaidContainer.innerHTML = `<pre><code class="mermaid">${mermaidCode}</code></pre>`;
+                mermaidContainer.classList.add('mermaid-error');
+            }
+        }
+        
+        // 标记为已处理
+        preElement.classList.add('mermaid-processed');
+    });
+}
+
+// 放大图表的函数
+function enlargeDiagram(diagramElement) {
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = '1000';
+
+    const enlargedDiagram = diagramElement.cloneNode(true);
+    enlargedDiagram.style.width = 'auto';
+    enlargedDiagram.style.height = 'auto';
+    enlargedDiagram.style.objectFit = 'contain';
+    enlargedDiagram.style.transition = 'all 0.3s ease';
+    enlargedDiagram.style.cursor = 'zoom-out';
+
+    modal.appendChild(enlargedDiagram);
+
+    // Function to adjust the size of the diagram
+    const adjustSize = () => {
+        const aspectRatio = enlargedDiagram.offsetWidth / enlargedDiagram.offsetHeight;
+        const windowRatio = window.innerWidth / window.innerHeight;
+
+        // console.log(, enlargedDiagram.firstChild.style.maxHeight);
+        console.log(enlargedDiagram.firstChild.style.maxWidth);
+
+        if (enlargedDiagram.firstChild.style.maxWidth) {
+            enlargedDiagram.firstChild.style.width = '95vw';
+            enlargedDiagram.firstChild.style.height = 'auto';
+        } else {
+            enlargedDiagram.firstChild.style.width = 'auto';
+            enlargedDiagram.firstChild.style.height = '95vh';
+        }
+    };
+
+    // Adjust size initially and on window resize
+    adjustSize();
+    window.addEventListener('resize', adjustSize);
+
+    modal.addEventListener('click', function() {
+        document.body.removeChild(modal);
+        window.removeEventListener('resize', adjustSize);
+    });
+
+    document.body.appendChild(modal);
 }

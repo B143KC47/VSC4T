@@ -1,0 +1,76 @@
+/* Mermaid Diagram Styling */
+.mermaid-diagram {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+
+/* Dark theme styling for mermaid diagrams */
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure text is readable in dark theme */
+.mermaid-diagram text {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  fill: #d4d4d4 !important;
+}
+
+/* Style for diagram nodes */
+.mermaid-diagram .node rect,
+.mermaid-diagram .node circle,
+.mermaid-diagram .node ellipse,
+.mermaid-diagram .node polygon,
+.mermaid-diagram .node path {
+  fill: #2d2d2d !important;
+  stroke: #569cd6 !important;
+}
+
+/* Style for diagram edges */
+.mermaid-diagram .edgePath .path {
+  stroke: #608b4e !important;
+  stroke-width: 2px;
+}
+
+/* Style for arrowheads */
+.mermaid-diagram .arrowheadPath {
+  fill: #608b4e !important;
+}
+
+/* Style for labels */
+.mermaid-diagram .edgeLabel {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+}
+
+/* Style for clusters */
+.mermaid-diagram .cluster rect {
+  fill: #252526 !important;
+  stroke: #569cd6 !important;
+}
+
+/* Error state styling */
+.mermaid-error {
+  border: 1px solid #f14c4c;
+  background-color: #2d2d2d;
+  padding: 10px;
+}
+
+.mermaid-error pre {
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mermaid-diagram {
+    padding: 10px;
+  }
+  
+  .mermaid-diagram svg {
+    max-width: 100%;
+  }
+}
