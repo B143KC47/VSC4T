@@ -28,9 +28,17 @@
 <div align="center">
   <img src="../image/VSC4T2.png" alt="演示截图" width="800">
 </div>
-## 📋 目录
 
-<ul>
+<h2 id="🎥-演示视频"><a href="#🎥-演示视频" class="headerlink" title="🎥 演示视频"></a>🎥 演示视频</h2><div align="center">
+  <a href="https://www.youtube.com/watch?v=CmDWGq5nPT4">
+    <img src="https://www.youtube.com/watch?v=CmDWGq5nPT4/maxresdefault.jpg" alt="VSCat 主题安装演示视频" width="600">
+  </a>
+  <p><em>点击观看 VSCat 主题安装演示视频</em></p>
+</div>
+
+
+
+<h2 id="📋-目录"><a href="#📋-目录" class="headerlink" title="📋 目录"></a>📋 目录</h2><ul>
 <li><a href="#-%E7%89%B9%E6%80%A7">✨ 特性</a></li>
 <li><a href="#-%E6%98%9F%E6%A0%87%E5%8E%86%E5%8F%B2">📊 星标历史</a></li>
 <li><a href="#-%E5%AE%89%E8%A3%85">🚀 安装</a></li>
@@ -54,6 +62,8 @@
 <li>📂 <strong>资源管理器风格侧边栏</strong> - 直观导航分类和标签</li>
 <li>🌐 <strong>多语言支持</strong> - 内置12种语言</li>
 <li>🧜🏻‍♀️ <strong>Mermaid图表支持</strong> - 集成支持Mermaid图表</li>
+<li>📌 <strong>文章置顶</strong> - 将重要文章固定在博客顶部</li>
+<li>🎨 <strong>自定义网站图标支持</strong> - 多格式网站图标配置</li>
 </ul>
 <h2 id="📊-星标历史"><a href="#📊-星标历史" class="headerlink" title="📊 星标历史"></a>📊 星标历史</h2><a href="https://star-history.com/#B143KC47/VSC4T">
   <picture>
@@ -202,6 +212,44 @@ categories: [网页设计, 主题]
 <ol start="2">
 <li>这将在 <code>source/_posts/your-post-title.md</code> 创建一个新的markdown文件</li>
 </ol>
+<h3 id="创建置顶文章"><a href="#创建置顶文章" class="headerlink" title="创建置顶文章"></a>创建置顶文章</h3><p>要使文章置顶在您的主页和归档页面：</p>
+<pre><code class="language-markdown">---
+title: 重要公告
+date: 2024-01-01 10:00:00
+sticky: true
+tags: [公告]
+categories: [新闻]
+---
+
+您的重要内容在这里...
+</code></pre>
+<p>置顶文章将：</p>
+<ul>
+<li>始终显示在文章列表顶部</li>
+<li>显示固定图标（📌）指示器</li>
+<li>在其他置顶文章中保持时间顺序</li>
+</ul>
+<h2 id="网站图标配置"><a href="#网站图标配置" class="headerlink" title="网站图标配置"></a>网站图标配置</h2><p>主题支持自定义网站图标配置，支持多种格式和尺寸以适配不同设备：</p>
+<ol>
+<li>将您的网站图标文件放在主题的 <code>source/</code> 目录中</li>
+<li>在主题的 <code>_config.yml</code> 中配置路径：</li>
+</ol>
+<pre><code class="language-yaml"># 网站图标配置
+favicon:
+  ico: /favicon.ico                    # 传统网站图标格式
+  small: /favicon-16x16.png           # 16x16 PNG
+  medium: /favicon-32x32.png          # 32x32 PNG
+  large: /favicon-192x192.png         # 192x192 PNG (Android)
+  apple_touch_icon: /apple-touch-icon.png  # 180x180 (iOS)
+</code></pre>
+<p>推荐的网站图标尺寸：</p>
+<ul>
+<li><code>favicon.ico</code>：多分辨率 ICO 文件</li>
+<li><code>favicon-16x16.png</code>：用于浏览器标签</li>
+<li><code>favicon-32x32.png</code>：用于浏览器快捷方式</li>
+<li><code>favicon-192x192.png</code>：用于 Android 设备</li>
+<li><code>apple-touch-icon.png</code>：180x180 用于 iOS 设备</li>
+</ul>
 <h2 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h2><p>本主题支持自定义CSS和JS。在主题配置中：</p>
 <pre><code class="language-yaml">custom_css:
   - /css/mobile.css

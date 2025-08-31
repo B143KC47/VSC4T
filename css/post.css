@@ -261,3 +261,42 @@
 .post-meta .tags i {
   color: #569cd6;
 }
+
+/* 置顶文章指示器样式 */
+.sticky-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--vscode-active);
+  border: 1px solid var(--vscode-border);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: #569cd6;
+  transition: all 0.2s ease;
+}
+
+.sticky-indicator i {
+  font-size: 0.75rem;
+  transform: rotate(45deg);
+  margin-right: 0;
+}
+
+.sticky-indicator:hover {
+  background: #2d2d30;
+  border-color: #569cd6;
+  box-shadow: 0 0 5px rgba(86, 156, 214, 0.3);
+}
+
+/* 在文章卡片中的置顶指示器 */
+.post-card .sticky-indicator {
+  vertical-align: middle;
+}
+
+/* 在归档页面中的置顶指示器 */
+.archive-posts .sticky-indicator,
+.timeline-post .sticky-indicator {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.3rem;
+  margin-left: 0.3rem;
+}

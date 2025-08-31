@@ -226,3 +226,119 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* VS Code风格推荐文章移动端优化 */
+@media (max-width: 768px) {
+  /* 推荐文章网格改为双列 */
+  .vs-recommended-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  /* 减小内边距 */
+  .vs-recommended-link {
+    padding: 0.75rem;
+  }
+  
+  /* 隐藏文章摘要，节省空间 */
+  .vs-recommended-excerpt {
+    display: none;
+  }
+  
+  /* 调整标题大小 */
+  .vs-recommended-title {
+    font-size: 0.875rem;
+  }
+  
+  
+  /* 元数据样式调整 */
+  .vs-recommended-meta {
+    font-size: 0.625rem;
+    gap: 0.25rem;
+  }
+  
+  .vs-series-badge {
+    font-size: 0.625rem;
+    padding: 0.1rem 0.375rem;
+  }
+  
+  .vs-tags-preview {
+    display: none; /* 移动端隐藏标签预览 */
+  }
+  
+  /* 时间信息调整 */
+  .vs-meta-info {
+    gap: 0.5rem;
+  }
+  
+  .vs-date i,
+  .vs-reading-time i {
+    display: none; /* 隐藏图标，只显示文字 */
+  }
+}
+
+/* 小屏幕设备（手机） */
+@media (max-width: 480px) {
+  /* 改为单列布局 */
+  .vs-recommended-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  /* 进一步调整内边距 */
+  .vs-recommended-posts {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+  
+  .vs-recommended-link {
+    padding: 0.5rem;
+  }
+  
+  /* 显示精简版摘要 */
+  .vs-recommended-excerpt {
+    display: block;
+    -webkit-line-clamp: 2;
+    font-size: 0.75rem;
+  }
+  
+  /* 标题样式 */
+  .vs-recommended-title {
+    font-size: 0.875rem;
+  }
+  
+  .vs-recommended-title i {
+    font-size: 0.75rem;
+  }
+  
+  
+  /* 查看更多按钮 */
+  .vs-view-more {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .vs-view-more i {
+    font-size: 0.625rem;
+  }
+  
+  /* 调整section header */
+  .vs-recommended-header .section-header {
+    font-size: 0.625rem;
+  }
+  
+  .vs-recommended-header .section-header i {
+    font-size: 0.75rem;
+  }
+  
+  /* 元数据只显示日期 */
+  .vs-series-badge,
+  .vs-reading-time {
+    display: none;
+  }
+  
+  /* 触摸优化 */
+  .vs-recommended-item {
+    min-height: 60px; /* 确保足够的触摸目标大小 */
+  }
+}
