@@ -169,6 +169,13 @@
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.post-title a:hover {
+  color: var(--vscode-accent-light);
+  transform: translateY(-1px);
+  text-shadow: 0 2px 8px rgba(55, 148, 255, 0.2);
 }
 
 .post-meta {
@@ -602,6 +609,13 @@ pre, pre code, .copy-button {
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.post-title a:hover {
+  color: var(--vscode-accent-light);
+  transform: translateY(-1px);
+  text-shadow: 0 2px 8px rgba(55, 148, 255, 0.2);
 }
 
 .post-meta {
