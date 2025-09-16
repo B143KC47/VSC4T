@@ -9,11 +9,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.3rem 0.75rem 0.3rem 0.75rem;
-  background: #252526;
-  border-bottom: 1px solid #404040;
+  background: var(--vscode-sidebar);
+  border-bottom: 1px solid var(--vscode-border);
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: #d4d4d4;
+  color: var(--vscode-text);
   line-height: 1.5;
   position: relative;
   height: 30px; /* 固定高度，更接近VSCode标签栏 */
@@ -28,7 +28,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #569cd6; /* VSCode蓝色 */
+  background: var(--vscode-link); /* VSCode蓝色 */
   opacity: 0.8;
 }
 
@@ -56,7 +56,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: #9d9d9d;
+  color: var(--vscode-text-light);
   cursor: pointer;
   transition: all 0.2s ease;
   padding: 0;
@@ -65,20 +65,20 @@
 
 /* 按钮悬停效果 */
 .code-header-button:hover {
-  background-color: #37373d;
-  color: #d4d4d4;
+  background-color: var(--vscode-active);
+  color: var(--vscode-text);
 }
 
 /* 按钮活动状态 */
 .code-header-button:active {
-  background-color: #094771;
-  color: #ffffff;
+  background-color: var(--vscode-highlight);
+  color: var(--vscode-text);
 }
 
 /* 复制成功状态 */
 .code-header-button:has(i.fa-check) {
-  background-color: #0078d4;
-  color: #ffffff;
+  background-color: var(--vscode-accent);
+  color: var(--vscode-bg);
 }
 
 /* 语言标签基本样式 - 类似VSCode文件标签 */
@@ -87,7 +87,7 @@
   align-items: center;
   font-family: 'JetBrains Mono', monospace, 'Segoe UI', sans-serif;
   font-size: 12px;
-  color: #d4d4d4;
+  color: var(--vscode-text);
   padding: 2px 6px;
   border-radius: 3px;
   transition: all 0.2s ease;
@@ -98,7 +98,7 @@
 
 /* 语言标签悬停效果 */
 .code-language:hover {
-  background-color: #37373d; /* VSCode悬停背景色 */
+  background-color: var(--vscode-active); /* VSCode悬停背景色 */
 }
 
 /* 语言标签图标基本样式 */

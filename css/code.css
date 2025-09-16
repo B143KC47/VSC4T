@@ -13,8 +13,8 @@
 /* 代码块容器 */
 figure.highlight {
   margin: 2em 0;
-  background: #2b2b2b;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  background: var(--vscode-code-container-bg);
+  box-shadow: 0 4px 16px var(--vscode-code-shadow);
   overflow: hidden;
   width: 100%;
   max-width: 100%;
@@ -25,9 +25,9 @@ figure.highlight {
 .line-numbers-pre {
   padding: 4px 6px; /* 减小垂直内边距与code-content保持一致 */
   margin: 0;
-  background: #252526;
-  border-right: 1px solid #404040;
-  color: #858585;
+  background: var(--vscode-code-line-number-bg);
+  border-right: 1px solid var(--vscode-code-border);
+  color: var(--vscode-code-line-number);
   user-select: none;
   text-align: right;
   min-width: auto; /* 移除最小宽度限制 */
@@ -65,8 +65,8 @@ figure.highlight {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
-  color: #d4d4d4;
-  background: #1e1e1e;
+  color: var(--vscode-text);
+  background: var(--vscode-bg);
   width: 0; /* 关键修改: 初始宽度为0，依靠flex-grow扩展 */
   min-width: 0; /* 确保可以收缩到容器大小 */
   box-sizing: border-box; /* 确保边框盒模型一致 */
@@ -93,9 +93,9 @@ figure.highlight {
 .code-pre-wrapper {
   display: flex;
   overflow: hidden;
-  background: #2b2b2b;
+  background: var(--vscode-code-container-bg);
   width: 100%;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 16px var(--vscode-code-shadow);
   /* align-items: stretch; /* 改为stretch让所有元素高度一致 */
   align-items: flex-start; /* 修改对齐方式 */
   min-height: 0; /* 确保能够正确计算高度 */

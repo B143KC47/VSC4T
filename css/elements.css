@@ -3,20 +3,6 @@
  * 保持与主题整体VSCode风格的一致性
  */
 
-/* 变量定义 - 与VSCode主题颜色保持一致 */
-:root {
-  --vscode-bg: #1e1e1e;
-  --vscode-bg-light: #252526;
-  --vscode-border: #404040;
-  --vscode-text: #d4d4d4;
-  --vscode-text-light: #a7a7a7;
-  --vscode-accent: #0e639c;
-  --vscode-accent-light: #3794ff;
-  --vscode-selection: rgba(38, 79, 120, 0.6);
-  --vscode-line-highlight: rgba(255, 255, 255, 0.04);
-  --vscode-shadow: rgba(0, 0, 0, 0.24);
-}
-
 /* ==================== 表格样式 ==================== */
 table {
   width: 100%;
@@ -73,7 +59,7 @@ tbody tr:hover {
 
 /* 斑马纹表格效果 */
 tbody tr:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.01);
+  background-color: var(--vscode-line-highlight);
 }
 
 /* 表格标题和说明 */
@@ -125,14 +111,14 @@ hr.decorated::after {
 /* ==================== 行内代码样式 ==================== */
 code {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
-  background-color: rgba(30, 30, 30, 0.6); /* 更深的背景色，接近VS Code */
-  color: #ce9178; /* 更准确的VS Code字符串颜色 */
+  background-color: var(--vscode-code-bg); /* 更深的背景色，接近VS Code */
+  color: var(--vscode-code-text); /* 更准确的VS Code字符串颜色 */
   padding: 0.2em 0.4em;
   margin: 0 0.2em;
   border-radius: 4px;
   font-size: 0.9em;
-  border: 1px solid rgba(97, 97, 97, 0.3);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* 轻微阴影增强立体感 */
+  border: 1px solid var(--vscode-border);
+  box-shadow: 0 1px 2px var(--vscode-shadow); /* 轻微阴影增强立体感 */
   letter-spacing: 0.05em; /* 字母间距略微调整 */
   font-feature-settings: "calt" 1; /* 连字特性，VS Code默认启用 */
 }

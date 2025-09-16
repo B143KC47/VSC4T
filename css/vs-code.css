@@ -1,11 +1,3 @@
-:root {
-  --vscode-bg: #1e1e1e;
-  --vscode-sidebar: #252526;
-  --vscode-text: #d4d4d4;
-  --vscode-active: #37373d;
-  --vscode-border: #474747;
-}
-
 .vscode-container {
   display: flex;
   min-height: 100vh;

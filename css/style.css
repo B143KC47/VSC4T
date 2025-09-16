@@ -1,7 +1,7 @@
 /* VS Code inspired header styles */
 .vs-header {
-  background-color: #1e1e1e;
-  border-bottom: 1px solid #2d2d2d;
+  background-color: var(--vscode-bg);
+  border-bottom: 1px solid var(--vscode-header-border);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   padding: 0;
@@ -32,8 +32,8 @@
   background: 
     repeating-linear-gradient(
       to right,
-      #2d2d2d 0px,
-      #2d2d2d 4px,
+      var(--vscode-header-border) 0px,
+      var(--vscode-header-border) 4px,
       transparent 4px,
       transparent 8px
     );
@@ -49,10 +49,10 @@
   height: 1px;
   background: linear-gradient(
     90deg,
-    #569cd6 0%,
-    #569cd6 var(--scroll-percent, 0%),
-    #2d2d2d var(--scroll-percent, 0%),
-    #2d2d2d 100%
+    var(--vscode-link) 0%,
+    var(--vscode-link) var(--scroll-percent, 0%),
+    var(--vscode-header-border) var(--scroll-percent, 0%),
+    var(--vscode-header-border) 100%
   );
 }
 
@@ -63,7 +63,7 @@
 }
 
 .nav-brand {
-  color: #d4d4d4;
+  color: var(--vscode-text);
   font-size: 1.2em;
   text-decoration: none;
   display: flex;
@@ -82,7 +82,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #569cd6;
+  background: var(--vscode-link);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -97,7 +97,7 @@
 }
 
 .nav-item {
-  color: #d4d4d4;
+  color: var(--vscode-text);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(45, 45, 45, 0.5) 50%,
+    var(--vscode-active) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -119,8 +119,8 @@
   border-radius: 3px 3px 0 0;
   background: linear-gradient(
     to bottom,
-    rgba(45, 45, 45, 0.3),
-    rgba(30, 30, 30, 0.5)
+    var(--vscode-active),
+    var(--vscode-bg-light)
   );
   border-bottom: none;
 }
@@ -135,7 +135,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    #569cd6,
+    var(--vscode-link),
     transparent
   );
   opacity: 0;
@@ -156,13 +156,13 @@
 .nav-item:hover {
   background-position: 0 0;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(86, 156, 214, 0.1);
+  box-shadow: 0 2px 8px var(--vscode-shadow);
   background: linear-gradient(
     to bottom,
-    rgba(45, 45, 45, 0.5),
-    rgba(35, 35, 35, 0.7)
+    var(--vscode-active),
+    var(--vscode-bg-light)
   );
-  border-color: #404040;
+  border-color: var(--vscode-border-light);
 }
 
 .nav-item:hover::before {
@@ -175,33 +175,33 @@
 }
 
 .nav-item.active {
-  background-color: rgba(45, 45, 45, 0.8);
+  background-color: var(--vscode-active);
   box-shadow: 
-    inset 0 0 0 1px rgba(86, 156, 214, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  background: #1e1e1e;
-  border-color: #404040;
-  border-bottom-color: #1e1e1e;
+    inset 0 0 0 1px var(--vscode-selection),
+    0 2px 4px var(--vscode-shadow);
+  background: var(--vscode-bg);
+  border-color: var(--vscode-border-light);
+  border-bottom-color: var(--vscode-bg);
 }
 
 .nav-item.active::before {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    #569cd6,
+    var(--vscode-link),
     rgba(86, 156, 214, 0.3)
   );
   opacity: 1;
-  background: #569cd6;
+  background: var(--vscode-link);
 }
 
 .nav-item.active::after {
-  background: #569cd6;
+  background: var(--vscode-link);
 }
 
 .nav-item i {
   font-size: 1em;
-  color: #569cd6;
+  color: var(--vscode-link);
   filter: drop-shadow(0 0 2px rgba(86, 156, 214, 0.2));
   transition: all 0.3s ease;
   margin-right: 6px;
@@ -210,7 +210,7 @@
 
 .nav-item span {
   position: relative;
-  color: #d4d4d4;
+  color: var(--vscode-text);
   font-size: 0.9em;
   letter-spacing: 0.5px;
 }
@@ -232,7 +232,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(
     90deg,
-    #569cd6,
+    var(--vscode-link),
     transparent
   );
 }
@@ -251,7 +251,7 @@
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%, transparent 40%,
-    #404040 40%, #404040 60%,
+    var(--vscode-border-light) 40%, var(--vscode-border-light) 60%,
     transparent 60%, transparent 100%
   );
   opacity: 0;
@@ -290,9 +290,9 @@
   
   .vs-nav::before {
     background: linear-gradient(90deg,
-      #569cd6 0%, #569cd6 30%,
+      var(--vscode-link) 0%, var(--vscode-link) 30%,
       transparent 30%, transparent 70%,
-      #569cd6 70%, #569cd6 100%
+      var(--vscode-link) 70%, var(--vscode-link) 100%
     );
   }
 
@@ -303,8 +303,13 @@
 
 /* 添加滚动阴影效果 */
 .vs-header.scrolled {
-  background-color: rgba(30, 30, 30, 0.95);
+  background-color: var(--vscode-bg);
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.1),
-    0 0 1px rgba(86, 156, 214, 0.1);
+    0 1px 3px var(--vscode-header-shadow, var(--vscode-shadow)),
+    0 0 0 1px var(--vscode-border-light);
+}
+
+/* 白色主题特定的 header 阴影优化 */
+:root[data-theme="white"] .vs-header.scrolled {
+  box-shadow: 0 1px 0 var(--vscode-border);
 }

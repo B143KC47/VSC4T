@@ -12,7 +12,7 @@
 .vscode-markdown h4,
 .vscode-markdown h5,
 .vscode-markdown h6 {
-  color: #fff;
+  color: var(--vscode-text);
   font-weight: 600;
   margin: 1.8em 0 0.9em; /* 进一步优化标题前后间距，增加前置空间 */
   position: relative;
@@ -44,7 +44,7 @@
 
 .vscode-markdown h6 {
   font-size: 0.9em; /* 原来一般为0.875em */
-  color: #d4d4d4; /* 稍微淡化最小标题 */
+  color: var(--vscode-text-light); /* 稍微淡化最小标题 */
 }
 
 .vscode-markdown h1::before,
@@ -56,7 +56,7 @@
   content: '#';
   position: absolute;
   left: 0.4em; /* 微调位置使视觉平衡更好 */
-  color: #569cd6;
+  color: var(--vscode-link);
   font-weight: bold;
   font-size: 0.95em; /* 调整大小使其与文本更协调 */
   opacity: 0.75; /* 进一步降低不透明度，减少视觉干扰 */
@@ -69,28 +69,28 @@
 }
 
 .vscode-markdown a {
-  color: #569cd6;
+  color: var(--vscode-link);
   text-decoration: none;
-  border-bottom: 1px solid rgba(86, 156, 214, 0.4);
+  border-bottom: 1px solid var(--vscode-selection);
   padding-bottom: 1px;
   transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .vscode-markdown a:hover {
-  color: #78b8ff;
-  border-bottom-color: #78b8ff;
-  background: rgba(86, 156, 214, 0.08);
+  color: var(--vscode-link-hover);
+  border-bottom-color: var(--vscode-link-hover);
+  background: var(--vscode-selection);
 }
 
 .vscode-markdown blockquote {
-  border-left: 4px solid #569cd6;
+  border-left: 4px solid var(--vscode-link);
   margin: 1.5em 0 1.7em;
   padding: 0.8em 1.2em;
-  background: rgba(86, 156, 214, 0.07); /* 使用半透明的主题色作为背景 */
-  color: #e0e0e0; /* 略微提亮引用文字颜色 */
+  background: var(--vscode-selection); /* 使用半透明的主题色作为背景 */
+  color: var(--vscode-text); /* 略微提亮引用文字颜色 */
   border-radius: 0 4px 4px 0; /* 添加右侧圆角 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 添加微妙阴影 */
+  box-shadow: 0 2px 8px var(--vscode-shadow); /* 添加微妙阴影 */
   font-style: italic; /* 斜体强调引用文本 */
 }
 
@@ -108,7 +108,7 @@
 
 /* 优化列表项的视觉效果 */
 .vscode-markdown ul li::marker {
-  color: #569cd6; /* 使列表符号带有主题色 */
+  color: var(--vscode-link); /* 使列表符号带有主题色 */
   opacity: 0.8;
 }
 
@@ -118,13 +118,13 @@
   border-radius: 6px;
   margin: 1.5em auto;
   display: block;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px var(--vscode-shadow);
   transition: all 0.3s ease;
 }
 
 .vscode-markdown img:hover {
   transform: scale(1.01);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 15px var(--vscode-shadow);
 }
 
 /* 文章导航样式 */
@@ -184,14 +184,14 @@
 
 .toc-link:hover {
   background: var(--vscode-active);
-  border-left-color: #569cd6;
-  color: #fff;
+  border-left-color: var(--vscode-link);
+  color: var(--vscode-text);
 }
 
 .toc-link.active {
   background: var(--vscode-active);
-  border-left-color: #569cd6;
-  color: #569cd6;
+  border-left-color: var(--vscode-link);
+  color: var(--vscode-link);
 }
 
 /* 分类和标签垂直排列样式 */
@@ -231,8 +231,8 @@
 .category-item-post a:hover,
 .tag-item-post a:hover {
   background: var(--vscode-active);
-  border-left-color: #569cd6;
-  color: #569cd6;
+  border-left-color: var(--vscode-link);
+  color: var(--vscode-link);
 }
 
 /* 文章元信息样式优化 */
@@ -255,11 +255,11 @@
 }
 
 .post-meta .categories i {
-  color: #dcb67a;
+  color: var(--vscode-warning);
 }
 
 .post-meta .tags i {
-  color: #569cd6;
+  color: var(--vscode-link);
 }
 
 /* 置顶文章指示器样式 */
@@ -272,7 +272,7 @@
   border: 1px solid var(--vscode-border);
   border-radius: 3px;
   font-size: 0.75rem;
-  color: #569cd6;
+  color: var(--vscode-link);
   transition: all 0.2s ease;
 }
 
@@ -283,9 +283,9 @@
 }
 
 .sticky-indicator:hover {
-  background: #2d2d30;
-  border-color: #569cd6;
-  box-shadow: 0 0 5px rgba(86, 156, 214, 0.3);
+  background: var(--vscode-bg-light);
+  border-color: var(--vscode-link);
+  box-shadow: 0 0 5px var(--vscode-selection);
 }
 
 /* 在文章卡片中的置顶指示器 */

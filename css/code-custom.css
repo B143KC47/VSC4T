@@ -12,7 +12,7 @@ code-custom.css：负责
   margin-bottom: 2em;
   width: 100%;
   position: relative;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 16px var(--vscode-code-shadow);
   border-radius: 6px;
   overflow: hidden;
   height: auto !important;
@@ -36,10 +36,10 @@ code-custom.css：负责
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #2d2d2d;
-  border: 1px solid #3c3c3c;
+  background: var(--vscode-code-copy-btn);
+  border: 1px solid var(--vscode-code-copy-btn-border);
   border-radius: 4px;
-  color: #9d9d9d;
+  color: var(--vscode-code-copy-btn-text);
   cursor: pointer;
   transition: all 0.2s ease;
   position: absolute;
@@ -47,7 +47,7 @@ code-custom.css：负责
   right: 4px;
   opacity: 0;
   z-index: 5;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px var(--vscode-code-shadow);
 }
 
 /* 代码块容器悬停时显示复制按钮 */
@@ -59,26 +59,26 @@ pre:hover .copy-button,
 /* 复制按钮悬停和激活状态 */
 .copy-btn:hover,
 .copy-button:hover {
-  background: #3c3c3c;
-  color: #d4d4d4;
+  background: var(--vscode-code-copy-btn-hover);
+  color: var(--vscode-code-copy-btn-hover-text);
 }
 
 .copy-btn.copied,
 .copy-button.copied {
-  background: #0078d4;
-  color: #ffffff;
-  border-color: #0078d4;
+  background: var(--vscode-accent);
+  color: var(--vscode-bg);
+  border-color: var(--vscode-accent);
 }
 
 /* 代码区域颜色覆盖 - 仅保留颜色相关覆盖，布局由 code.css 负责 */
 .highlight {
-  background: #1e1e1e;
-  color: #d4d4d4;
+  background: var(--vscode-code-bg);
+  color: var(--vscode-text);
 }
 
 .highlight pre {
-  background: #1e1e1e;
-  color: #d4d4d4;
+  background: var(--vscode-code-bg);
+  color: var(--vscode-text);
   padding: 16px; /* 从 1rem 改为 16px，保持一致 */
   overflow-x: auto;
   border-radius: 6px;
@@ -92,8 +92,8 @@ pre:hover .copy-button,
 
 /* 美化普通代码块 */
 pre:not(.line-numbers-pre):not(.code-content) {
-  background: #1e1e1e;
-  color: #d4d4d4;
+  background: var(--vscode-code-bg);
+  color: var(--vscode-text);
   padding: 16px;
   margin: 2em 0;
   border-radius: 6px;
@@ -102,7 +102,7 @@ pre:not(.line-numbers-pre):not(.code-content) {
   font-size: 14px;
   line-height: 1.6;
   position: relative;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px var(--vscode-code-shadow);
   width: 100%;
   box-sizing: border-box;
   display: block;
@@ -110,8 +110,8 @@ pre:not(.line-numbers-pre):not(.code-content) {
 
 /* 统一行号和代码颜色 */
 .hljs {
-  background: #1e1e1e !important;
-  color: #d4d4d4 !important;
+  background: var(--vscode-code-bg) !important;
+  color: var(--vscode-text) !important;
 }
 
 /* 添加代码类型标记到普通代码块 */
@@ -120,8 +120,8 @@ pre:not(.line-numbers-pre):not(.code-content):not(.mermaid.enhanced)::before {
   position: absolute;
   top: 0;
   right: 0;
-  background: #252526;
-  color: #9d9d9d;
+  background: var(--vscode-code-line-number-bg);
+  color: var(--vscode-code-copy-btn-text);
   padding: 2px 8px;
   font-size: 12px;
   border-bottom-left-radius: 6px;
@@ -135,8 +135,8 @@ pre.mermaid.enhanced::before {
   position: absolute;
   top: 0;
   right: 0;
-  background: linear-gradient(135deg, #2c2c2c, #3a3a3a);
-  color: #a0a0a0;
+  background: var(--vscode-code-copy-btn);
+  color: var(--vscode-text-light);
   padding: 4px 10px;
   font-size: 12px;
   font-family: 'JetBrains Mono', 'Segoe UI', sans-serif;
@@ -144,19 +144,20 @@ pre.mermaid.enhanced::before {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   border-bottom-left-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px var(--vscode-code-shadow);
   transition: all 0.3s ease;
 }
 
 pre.mermaid.enhanced:hover::before {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #3a3a3a, #2c2c2c);
-  color: #b8b8b8;
+  box-shadow: 0 4px 8px var(--vscode-shadow);
+  background: var(--vscode-code-copy-btn-hover);
+  color: var(--vscode-text);
 }
 
-/* 滚动指示效果 */
-.scrollable::after {
+/* 滚动指示效果 - 深色主题 */
+:root[data-theme="dark"] .code-pre-wrapper.scrollable::after,
+:root[data-theme="dark"] pre.scrollable::after {
   content: "";
   position: absolute;
   top: 0;
@@ -168,8 +169,65 @@ pre.mermaid.enhanced:hover::before {
   opacity: 0.8;
 }
 
-/* 滚动时的指示效果 */
-.scrolled::before {
+/* 滚动时的指示效果 - 深色主题 */
+:root[data-theme="dark"] .code-pre-wrapper.scrolled::before,
+:root[data-theme="dark"] pre.scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(270deg, rgba(30,30,30,0) 0%, rgba(30,30,30,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 滚动指示效果 - 白色主题 */
+:root[data-theme="white"] .code-pre-wrapper.scrollable::after,
+:root[data-theme="white"] pre.scrollable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(90deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 滚动时的指示效果 - 白色主题 */
+:root[data-theme="white"] .code-pre-wrapper.scrolled::before,
+:root[data-theme="white"] pre.scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(270deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 默认滚动指示效果（深色主题） */
+.code-pre-wrapper.scrollable::after,
+pre.scrollable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(90deg, rgba(30,30,30,0) 0%, rgba(30,30,30,1) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 默认滚动时的指示效果（深色主题） */
+.code-pre-wrapper.scrolled::before,
+pre.scrolled::before {
   content: "";
   position: absolute;
   top: 0;
@@ -190,9 +248,10 @@ pre.mermaid.enhanced:hover::before {
   align-items: flex-start; /* 确保不拉伸内部元素 */
   min-height: 0; /* 确保能够正确计算高度 */
   box-sizing: border-box;
-  background: #2b2b2b;
+  background: var(--vscode-code-container-bg);
   padding: 0; /* 确保没有默认内边距 */
   margin: 0; /* 确保没有默认外边距 */
+  position: relative; /* 约束滚动指示伪元素的定位范围 */
 }
 
 /* 行号区域宽度自适应 */
@@ -217,8 +276,8 @@ pre.mermaid.enhanced:hover::before {
 
 /* 提高代码可读性 */
 .hljs {
-  background: #1e1e1e !important;
-  color: #d4d4d4 !important;
+  background: var(--vscode-code-bg) !important;
+  color: var(--vscode-text) !important;
   max-width: 100%; /* 确保不会超出父容器 */
   box-sizing: border-box; /* 确保padding不会导致宽度计算问题 */
   padding: 0; /* 移除内边距 */
@@ -240,6 +299,14 @@ pre.mermaid.enhanced:hover::before {
 .code-content .line div {
   max-height: none; /* 确保内联元素不会导致行高异常 */
   vertical-align: middle; /* 确保垂直对齐一致 */
+}
+
+/* 白色主题特殊样式 - 添加边框以提升视觉区分度 */
+:root[data-theme="white"] figure.highlight,
+:root[data-theme="white"] .code-block-container,
+:root[data-theme="white"] .code-pre-wrapper,
+:root[data-theme="white"] pre:not(.line-numbers-pre):not(.code-content) {
+  border: 1px solid var(--vscode-code-border);
 }
 
 /* 在小屏幕上优化显示 */

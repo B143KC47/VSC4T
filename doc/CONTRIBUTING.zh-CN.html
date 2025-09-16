@@ -92,6 +92,15 @@ ln -s /path/to/your/VSC4T themes/VSC4T
 <li>通过编辑 <code>_config.yml</code> 配置测试站点使用您的主题：</li>
 </ol>
 <pre><code class="language-yaml">theme: VSC4T
+relative_link: true
+hljs: true
+</code></pre>
+<ol start="7">
+<li>测试主题切换（深色&#x2F;浅色主题）：</li>
+</ol>
+<pre><code class="language-yaml"># 在主题的 _config.yml 中
+style:
+  colorscheme: &#39;dark&#39;  # 或 &#39;white&#39;
 </code></pre>
 <h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>主题结构如下：</p>
 <ul>
@@ -120,6 +129,22 @@ ln -s /path/to/your/VSC4T themes/VSC4T
 <li>每行写一个属性</li>
 <li>使用连字符命名法（如 <code>.my-class-name</code>）</li>
 <li>遵循 <a href="https://github.com/airbnb/css">Airbnb CSS&#x2F;SASS 风格指南</a></li>
+</ul>
+<h4 id="主题颜色和-CSS-变量"><a href="#主题颜色和-CSS-变量" class="headerlink" title="主题颜色和 CSS 变量"></a>主题颜色和 CSS 变量</h4><ul>
+<li>始终使用 <code>theme-colors.css</code> 中定义的 CSS 变量作为颜色</li>
+<li>不要硬编码应随主题更改的颜色</li>
+<li>测试所有 CSS 更改在深色和浅色主题下的效果</li>
+<li>添加新颜色时，需要为两个主题定义：</li>
+</ul>
+<pre><code class="language-css">:root[data-theme=&quot;dark&quot;] {
+  --new-color: #value-for-dark;
+}
+:root[data-theme=&quot;white&quot;] {
+  --new-color: #value-for-light;
+}
+</code></pre>
+<ul>
+<li>使用语义化的颜色名称（例如，<code>--vscode-link</code>，<code>--vscode-error</code>）</li>
 </ul>
 <h4 id="EJS-模板"><a href="#EJS-模板" class="headerlink" title="EJS 模板"></a>EJS 模板</h4><ul>
 <li>2 个空格缩进</li>

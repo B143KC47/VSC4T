@@ -48,11 +48,13 @@
 <li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F">🎨 自定义样式</a></li>
 <li><a href="#-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BC%98%E5%8C%96">📱 移动端优化</a></li>
 <li><a href="#%E6%90%9C%E7%B4%A2%E9%85%8D%E7%BD%AE">🔍 搜索配置</a></li>
+<li><a href="#-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE">💬 评论系统配置</a></li>
 <li><a href="#-%E8%AE%B8%E5%8F%AF%E8%AF%81">📄 许可证</a></li>
 <li><a href="#-%E6%94%AF%E6%8C%81">💬 支持</a></li>
 </ul>
 <h2 id="✨-特性"><a href="#✨-特性" class="headerlink" title="✨ 特性"></a>✨ 特性</h2><ul>
 <li>🌙 <strong>深色模式优化</strong> - 专为舒适阅读体验设计</li>
+<li>☀️ <strong>明暗主题切换</strong> - 可选择 VS Code Dark+ 和 Light+ 主题</li>
 <li>📱 <strong>完全响应式</strong> - 在所有设备上完美显示</li>
 <li>🚀 <strong>快速加载</strong> - 优化性能表现</li>
 <li>🎨 <strong>简洁设计</strong> - 极简主义和优雅的界面</li>
@@ -64,6 +66,7 @@
 <li>🧜🏻‍♀️ <strong>Mermaid图表支持</strong> - 集成支持Mermaid图表</li>
 <li>📌 <strong>文章置顶</strong> - 将重要文章固定在博客顶部</li>
 <li>🎨 <strong>自定义网站图标支持</strong> - 多格式网站图标配置</li>
+<li>💬 <strong>多评论系统支持</strong> - 支持 Waline 和 Disqus，自动主题切换</li>
 </ul>
 <h2 id="📊-星标历史"><a href="#📊-星标历史" class="headerlink" title="📊 星标历史"></a>📊 星标历史</h2><a href="https://star-history.com/#B143KC47/VSC4T">
   <picture>
@@ -300,6 +303,60 @@ custom_js:
 <li>分类</li>
 </ul>
 <p>用户可以切换这些过滤器来缩小搜索结果范围。</p>
+<h2 id="💬-评论系统配置"><a href="#💬-评论系统配置" class="headerlink" title="💬 评论系统配置"></a>💬 评论系统配置</h2><p>主题现在支持多种评论系统，并在深色和浅色模式之间自动切换主题。</p>
+<h3 id="支持的评论系统"><a href="#支持的评论系统" class="headerlink" title="支持的评论系统"></a>支持的评论系统</h3><ul>
+<li><strong>Waline</strong>（推荐）- 隐私友好，无需登录</li>
+<li><strong>Disqus</strong> - 传统评论系统</li>
+</ul>
+<h3 id="配置-Waline（推荐）"><a href="#配置-Waline（推荐）" class="headerlink" title="配置 Waline（推荐）"></a>配置 Waline（推荐）</h3><p>Waline 是一个隐私友好的评论系统，允许匿名评论，无需登录。非常适合想要直接评论而不需要创建账号的读者。</p>
+<ol>
+<li><p>部署 Waline 服务器（免费选项）：</p>
+<ul>
+<li><strong>Vercel</strong>（推荐）：<a href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example">部署到 Vercel</a></li>
+<li><strong>Railway</strong>：<a href="https://railway.app/template/1LZnmQ">部署到 Railway</a></li>
+<li>其他选项：<a href="https://waline.js.org/guide/get-started/">Waline 快速上手</a></li>
+</ul>
+</li>
+<li><p>更新主题的 <code>_config.yml</code>：</p>
+</li>
+</ol>
+<pre><code class="language-yaml"># 评论系统配置
+comments:
+  provider: waline  # 选项：&#39;waline&#39; | &#39;disqus&#39; | false
+  
+  # Waline 配置
+  waline:
+    serverURL: https://your-domain.vercel.app  # 您的 Waline 服务器地址
+    lang: zh-CN  # 或 en 英文
+    locale: {}  # 自定义语言配置
+    emoji:
+      - https://unpkg.com/@waline/emojis@1.2.0/weibo
+    requiredMeta: []  # 匿名评论不需要填写任何信息
+    login: disable  # 禁用登录以允许匿名评论
+    wordLimit: 0  # 评论字数限制，0 为不限制
+    pageSize: 10  # 每页评论数
+    imageUploader: false  # 禁用图片上传
+</code></pre>
+<h3 id="配置-Disqus"><a href="#配置-Disqus" class="headerlink" title="配置 Disqus"></a>配置 Disqus</h3><pre><code class="language-yaml">comments:
+  provider: disqus
+  
+  disqus:
+    shortname: your-disqus-shortname
+</code></pre>
+<h3 id="功能特点"><a href="#功能特点" class="headerlink" title="功能特点"></a>功能特点</h3><ul>
+<li>🎨 <strong>自动主题切换</strong> - 评论适应 VS Code 深色&#x2F;浅色主题</li>
+<li>📱 <strong>响应式设计</strong> - 在所有设备上完美工作</li>
+<li>🌍 <strong>多语言支持</strong> - 遵循您网站的语言设置</li>
+<li>🚀 <strong>懒加载</strong> - 仅在需要时加载评论</li>
+<li>🔒 <strong>隐私友好</strong> - Waline 允许匿名评论，不跟踪用户</li>
+</ul>
+<h3 id="禁用评论"><a href="#禁用评论" class="headerlink" title="禁用评论"></a>禁用评论</h3><p>在特定文章上禁用评论：</p>
+<pre><code class="language-yaml">---
+title: 我的文章
+comments: false
+---
+</code></pre>
+<p>要全局禁用评论，请在配置中设置 <code>provider: false</code>。</p>
 <h2 id="👨‍💻-贡献者"><a href="#👨‍💻-贡献者" class="headerlink" title="👨‍💻 贡献者"></a>👨‍💻 贡献者</h2><p>感谢所有帮助改进这个主题的贡献者！</p>
 <div align="center">
   <a href="https://github.com/B143KC47/VSC4T/graphs/contributors">
