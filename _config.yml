@@ -31,6 +31,12 @@ style:
   # 文本色
   text_color: '#d4d4d4'
 
+# 自动主题切换
+auto_theme_switch:
+  enabled: false          # 是否启用自动切换
+  light_start: "06:00"   # 浅色主题开始时间（24小时制）
+  light_end: "18:00"     # 浅色主题结束时间（24小时制）
+
 # 侧边栏配置
 sidebar:
   # 显示侧边栏
@@ -105,7 +111,7 @@ comments:
   
   # Waline 配置 - 无需 GitHub 账号的评论系统
   waline:
-    serverURL: vsc4tblackcat1337.vercel.app # 你的 Waline 服务器地址（例如：https://your-domain.vercel.app）
+    serverURL: https://vsc4tblackcat1337.vercel.app/ # 你的 Waline 服务器地址（例如：https://your-domain.vercel.app）
     lang: zh-CN # 界面语言: 'zh-CN' | 'en' | 'jp' 等
     locale: {} # 自定义语言配置
     emoji: 

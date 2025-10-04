@@ -14,9 +14,16 @@
     <script>
       window.HEXO_CONFIG = {
         language: "<%= config.language || 'en' %>",
-        root: "<%= config.root || '/' %>"
+        root: "<%= config.root || '/' %>",
+        <% if (theme.auto_theme_switch) { %>
+        theme_switch: {
+          enabled: <%= theme.auto_theme_switch.enabled || false %>,
+          light_start: "<%= theme.auto_theme_switch.light_start || '06:00' %>",
+          light_end: "<%= theme.auto_theme_switch.light_end || '18:00' %>"
+        }
+        <% } %>
       };
-      
+
       // 特定于搜索的配置
       window.VSC4T_SEARCH = {
         root: "<%= config.root || '/' %>"

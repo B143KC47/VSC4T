@@ -5,9 +5,11 @@
     left: 10px;
     z-index: 1000;
     padding: 10px;
-    background: #1e1e1e;
+    background: var(--vscode-bg-light);
     border-radius: 4px;
     cursor: pointer;
+    color: var(--vscode-text);
+    border: 1px solid var(--vscode-border);
 }
 
 @media screen and (max-width: 768px) {
@@ -24,9 +26,10 @@
         max-width: 300px;
         z-index: 999;
         transition: left 0.3s ease;
-        background: #252526;
+        background: var(--vscode-sidebar);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        border-right: 1px solid var(--vscode-border);
     }
 
     .sidebar-explorer.show {
