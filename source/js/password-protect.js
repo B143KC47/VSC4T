@@ -1,6 +1,7 @@
 ﻿/**
  * VSC4T Password Protection Enhancement
  * Provides i18n support, show/hide password toggle, improved UX
+ * Works with hexo-blog-encrypt plugin
  */
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('hexo-blog-encrypt');
@@ -12,15 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('hbe-password') || document.getElementById('hbePass');
   const button = document.getElementById('hbe-button');
   const message = document.getElementById('hbe-message');
-  const content = document.getElementById('hbe-content');
-  const actions = document.getElementById('hbe-actions');
   const reEncrypt = document.getElementById('hbe-encrypt-again');
   const togglePassword = document.getElementById('hbe-toggle-password');
   const label = button ? button.querySelector('span[data-i18n="encrypt_button"]') || button.querySelector('span') : null;
   const arrow = button ? button.querySelector('.hbe-arrow') : null;
   const spinner = button ? button.querySelector('.hbe-spinner') : null;
 
-  const storageKey = 'hbe-pass-' + window.location.pathname;
   let unlocked = false;
   let loadingTimer = null;
   let passwordVisible = false;
@@ -56,11 +54,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (spinner) spinner.style.display = isLoading ? 'inline' : 'none';
     clearTimeout(loadingTimer);
     if (isLoading) {
+      // Reduced timeout since we rely on hexo-blog-decrypt event
       loadingTimer = setTimeout(() => {
         setLoading(false);
         setMessage(getText('encrypt_wrong_password', 'Incorrect password. Please try again.'), 'error');
-      }, 8000);
+        if (input) { input.classList.add('shake'); input.focus(); input.select(); }
+        setTimeout(() => { if (input) input.classList.remove('shake'); }, 500);
+      }, 3000);
     }
+  };
+
+  // Trigger the hexo-blog-encrypt library's decrypt function
+  const triggerDecrypt = () => {
+    if (!input || !input.value.trim()) {
+      setMessage(getText('encrypt_wrong_password', 'Please enter a password.'), 'error');
+      if (input) input.focus();
+      return;
+    }
+    setLoading(true);
+    setMessage('', null);
+    // Dispatch Enter keydown event on the container to trigger hbe.js decrypt
+    const enterEvent = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      code: 'Enter',
+      keyCode: 13,
+      which: 13,
+      bubbles: true,
+      cancelable: true
+    });
+    container.dispatchEvent(enterEvent);
   };
 
   const togglePasswordVisibility = () => {
@@ -97,84 +119,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleUnlocked = () => {
     if (unlocked) { styleEncryptAgainButtons(); rerunDecorators(); setLoading(false); return; }
     unlocked = true;
+    clearTimeout(loadingTimer);
     setLoading(false);
-    if (input && input.value) localStorage.setItem(storageKey, input.value);
-    if (actions) { actions.style.display = 'flex'; actions.classList.add('hbe-fade-in'); }
     container.classList.add('hbe-unlocked');
     styleEncryptAgainButtons();
     rerunDecorators();
-    setMessage(getText('encrypt_success', 'Unlocked! Click "Re-encrypt" to clear local password.'), 'success');
-  };
-
-  const clearPassword = (shouldReload = false) => {
-    localStorage.removeItem(storageKey);
-    unlocked = false;
-    setLoading(false);
-    if (actions) actions.style.display = 'none';
-    container.classList.remove('hbe-unlocked');
-    if (input) { input.value = ''; input.type = 'password'; passwordVisible = false; input.focus(); }
-    setMessage('', null);
-    if (shouldReload) window.location.reload();
   };
 
   applyI18n();
 
-  const savedPass = localStorage.getItem(storageKey);
-  if (savedPass && input && button) {
-    input.value = savedPass;
-    setTimeout(() => { setLoading(true); button.click(); }, 100);
-  } else if (input) {
+  // Listen for the hexo-blog-decrypt event from hbe.js library
+  window.addEventListener('hexo-blog-decrypt', () => {
+    handleUnlocked();
+  });
+
+  // Auto-decrypt if hbe.js stored password in localStorage (uses different key format)
+  // hbe.js uses 'hexo-blog-encrypt:#/path' format
+  if (input) {
     setTimeout(() => input.focus(), 200);
   }
 
-  if (content) {
-    const observer = new MutationObserver((mutations) => {
-      const isVisible = content.style.display !== 'none';
-      const hasAddedNodes = mutations.some((m) => m.addedNodes && m.addedNodes.length > 0);
-      if (isVisible || hasAddedNodes) handleUnlocked();
-    });
-    observer.observe(content, { attributes: true, childList: true });
-  }
-
+  // Watch for container changes that indicate successful decryption
+  // hbe.js replaces container innerHTML on success
   const containerObserver = new MutationObserver((mutations) => {
-    if (mutations.some((m) => Array.from(m.addedNodes || []).some((n) => n.tagName === 'BUTTON'))) handleUnlocked();
+    // Check if the container content was replaced (decryption successful)
+    const hasNewContent = mutations.some((m) => {
+      if (m.type === 'childList' && m.addedNodes.length > 0) {
+        // hbe.js adds a button with 'Encrypt again' text after decryption
+        return Array.from(m.addedNodes).some((n) =>
+          n.nodeType === 1 && (n.tagName === 'BUTTON' || n.classList?.contains('hbe-button'))
+        );
+      }
+      return false;
+    });
+    if (hasNewContent) handleUnlocked();
   });
   containerObserver.observe(container, { childList: true, subtree: true });
 
-  if (message) {
-    const observer = new MutationObserver(() => {
-      if (message.classList.contains('hbe-success')) return;
-      const msgText = message.innerText ? message.innerText.trim() : '';
-      if (msgText) {
-        setLoading(false);
-        if (input) { input.classList.add('shake'); input.focus(); input.select(); }
-        message.classList.add('hbe-error');
-        localStorage.removeItem(storageKey);
-        setTimeout(() => { if (input) input.classList.remove('shake'); }, 500);
-      }
-    });
-    observer.observe(message, { childList: true, characterData: true, subtree: true });
-  }
-
+  // Handle Enter key on input - trigger decrypt
   if (input) {
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && button && !button.disabled) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !button?.disabled) {
         e.preventDefault();
-        setLoading(true);
-        button.click();
+        e.stopPropagation(); // Prevent double-handling
+        triggerDecrypt();
       }
     });
   }
 
+  // Handle button click - trigger decrypt
   if (button) {
-    button.addEventListener('click', () => {
-      setMessage('', null);
-      if (input && !input.value.trim()) {
-        setMessage(getText('encrypt_wrong_password', 'Please enter a password.'), 'error');
-        input.focus();
-        return;
-      }
-      setLoading(true);
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      triggerDecrypt();
     });
   }
 
@@ -186,6 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (reEncrypt) {
-    reEncrypt.addEventListener('click', () => clearPassword(true));
+    reEncrypt.addEventListener('click', () => window.location.reload());
   }
 });

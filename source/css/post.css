@@ -421,10 +421,13 @@
   flex: 1;
   display: flex;
   align-items: center;
+  min-width: 0; /* Prevent flex item from overflowing */
 }
 
 .hbe-input-wrapper .hbe-input {
+  width: 100%;
   padding-right: 2.75rem;
+  box-sizing: border-box;
 }
 
 .hbe-toggle-password {
@@ -444,6 +447,7 @@
   color: var(--vscode-descriptionForeground);
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
+  z-index: 1; /* Ensure toggle button is above input */
 }
 
 .hbe-toggle-password:hover {
