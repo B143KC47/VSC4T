@@ -1,30 +1,45 @@
-<% if (page.total > 1) { %>
-<nav class="pagination-container">
-  <div class="pagination-info">
-    <i class="fas fa-file-code"></i>
-    Page <%= page.current %> of <%= page.total %>
-  </div>
+<% if (page.total > 1) {
+  const paginationDir = config.pagination_dir || 'page';
+  const basePath = (() => {
+    const base = (page.base || page.path || '').replace(/index\.html$/i, '').replace(/^\/+/, '');
+    if (!base) return '';
+    return base.endsWith('/') ? base : `${base}/`;
+  })();
+  const buildPageUrl = (index) => {
+    return index === 1
+      ? url_for(basePath || '/')
+      : url_for(`${basePath}${paginationDir}/${index}/`);
+  };
+%>
+<nav class="pagination-container" aria-label="Page navigation">
+  <span class="pagination-info">Page <%= page.current %> of <%= page.total %></span>
   <div class="pagination">
     <% if (page.prev) { %>
-      <a class="page-btn prev" href="<%- url_for(page.prev_link) %>">
+      <a class="page-btn" href="<%- url_for(page.prev_link) %>" aria-label="Previous page">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </a>
+    <% } else { %>
+      <span class="page-btn disabled" aria-hidden="true">
         <i class="fas fa-chevron-left"></i>
-      </a>
+      </span>
     <% } %>
-    
-    <% var i = 1 %>
-    <% while (i <= page.total) { %>
+
+    <% for (let i = 1; i <= page.total; i++) { %>
       <% if (i === page.current) { %>
-        <span class="page-btn current"><%= i %></span>
+        <span class="page-btn current" aria-current="page"><%= i %></span>
       <% } else { %>
-        <a class="page-btn" href="<%- url_for(i === 1 ? '/' : '/page/' + i) %>"><%= i %></a>
+        <a class="page-btn" href="<%- buildPageUrl(i) %>"><%= i %></a>
       <% } %>
-      <% i++ %>
     <% } %>
-    
+
     <% if (page.next) { %>
-      <a class="page-btn next" href="<%- url_for(page.next_link) %>">
-        <i class="fas fa-chevron-right"></i>
+      <a class="page-btn" href="<%- url_for(page.next_link) %>" aria-label="Next page">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
       </a>
+    <% } else { %>
+      <span class="page-btn disabled" aria-hidden="true">
+        <i class="fas fa-chevron-right"></i>
+      </span>
     <% } %>
   </div>
 </nav>

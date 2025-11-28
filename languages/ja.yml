@@ -32,3 +32,20 @@ recommended_posts: "関連記事"
 similarity: "類似度"
 view_more_posts: "もっと見る"
 min_read: "分で読了"
+
+
+# 暗号化/パスワード保護
+encrypt_badge: 保護されています
+encrypt_title: 保護されたコンテンツ
+encrypt_description: この記事を解除するにはパスワードを入力してください。パスワードは再暗号化するまでローカルに保存されます。
+encrypt_label: パスワード
+encrypt_placeholder: パスワードを入力して解除
+encrypt_button: 解除
+encrypt_button_loading: 解除中...
+encrypt_hint: Enterキーでも送信できます。解除後はパスワードが保存されます。
+encrypt_success: 解除されました。「再暗号化」でローカルパスワードを削除できます。
+encrypt_unlocked_note: コンテンツは解除済みです。いつでも再暗号化できます。
+encrypt_again: 再暗号化
+encrypt_wrong_password: パスワードが正しくありません。もう一度お試しください。
+encrypt_show_password: パスワードを表示
+encrypt_hide_password: パスワードを非表示

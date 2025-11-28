@@ -24,3 +24,20 @@ search_recent: Tìm kiếm gần đây
 search_clear: Xóa
 search_loading: Đang tải...
 search_error: Lỗi khi tải dữ liệu tìm kiếm
+
+
+# Mã hóa / Bảo vệ bằng mật khẩu
+encrypt_badge: Được bảo vệ
+encrypt_title: Nội dung được bảo vệ
+encrypt_description: Nhập mật khẩu để mở khóa bài viết này. Mật khẩu sẽ được lưu cục bộ cho đến khi bạn chọn mã hóa lại.
+encrypt_label: Mật khẩu
+encrypt_placeholder: Nhập mật khẩu để mở khóa
+encrypt_button: Mở khóa
+encrypt_button_loading: Đang mở khóa...
+encrypt_hint: Nhấn Enter để gửi. Mật khẩu sẽ được ghi nhớ trên trang này.
+encrypt_success: Đã mở khóa! Nhấp "Mã hóa lại" để xóa mật khẩu cục bộ.
+encrypt_unlocked_note: Nội dung đã được mở khóa. Bạn có thể mã hóa lại bất cứ lúc nào.
+encrypt_again: Mã hóa lại
+encrypt_wrong_password: Mật khẩu không đúng. Vui lòng thử lại.
+encrypt_show_password: Hiện mật khẩu
+encrypt_hide_password: Ẩn mật khẩu

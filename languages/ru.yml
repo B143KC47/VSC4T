@@ -24,3 +24,20 @@ search_recent: Недавние поиски
 search_clear: Очистить
 search_loading: Загрузка...
 search_error: Ошибка загрузки данных поиска
+
+
+# Шифрование / Защита паролем
+encrypt_badge: Защищено
+encrypt_title: Защищённый контент
+encrypt_description: Введите пароль, чтобы разблокировать эту статью. Пароль будет сохранён локально, пока вы не выберете повторное шифрование.
+encrypt_label: Пароль
+encrypt_placeholder: Введите пароль для разблокировки
+encrypt_button: Разблокировать
+encrypt_button_loading: Разблокировка...
+encrypt_hint: Нажмите Enter для отправки. Пароль будет запомнен на этой странице.
+encrypt_success: Разблокировано! Нажмите "Зашифровать снова", чтобы удалить локальный пароль.
+encrypt_unlocked_note: Контент разблокирован. Вы можете зашифровать снова в любое время.
+encrypt_again: Зашифровать снова
+encrypt_wrong_password: Неверный пароль. Пожалуйста, попробуйте ещё раз.
+encrypt_show_password: Показать пароль
+encrypt_hide_password: Скрыть пароль

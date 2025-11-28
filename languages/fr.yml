@@ -26,3 +26,20 @@ search_recent: "Recherches récentes"
 search_clear: "Effacer"
 search_loading: "Chargement..."
 search_error: "Erreur lors du chargement des données de recherche"
+
+
+# Chiffrement / Protection par mot de passe
+encrypt_badge: Protégé
+encrypt_title: Contenu protégé
+encrypt_description: Entrez le mot de passe pour déverrouiller cet article. Le mot de passe sera sauvegardé localement jusqu'à ce que vous choisissiez de rechiffrer.
+encrypt_label: Mot de passe
+encrypt_placeholder: Entrez le mot de passe pour déverrouiller
+encrypt_button: Déverrouiller
+encrypt_button_loading: Déverrouillage...
+encrypt_hint: Appuyez sur Entrée pour soumettre. Le mot de passe sera mémorisé sur cette page.
+encrypt_success: Déverrouillé ! Cliquez sur "Rechiffrer" pour effacer le mot de passe local.
+encrypt_unlocked_note: Contenu déverrouillé. Vous pouvez rechiffrer à tout moment.
+encrypt_again: Rechiffrer
+encrypt_wrong_password: Mot de passe incorrect. Veuillez réessayer.
+encrypt_show_password: Afficher le mot de passe
+encrypt_hide_password: Masquer le mot de passe

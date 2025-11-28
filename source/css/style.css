@@ -1,3 +1,5 @@
+@import "post.css";
+
 /* VS Code inspired header styles */
 .vs-header {
   background-color: var(--vscode-bg);

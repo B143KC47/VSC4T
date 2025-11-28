@@ -79,19 +79,7 @@
         <% }); %>
       </div>
 
-      <% if (page.total > 1){ %>
-        <nav class="pagination-container">
-          <div class="pagination-info">
-            <i class="fas fa-file-code"></i>
-            Page <%= page.current %> of <%= page.total %>
-          </div>
-          <%- paginator({
-            prev_text: '<i class="fas fa-chevron-left"></i>',
-            next_text: '<i class="fas fa-chevron-right"></i>',
-            mid_size: 1
-          }) %>
-        </nav>
-      <% } %>
+      <%- partial('_partial/pagination') %>
     </div>
   </div>
 </div>

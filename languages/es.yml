@@ -25,3 +25,20 @@ search_recent: Búsquedas recientes
 search_clear: Limpiar
 search_loading: Cargando...
 search_error: Error al cargar los datos de búsqueda
+
+
+# Cifrado / Protección con contraseña
+encrypt_badge: Protegido
+encrypt_title: Contenido protegido
+encrypt_description: Ingrese la contraseña para desbloquear este artículo. La contraseña se guardará localmente hasta que elija volver a cifrar.
+encrypt_label: Contraseña
+encrypt_placeholder: Ingrese la contraseña para desbloquear
+encrypt_button: Desbloquear
+encrypt_button_loading: Desbloqueando...
+encrypt_hint: Presione Enter para enviar. La contraseña se recordará en esta página.
+encrypt_success: ¡Desbloqueado! Haga clic en "Volver a cifrar" para borrar la contraseña local.
+encrypt_unlocked_note: Contenido desbloqueado. Puede volver a cifrar en cualquier momento.
+encrypt_again: Volver a cifrar
+encrypt_wrong_password: Contraseña incorrecta. Por favor, inténtelo de nuevo.
+encrypt_show_password: Mostrar contraseña
+encrypt_hide_password: Ocultar contraseña

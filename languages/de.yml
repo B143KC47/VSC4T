@@ -25,3 +25,20 @@ search_recent: "Letzte Suchanfragen"
 search_clear: "Löschen"
 search_loading: "Wird geladen..."
 search_error: "Fehler beim Laden der Suchdaten"
+
+
+# Verschlüsselung / Passwortschutz
+encrypt_badge: Geschützt
+encrypt_title: Geschützter Inhalt
+encrypt_description: Geben Sie das Passwort ein, um diesen Artikel zu entsperren. Das Passwort wird lokal gespeichert, bis Sie sich entscheiden, erneut zu verschlüsseln.
+encrypt_label: Passwort
+encrypt_placeholder: Passwort eingeben zum Entsperren
+encrypt_button: Entsperren
+encrypt_button_loading: Wird entsperrt...
+encrypt_hint: Drücken Sie Enter zum Absenden. Das Passwort wird auf dieser Seite gespeichert.
+encrypt_success: Entsperrt! Klicken Sie auf "Erneut verschlüsseln", um das lokale Passwort zu löschen.
+encrypt_unlocked_note: Inhalt entsperrt. Sie können jederzeit erneut verschlüsseln.
+encrypt_again: Erneut verschlüsseln
+encrypt_wrong_password: Falsches Passwort. Bitte versuchen Sie es erneut.
+encrypt_show_password: Passwort anzeigen
+encrypt_hide_password: Passwort verbergen

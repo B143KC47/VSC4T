@@ -59,7 +59,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     search_recent: "<%- __('search_recent') %>",
     search_clear: "<%- __('search_clear') %>",
     search_loading: "<%- __('search_loading') %>",
-    search_error: "<%- __('search_error') %>"
+    search_error: "<%- __('search_error') %>",
+    // Encryption i18n strings
+    encrypt_badge: "<%- __('encrypt_badge') %>",
+    encrypt_title: "<%- __('encrypt_title') %>",
+    encrypt_description: "<%- __('encrypt_description') %>",
+    encrypt_label: "<%- __('encrypt_label') %>",
+    encrypt_placeholder: "<%- __('encrypt_placeholder') %>",
+    encrypt_button: "<%- __('encrypt_button') %>",
+    encrypt_button_loading: "<%- __('encrypt_button_loading') %>",
+    encrypt_hint: "<%- __('encrypt_hint') %>",
+    encrypt_success: "<%- __('encrypt_success') %>",
+    encrypt_unlocked_note: "<%- __('encrypt_unlocked_note') %>",
+    encrypt_again: "<%- __('encrypt_again') %>",
+    encrypt_wrong_password: "<%- __('encrypt_wrong_password') %>",
+    encrypt_show_password: "<%- __('encrypt_show_password') %>",
+    encrypt_hide_password: "<%- __('encrypt_hide_password') %>"
   };
 </script>
 
@@ -76,3 +91,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <% if (page.layout === 'categories'){ %>
 <script src="<%- url_for('js/categories-toggle.js') %>"></script>
 <% } %>
+<script src="<%- url_for('js/password-protect.js') %>?v=<%= Date.now() %>"></script>

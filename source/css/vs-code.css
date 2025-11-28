@@ -211,57 +211,7 @@
   background: var(--vscode-highlight);
 }
 
-/* 分页样式 */
-.pagination-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--vscode-sidebar);
-  border: 1px solid var(--vscode-active);
-  border-radius: 4px;
-  padding: 12px;
-}
-
-.pagination-info {
-  color: #808080;
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-.pagination {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-}
-
-.pagination a {
-  padding: 5px 10px;
-  border: 1px solid var(--vscode-border);
-  color: var(--vscode-text);
-  text-decoration: none;
-}
-
-.pagination a:hover {
-  background: var(--vscode-active);
-}
-
-.page-number, .extend {
-  padding: 4px 8px;
-  background: var(--vscode-active);
-  border-radius: 3px;
-  color: var(--vscode-text);
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.page-number:hover, .extend:hover {
-  background: var(--vscode-highlight);
-}
-
-.page-number.current {
-  background: var(--vscode-accent);
-}
+/* Pagination styles moved to main.css */
 
 /* 标签样式 */
 .tag-item i {
@@ -652,53 +602,6 @@ pre, pre code, .copy-button {
 }
 
 /* 分页样式 */
-.pagination-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--vscode-sidebar);
-  border: 1px solid var(--vscode-active);
-  border-radius: 4px;
-  padding: 12px;
-}
-
-.pagination-info {
-  color: #808080;
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-.pagination {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-}
-
-.pagination a {
-  padding: 5px 10px;
-  border: 1px solid var(--vscode-border);
-  color: var(--vscode-text);
-  text-decoration: none;
-}
-
-.pagination a:hover {
-  background: var(--vscode-active);
-}
-
-.page-number, .extend {
-  padding: 4px 8px;
-  background: var(--vscode-active);
-  border-radius: 3px;
-  color: var(--vscode-text);
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.page-number:hover, .extend:hover {
-  background: var(--vscode-highlight);
-}
-
 .page-number.current {
   background: var(--vscode-accent);
 }

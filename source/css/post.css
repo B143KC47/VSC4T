@@ -300,3 +300,387 @@
   padding: 0.1rem 0.3rem;
   margin-left: 0.3rem;
 }
+
+/* Password Protection Card - Shadcn Inspired */
+#hexo-blog-encrypt {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 0;
+  background-color: var(--vscode-editor-background);
+  border: 1px solid var(--vscode-widget-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  font-family: var(--font-family);
+}
+
+.hbe-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--vscode-widget-border);
+}
+
+.hbe-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hbe-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  border: 1px solid var(--vscode-widget-border);
+}
+
+.hbe-header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hbe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  border: 1px solid var(--vscode-widget-border);
+  width: fit-content;
+}
+
+.hbe-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--vscode-editor-foreground);
+}
+
+.hbe-description {
+  font-size: 0.9rem;
+  color: var(--vscode-descriptionForeground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hbe-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.15rem 1.5rem 1.35rem;
+}
+
+.hbe-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vscode-editor-foreground);
+  margin-bottom: 0.1rem;
+}
+
+.hbe-input-container {
+  display: flex;
+  gap: 0.6rem;
+  position: relative;
+  align-items: center;
+}
+
+.hbe-input {
+  flex: 1;
+  height: 2.75rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--vscode-input-border);
+  background-color: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  outline: none;
+}
+
+.hbe-input:focus {
+  border-color: var(--vscode-focusBorder);
+  box-shadow: 0 0 0 2px rgba(86, 156, 214, 0.25);
+}
+
+/* Input wrapper for password toggle */
+.hbe-input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hbe-input-wrapper .hbe-input {
+  padding-right: 2.75rem;
+}
+
+.hbe-toggle-password {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0.35rem;
+  color: var(--vscode-descriptionForeground);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.hbe-toggle-password:hover {
+  color: var(--vscode-editor-foreground);
+  background-color: var(--vscode-button-secondaryBackground);
+}
+
+.hbe-toggle-password:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--vscode-focusBorder);
+}
+
+.hbe-toggle-password svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hbe-toggle-password .hbe-eye-off-icon {
+  display: none;
+}
+
+.hbe-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  height: 2.75rem;
+  padding: 0 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 0.55rem;
+  border: 1px solid var(--vscode-button-border, var(--vscode-button-background));
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.hbe-button:hover {
+  background-color: var(--vscode-button-hoverBackground);
+  transform: translateY(-1px);
+}
+
+.hbe-button .hbe-arrow {
+  margin-left: 0.5rem;
+  width: 16px;
+  height: 16px;
+}
+
+.hbe-button.loading {
+  cursor: progress;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.hbe-button.loading .hbe-arrow {
+  opacity: 0;
+}
+
+.hbe-button.loading::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--vscode-button-foreground);
+  border-right-color: transparent;
+  animation: hbe-spin 0.8s linear infinite;
+}
+
+/* Spinner SVG in button */
+.hbe-button .hbe-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  animation: hbe-spin 0.8s linear infinite;
+}
+
+.hbe-button.loading .hbe-spinner {
+  display: inline;
+}
+
+.hbe-hint {
+  margin: 0.1rem 0 0.25rem;
+  font-size: 0.85rem;
+  color: var(--vscode-descriptionForeground);
+}
+
+.hbe-message {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--vscode-errorForeground);
+  min-height: 1.2em;
+}
+
+.hbe-message.hbe-success {
+  color: var(--vscode-debugIcon-breakpointCurrentForeground, #4ade80);
+}
+
+.hbe-actions {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--vscode-editorWidget-background);
+  border-top: 1px solid var(--vscode-widget-border);
+}
+
+.hbe-success-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--vscode-descriptionForeground);
+  font-size: 0.9rem;
+}
+
+#hexo-blog-encrypt.hbe-unlocked .hbe-actions {
+  display: flex;
+}
+
+.hbe-ghost-button,
+.hbe-hide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  min-height: 2.4rem;
+  background: transparent;
+  color: var(--vscode-button-foreground);
+  border: 1px solid var(--vscode-button-border, var(--vscode-input-border));
+  border-radius: 0.55rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hbe-ghost-button:hover,
+.hbe-hide-btn:hover {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.hbe-floating {
+  margin: 1rem auto 0;
+  width: fit-content;
+  min-width: 180px;
+}
+
+#hexo-blog-encrypt > .hbe-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: transparent;
+  color: var(--vscode-button-foreground);
+  border: 1px solid var(--vscode-button-border, var(--vscode-input-border));
+  border-radius: 0.55rem;
+  margin: 1.25rem auto;
+  width: fit-content;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+#hexo-blog-encrypt > .hbe-button:hover {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  transform: translateY(-1px);
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  border-color: #f87171 !important;
+}
+
+@keyframes hbe-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Fade-in animation for messages and actions */
+@keyframes hbe-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hbe-fade-in {
+  animation: hbe-fade-in 0.3s ease-out;
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 600px) {
+  .hbe-input-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hbe-input-wrapper {
+    width: 100%;
+  }
+
+  .hbe-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hbe-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hbe-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hbe-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hbe-ghost-button,
+  .hbe-hide-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

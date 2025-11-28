@@ -35,3 +35,19 @@ comment_placeholder: Feel free to leave a comment, no login required!
 similarity: Similarity
 view_more_posts: View More Posts
 min_read: min read
+
+# Encryption / Password Protection
+encrypt_badge: Protected
+encrypt_title: Protected Content
+encrypt_description: Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.
+encrypt_label: Password
+encrypt_placeholder: Enter password to unlock
+encrypt_button: Unlock
+encrypt_button_loading: Unlocking...
+encrypt_hint: Press Enter to submit. Password will be remembered on this page.
+encrypt_success: Unlocked! Click "Re-encrypt" to clear local password.
+encrypt_unlocked_note: Content unlocked. You can re-encrypt at any time.
+encrypt_again: Re-encrypt
+encrypt_wrong_password: Incorrect password. Please try again.
+encrypt_show_password: Show password
+encrypt_hide_password: Hide password

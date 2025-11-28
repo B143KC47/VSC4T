@@ -24,3 +24,20 @@ search_recent: عمليات البحث الأخيرة
 search_clear: مسح
 search_loading: جار التحميل...
 search_error: خطأ في تحميل بيانات البحث
+
+
+# التشفير / الحماية بكلمة مرور
+encrypt_badge: محمي
+encrypt_title: محتوى محمي
+encrypt_description: أدخل كلمة المرور لفتح هذه المقالة. سيتم حفظ كلمة المرور محليًا حتى تختار إعادة التشفير.
+encrypt_label: كلمة المرور
+encrypt_placeholder: أدخل كلمة المرور للفتح
+encrypt_button: فتح
+encrypt_button_loading: جارِ الفتح...
+encrypt_hint: اضغط Enter للإرسال. سيتم حفظ كلمة المرور في هذه الصفحة.
+encrypt_success: تم الفتح! انقر على "إعادة التشفير" لمسح كلمة المرور المحلية.
+encrypt_unlocked_note: تم فتح المحتوى. يمكنك إعادة التشفير في أي وقت.
+encrypt_again: إعادة التشفير
+encrypt_wrong_password: كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.
+encrypt_show_password: إظهار كلمة المرور
+encrypt_hide_password: إخفاء كلمة المرور

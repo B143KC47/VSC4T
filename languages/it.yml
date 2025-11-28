@@ -24,3 +24,20 @@ search_recent: Ricerche recenti
 search_clear: Cancella
 search_loading: Caricamento...
 search_error: Errore durante il caricamento dei dati di ricerca
+
+
+# Crittografia / Protezione con password
+encrypt_badge: Protetto
+encrypt_title: Contenuto protetto
+encrypt_description: Inserisci la password per sbloccare questo articolo. La password verrà salvata localmente fino a quando non sceglierai di crittografare nuovamente.
+encrypt_label: Password
+encrypt_placeholder: Inserisci la password per sbloccare
+encrypt_button: Sblocca
+encrypt_button_loading: Sbloccando...
+encrypt_hint: Premi Invio per inviare. La password verrà ricordata su questa pagina.
+encrypt_success: Sbloccato! Clicca su "Crittografa di nuovo" per cancellare la password locale.
+encrypt_unlocked_note: Contenuto sbloccato. Puoi crittografare di nuovo in qualsiasi momento.
+encrypt_again: Crittografa di nuovo
+encrypt_wrong_password: Password errata. Per favore riprova.
+encrypt_show_password: Mostra password
+encrypt_hide_password: Nascondi password

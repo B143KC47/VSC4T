@@ -24,3 +24,20 @@ search_recent: Pesquisas recentes
 search_clear: Limpar
 search_loading: Carregando...
 search_error: Erro ao carregar dados de pesquisa
+
+
+# Criptografia / Proteção por senha
+encrypt_badge: Protegido
+encrypt_title: Conteúdo protegido
+encrypt_description: Digite a senha para desbloquear este artigo. A senha será salva localmente até que você escolha criptografar novamente.
+encrypt_label: Senha
+encrypt_placeholder: Digite a senha para desbloquear
+encrypt_button: Desbloquear
+encrypt_button_loading: Desbloqueando...
+encrypt_hint: Pressione Enter para enviar. A senha será lembrada nesta página.
+encrypt_success: Desbloqueado! Clique em "Criptografar novamente" para apagar a senha local.
+encrypt_unlocked_note: Conteúdo desbloqueado. Você pode criptografar novamente a qualquer momento.
+encrypt_again: Criptografar novamente
+encrypt_wrong_password: Senha incorreta. Por favor, tente novamente.
+encrypt_show_password: Mostrar senha
+encrypt_hide_password: Ocultar senha
