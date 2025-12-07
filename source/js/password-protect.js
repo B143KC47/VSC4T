@@ -3,10 +3,11 @@
  * Provides i18n support, show/hide password toggle, improved UX
  * Works with hexo-blog-encrypt plugin
  * 
- * FIXES:
- * - Correct event dispatching to avoid redirect issues
+ * FEATURES:
+ * - Correct event dispatching for hbe.js integration
  * - Proper integration with hbe.js decrypt flow
  * - Enhanced user experience with better feedback
+ * - i18n support for multi-language blogs
  */
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('hexo-blog-encrypt');
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Trigger the hexo-blog-encrypt library's decrypt function
-  // FIX: Use the input element to dispatch event, ensuring proper event flow
+  // Dispatch event directly on the container (mainElement) where hbe.js listens
   const triggerDecrypt = () => {
     if (isProcessing) return; // Prevent double submission
     
@@ -86,25 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setLoading(true);
     setMessage('', null);
     
-    // FIX: hbe.js listens on the container (mainElement) for keydown events
-    // and reads password from document.getElementById('hbePass').value
-    // We need to dispatch the event on the container, but ensure the input has the value
-    // The key fix is to let the event bubble up naturally from the input
-    
-    // Create a proper KeyboardEvent and dispatch it on the input
-    // This will bubble up to the container where hbe.js listens
+    // hbe.js listens on the container (mainElement) for keydown events with keyCode === 13
+    // Create a proper KeyboardEvent and dispatch directly on the container
     const enterEvent = new KeyboardEvent('keydown', {
       key: 'Enter',
       code: 'Enter',
       keyCode: 13,
       which: 13,
-      bubbles: true,       // Must bubble to reach container listener
+      bubbles: false,      // Don't bubble - dispatch directly on container
       cancelable: true,
-      composed: true       // Cross shadow DOM boundary if any
+      composed: false,
+      isComposing: false   // Explicitly set to avoid triggering on wrong condition
     });
     
-    // Dispatch on input - it will bubble up to container
-    input.dispatchEvent(enterEvent);
+    // Dispatch directly on the container where hbe.js listens
+    container.dispatchEvent(enterEvent);
   };
 
   const togglePasswordVisibility = () => {
@@ -134,8 +131,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const rerunDecorators = () => {
-    if (window.hljs) document.querySelectorAll('pre code').forEach((block) => window.hljs.highlightElement(block));
-    if (window.mermaid && typeof window.mermaid.init === 'function') window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    // Re-run code enhancement to apply VSC4T theme styling to decrypted code blocks
+    if (typeof window.enhanceCodeBlocks === 'function') {
+      window.enhanceCodeBlocks();
+    }
+    if (typeof window.enhancePlainCodeBlocks === 'function') {
+      window.enhancePlainCodeBlocks();
+    }
+    if (typeof window.addScrollIndicators === 'function') {
+      window.addScrollIndicators();
+    }
+    if (typeof window.renderMermaidDiagrams === 'function') {
+      window.renderMermaidDiagrams();
+    }
+    // Fallback: if code-enhance.js functions are not exposed globally, try hljs
+    if (window.hljs) {
+      document.querySelectorAll('pre code:not(.hljs)').forEach((block) => window.hljs.highlightElement(block));
+    }
+    if (window.mermaid && typeof window.mermaid.init === 'function') {
+      window.mermaid.init(undefined, document.querySelectorAll('.mermaid:not([data-processed])'));
+    }
   };
 
   const handleUnlocked = () => {
@@ -217,18 +232,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   containerObserver.observe(container, { childList: true, subtree: true });
 
-  // Handle Enter key on input - trigger decrypt
-  // FIX: Only handle our custom button click, let native keydown bubble for hbe.js
+  // Handle Enter key on input - let native keydown bubble to hbe.js
+  // We just set our loading state, hbe.js will handle the actual decryption
   if (input) {
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !button?.disabled && !isProcessing) {
-        // Don't prevent default - let the event bubble to hbe.js
-        // But set our loading state
-        if (!e.isTrusted) return; // Ignore synthetic events from our triggerDecrypt
+        // For native Enter key presses (e.isTrusted === true),
+        // hbe.js will receive the event via bubbling
+        // We just need to set our loading state
+        if (!e.isTrusted) return; // Ignore synthetic events
         
         isProcessing = true;
         setLoading(true);
         setMessage('', null);
+        
+        // Don't prevent default or stop propagation - let hbe.js handle it
       }
     });
   }

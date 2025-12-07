@@ -431,3 +431,10 @@ function enlargeDiagram(diagramElement) {
 
     document.body.appendChild(modal);
 }
+
+// Expose functions globally for password-protect.js to call after decryption
+window.enhanceCodeBlocks = enhanceCodeBlocks;
+window.enhancePlainCodeBlocks = enhancePlainCodeBlocks;
+window.addScrollIndicators = addScrollIndicators;
+window.renderMermaidDiagrams = renderMermaidDiagrams;
+window.fixPythonIndentation = fixPythonIndentation;
