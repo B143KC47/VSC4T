@@ -1,7 +1,19 @@
 <% if (page.total > 1) {
   const paginationDir = config.pagination_dir || 'page';
   const basePath = (() => {
-    const base = (page.base || page.path || '').replace(/index\.html$/i, '').replace(/^\/+/, '');
+    // Use page.base if defined (even if empty string), otherwise extract base from page.path
+    let base;
+    if (typeof page.base !== 'undefined') {
+      base = page.base;
+    } else if (page.path) {
+      // Remove pagination part from path (e.g., 'page/2/' -> '')
+      const paginationPattern = new RegExp(`^(.*?)(?:${paginationDir}/\\d+/?)?$`);
+      const match = page.path.match(paginationPattern);
+      base = match ? match[1] : page.path;
+    } else {
+      base = '';
+    }
+    base = base.replace(/index\.html$/i, '').replace(/^\/+/, '');
     if (!base) return '';
     return base.endsWith('/') ? base : `${base}/`;
   })();
