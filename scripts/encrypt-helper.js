@@ -24,11 +24,12 @@ const applyCustomEncryptTemplate = () => {
 
   const customTemplate = `
 <div id="hexo-blog-encrypt" class="hbe-card" data-wpm="{{hbeWrongPassMessage}}" data-whm="{{hbeWrongHashMessage}}">
-  <script id="hbeData" type="hbeData" data-hmacdigest="{{hbeHmacDigest}}">{{hbeEncryptedData}}</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="{{hbeHmacDigest}}" data-keysalt="{{hbeKeySalt}}" data-ivsalt="{{hbeIvSalt}}">{{hbeEncryptedData}}</script>
   <div class="hbe-header">
     <div class="hbe-header-left">
-      <div class="hbe-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <div class="hbe-icon hbe-lock-icon">
+        <svg class="hbe-lock-closed" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <svg class="hbe-lock-open" style="display:none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>
       </div>
       <div class="hbe-header-copy">
         <p class="hbe-badge" data-i18n="encrypt_badge">Protected</p>
@@ -53,7 +54,7 @@ const applyCustomEncryptTemplate = () => {
         <svg class="hbe-spinner" style="display:none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
       </button>
     </div>
-    <p class="hbe-hint" id="hbe-hint" data-i18n="encrypt_hint">Press Enter to submit. Password will be remembered on this page.</p>
+    <p class="hbe-hint" id="hbe-hint" data-i18n="encrypt_hint">Press Enter to submit. Password will be remembered on this device.</p>
     <div id="hbe-message" class="hbe-message" role="status" aria-live="polite"></div>
   </div>
   <div class="hbe-actions" id="hbe-actions">
@@ -61,7 +62,10 @@ const applyCustomEncryptTemplate = () => {
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
       <span data-i18n="encrypt_unlocked_note">Content unlocked. You can re-encrypt at any time.</span>
     </div>
-    <button id="hbe-encrypt-again" class="hbe-ghost-button" type="button" data-i18n="encrypt_again">Re-encrypt</button>
+    <button id="hbe-encrypt-again" class="hbe-ghost-button" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <span data-i18n="encrypt_again">Re-encrypt</span>
+    </button>
   </div>
 </div>
   `;

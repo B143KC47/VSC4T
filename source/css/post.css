@@ -312,6 +312,16 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   font-family: var(--font-family);
+  transition: all 0.3s ease;
+}
+
+#hexo-blog-encrypt.hbe-unlocked {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hbe-header {
@@ -339,6 +349,32 @@
   background-color: var(--vscode-button-secondaryBackground);
   color: var(--vscode-button-secondaryForeground);
   border: 1px solid var(--vscode-widget-border);
+  transition: all 0.3s ease;
+}
+
+/* Lock icon animation */
+.hbe-lock-icon {
+  position: relative;
+}
+
+.hbe-lock-icon .hbe-lock-closed,
+.hbe-lock-icon .hbe-lock-open {
+  transition: all 0.3s ease;
+}
+
+#hexo-blog-encrypt.hbe-unlocked .hbe-lock-icon .hbe-lock-closed {
+  display: none;
+}
+
+#hexo-blog-encrypt.hbe-unlocked .hbe-lock-icon .hbe-lock-open {
+  display: inline !important;
+}
+
+#hexo-blog-encrypt.hbe-unlocked .hbe-icon {
+  background-color: var(--vscode-debugIcon-breakpointCurrentForeground, #4ade80);
+  color: #fff;
+  border-color: transparent;
+  animation: hbe-pulse 0.5s ease-out;
 }
 
 .hbe-header-copy {
@@ -543,6 +579,14 @@
   min-height: 1.2em;
 }
 
+.hbe-message:empty {
+  display: none;
+}
+
+.hbe-message.hbe-error {
+  color: var(--vscode-errorForeground, #f87171);
+}
+
 .hbe-message.hbe-success {
   color: var(--vscode-debugIcon-breakpointCurrentForeground, #4ade80);
 }
@@ -582,6 +626,15 @@
   border-radius: 0.55rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.hbe-ghost-button svg,
+.hbe-hide-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .hbe-ghost-button:hover,
@@ -634,6 +687,12 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes hbe-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
 /* Fade-in animation for messages and actions */
 @keyframes hbe-fade-in {
   from {
@@ -646,8 +705,30 @@
   }
 }
 
+/* Success unlock animation */
+@keyframes hbe-unlock-slide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hbe-fade-in {
   animation: hbe-fade-in 0.3s ease-out;
+}
+
+#hexo-blog-encrypt.hbe-unlocked > div:not(.hbe-card):not(.hbe-header):not(.hbe-content-wrapper):not(.hbe-actions) {
+  animation: hbe-unlock-slide 0.4s ease-out;
+}
+
+/* Hide password form elements when unlocked */
+#hexo-blog-encrypt.hbe-unlocked .hbe-header,
+#hexo-blog-encrypt.hbe-unlocked .hbe-content-wrapper {
+  display: none;
 }
 
 /* Mobile responsive improvements */

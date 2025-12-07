@@ -2,6 +2,11 @@
  * VSC4T Password Protection Enhancement
  * Provides i18n support, show/hide password toggle, improved UX
  * Works with hexo-blog-encrypt plugin
+ * 
+ * FIXES:
+ * - Correct event dispatching to avoid redirect issues
+ * - Proper integration with hbe.js decrypt flow
+ * - Enhanced user experience with better feedback
  */
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('hexo-blog-encrypt');
@@ -22,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let unlocked = false;
   let loadingTimer = null;
   let passwordVisible = false;
+  let isProcessing = false; // Prevent double submission
 
   const applyI18n = () => {
     container.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -54,35 +60,51 @@ document.addEventListener('DOMContentLoaded', () => {
     if (spinner) spinner.style.display = isLoading ? 'inline' : 'none';
     clearTimeout(loadingTimer);
     if (isLoading) {
-      // Reduced timeout since we rely on hexo-blog-decrypt event
+      // Timeout for error handling - if decrypt doesn't respond
       loadingTimer = setTimeout(() => {
+        isProcessing = false;
         setLoading(false);
         setMessage(getText('encrypt_wrong_password', 'Incorrect password. Please try again.'), 'error');
         if (input) { input.classList.add('shake'); input.focus(); input.select(); }
         setTimeout(() => { if (input) input.classList.remove('shake'); }, 500);
-      }, 3000);
+      }, 5000);
     }
   };
 
   // Trigger the hexo-blog-encrypt library's decrypt function
+  // FIX: Use the input element to dispatch event, ensuring proper event flow
   const triggerDecrypt = () => {
+    if (isProcessing) return; // Prevent double submission
+    
     if (!input || !input.value.trim()) {
       setMessage(getText('encrypt_wrong_password', 'Please enter a password.'), 'error');
       if (input) input.focus();
       return;
     }
+    
+    isProcessing = true;
     setLoading(true);
     setMessage('', null);
-    // Dispatch Enter keydown event on the container to trigger hbe.js decrypt
+    
+    // FIX: hbe.js listens on the container (mainElement) for keydown events
+    // and reads password from document.getElementById('hbePass').value
+    // We need to dispatch the event on the container, but ensure the input has the value
+    // The key fix is to let the event bubble up naturally from the input
+    
+    // Create a proper KeyboardEvent and dispatch it on the input
+    // This will bubble up to the container where hbe.js listens
     const enterEvent = new KeyboardEvent('keydown', {
       key: 'Enter',
       code: 'Enter',
       keyCode: 13,
       which: 13,
-      bubbles: true,
-      cancelable: true
+      bubbles: true,       // Must bubble to reach container listener
+      cancelable: true,
+      composed: true       // Cross shadow DOM boundary if any
     });
-    container.dispatchEvent(enterEvent);
+    
+    // Dispatch on input - it will bubble up to container
+    input.dispatchEvent(enterEvent);
   };
 
   const togglePasswordVisibility = () => {
@@ -119,11 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleUnlocked = () => {
     if (unlocked) { styleEncryptAgainButtons(); rerunDecorators(); setLoading(false); return; }
     unlocked = true;
+    isProcessing = false;
     clearTimeout(loadingTimer);
     setLoading(false);
     container.classList.add('hbe-unlocked');
+    setMessage(getText('encrypt_success', 'Content unlocked successfully!'), 'success');
     styleEncryptAgainButtons();
     rerunDecorators();
+    
+    // Smooth scroll to content after unlock
+    setTimeout(() => {
+      const contentStart = container.querySelector('div:not(.hbe-card):not(.hbe-header):not(.hbe-content-wrapper):not(.hbe-actions)');
+      if (contentStart) {
+        contentStart.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
   };
 
   applyI18n();
@@ -132,6 +164,35 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hexo-blog-decrypt', () => {
     handleUnlocked();
   });
+
+  // Also listen for wrong password alert - hbe.js uses native alert()
+  // We intercept it to provide better UX
+  const originalAlert = window.alert;
+  window.alert = function(msg) {
+    // Check if this is a wrong password message from hbe.js
+    const wrongPassMsg = container.dataset['wpm'] || 'invalid password';
+    const wrongHashMsg = container.dataset['whm'] || 'cannot be verified';
+    
+    if (msg && (msg.toLowerCase().includes('password') || 
+                msg.toLowerCase().includes(wrongPassMsg.toLowerCase()) ||
+                msg.toLowerCase().includes(wrongHashMsg.toLowerCase()))) {
+      // It's a password error - show our custom message instead
+      isProcessing = false;
+      clearTimeout(loadingTimer);
+      setLoading(false);
+      setMessage(getText('encrypt_wrong_password', msg), 'error');
+      if (input) { 
+        input.classList.add('shake'); 
+        input.focus(); 
+        input.select(); 
+      }
+      setTimeout(() => { if (input) input.classList.remove('shake'); }, 500);
+      return; // Don't show native alert
+    }
+    
+    // For other alerts, use original
+    originalAlert.call(window, msg);
+  };
 
   // Auto-decrypt if hbe.js stored password in localStorage (uses different key format)
   // hbe.js uses 'hexo-blog-encrypt:#/path' format
@@ -157,12 +218,17 @@ document.addEventListener('DOMContentLoaded', () => {
   containerObserver.observe(container, { childList: true, subtree: true });
 
   // Handle Enter key on input - trigger decrypt
+  // FIX: Only handle our custom button click, let native keydown bubble for hbe.js
   if (input) {
     input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !button?.disabled) {
-        e.preventDefault();
-        e.stopPropagation(); // Prevent double-handling
-        triggerDecrypt();
+      if (e.key === 'Enter' && !button?.disabled && !isProcessing) {
+        // Don't prevent default - let the event bubble to hbe.js
+        // But set our loading state
+        if (!e.isTrusted) return; // Ignore synthetic events from our triggerDecrypt
+        
+        isProcessing = true;
+        setLoading(true);
+        setMessage('', null);
       }
     });
   }
