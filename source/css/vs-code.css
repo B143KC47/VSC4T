@@ -8,6 +8,8 @@
 /* 左侧资源管理器样式 */
 .sidebar-explorer {
   width: 250px;
+  min-width: 250px; /* 防止被压缩 */
+  flex-shrink: 0; /* 禁止收缩 */
   background: var(--vscode-sidebar);
   border-right: 1px solid var(--vscode-border);
   padding: 10px 0;
@@ -93,6 +95,8 @@
 .editor-content {
   flex: 1;
   background: var(--vscode-bg);
+  min-width: 0; /* 关键：防止flex子项被内容撑大 */
+  width: 0; /* 确保flex-grow生效且不受内容宽度影响 */
 }
 
 .tab-bar {

@@ -13,7 +13,7 @@
 /* 代码块容器 */
 figure.highlight {
   margin: 2em 0;
-  background: var(--vscode-code-container-bg);
+  background: var(--vscode-bg); /* 统一使用最深的背景色 */
   box-shadow: 0 4px 16px var(--vscode-code-shadow);
   overflow: hidden;
   width: 100%;
@@ -21,60 +21,109 @@ figure.highlight {
   position: relative;
 }
 
-/* 行号pre样式 - 修复宽度问题 */
-.line-numbers-pre {
-  padding: 4px 6px; /* 减小垂直内边距与code-content保持一致 */
-  margin: 0;
-  background: var(--vscode-code-line-number-bg);
-  border-right: 1px solid var(--vscode-code-border);
-  color: var(--vscode-code-line-number);
-  user-select: none;
-  text-align: right;
-  min-width: auto; /* 移除最小宽度限制 */
-  width: auto; /* 根据内容自动调整宽度 */
-  flex-shrink: 0; /* 防止被压缩 */
-  overflow-y: hidden;
-  box-sizing: border-box; /* 确保边框盒模型一致 */
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
+/* 代码行容器 */
+.code-line {
+  display: flex;
+  align-items: stretch;
+  width: max-content; /* 关键：确保宽度覆盖所有内容 */
+  min-width: 100%;    /* 关键：确保背景至少填满容器宽度 */
+  min-height: 1.5em;
 }
 
-/* 行号内的每个数字样式 */
-.line-numbers-pre .line-num {
+/* 滚动条样式优化 */
+.code-content::-webkit-scrollbar {
+  height: 12px; /* 增加横向滚动条高度 */
+  width: 12px;  /* 增加纵向滚动条宽度 */
+}
+
+.code-content::-webkit-scrollbar-track {
+  background: var(--vscode-bg);
+}
+
+.code-content::-webkit-scrollbar-thumb {
+  background: var(--vscode-border); /* 使用边框颜色作为滑块，对比度适中 */
+  border-radius: 6px;
+  border: 3px solid var(--vscode-bg); /* 增加边框宽度，使滑块看起来更精致 */
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-text-light); /* 悬停时变亮 */
+}
+
+/* Firefox 滚动条 */
+.code-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vscode-border) var(--vscode-bg);
+}
+
+.code-line:first-child {
+  /* padding-top: 8px; */ /* 移除行容器的内边距 */
+}
+
+.code-line:last-child {
+  /* padding-bottom: 8px; */ /* 移除行容器的内边距 */
+}
+
+.code-line:first-child .line-num,
+.code-line:first-child .line-code {
+  padding-top: 8px; /* 将内边距应用到单元格内部 */
+}
+
+.code-line:last-child .line-num,
+.code-line:last-child .line-code {
+  padding-bottom: 8px; /* 将内边距应用到单元格内部 */
+}
+
+/* 行号样式 */
+.line-num {
+  flex: 0 0 auto;
+  min-width: 3.5em;
+  padding: 0 12px;
+  text-align: right;
+  color: var(--vscode-code-line-number);
+  background: var(--vscode-code-line-number-bg);
+  border-right: 1px solid var(--vscode-code-border);
+  user-select: none;
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
-  /* height: 1.5em; */ /* 移除固定高度，避免空间浪费 */
-  /* min-height: 1.5em; */ /* 改用最小高度 - 注释掉此行 */
-  display: block;
-  padding-right: 0.5em; /* 确保数字右侧有适当空间 */
-  padding-top: 0;
-  padding-bottom: 0;
-  margin: 0;
-  white-space: nowrap;
-  box-sizing: border-box; /* 确保盒模型一致 */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* 代码内容样式 */
+.line-code {
+  flex: 1;
+  padding: 0 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre; /* 禁止换行，使用滚动条 */
+  word-break: keep-all;
+  box-sizing: border-box;
+  background: transparent; /* 透明背景，透出容器背景 */
 }
 
 /* 代码内容pre样式优化 */
 .code-content {
-  padding: 4px 8px; /* 减小垂直内边距以适应少行代码 */
+  padding: 0 !important; /* 移除内边距以消除间隙 */
   margin: 0;
   flex-shrink: 1; /* 允许在必要时收缩 */
-  overflow-x: auto;
+  overflow-x: auto; /* 允许横向滚动 */
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
   color: var(--vscode-text);
-  background: var(--vscode-bg);
-  width: 0; /* 关键修改: 初始宽度为0，依靠flex-grow扩展 */
-  min-width: 0; /* 确保可以收缩到容器大小 */
+  background: transparent; /* 透明背景，透出容器背景 */
+  width: 100%;
   box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
 /* 超长代码换行控制 */
 .code-content code {
-  white-space: pre;
+  white-space: pre; /* 禁止换行 */
   word-wrap: normal;
   tab-size: 4;
   line-height: 1.5;
@@ -82,7 +131,6 @@ figure.highlight {
 
 /* 确保代码内容中的每一行与行号对齐 */
 .code-content .line {
-  /* min-height: 1.5em; */ /* 改为最小高度而非固定高度 - 注释掉此行 */
   line-height: 1.5;
   margin: 0; /* 确保没有外边距 */
   padding: 0; /* 确保没有内边距 */
@@ -93,7 +141,7 @@ figure.highlight {
 .code-pre-wrapper {
   display: flex;
   overflow: hidden;
-  background: var(--vscode-code-container-bg);
+  background: var(--vscode-bg); /* 统一使用最深的背景色 */
   width: 100%;
   box-shadow: 0 4px 16px var(--vscode-code-shadow);
   /* align-items: stretch; /* 改为stretch让所有元素高度一致 */
