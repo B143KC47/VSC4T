@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <!-- 关于我 -->
   <div class="sidebar-section about">
-    <h3><i class="fas fa-user"></i> About</h3>
+    <h3><i class="fas fa-user"></i> <%- __('sidebar_about') %></h3>
     <div class="about-info">
       <img src="<%- url_for(theme.avatar || '/images/avatar.png') %>" alt="avatar" class="avatar">
       <p><%- theme.description || config.description %></p>
@@ -10,25 +10,24 @@
 
   <!-- 分类 -->
   <div class="sidebar-section categories">
-    <h3><i class="fas fa-folder"></i> Categories</h3>
+    <h3><i class="fas fa-folder"></i> <%- __('sidebar_categories') %></h3>
     <%- list_categories({
       show_count: false,
       orderby: 'name',
       order: 1,
       show_all: true,
-      class: 'category', // 确保这个 class 不会影响链接生成
+      class: 'category',
       depth: 0,
       style: 'list',
       separator: ', ',
       transform: function(name) { return name === 'Computer Vision' ? 'Computer Vision' : name; },
-      // 修改 url 属性，确保链接正确生成
       url: config.root + 'categories/'
     }) %>
   </div>
 
   <!-- 标签云 -->
   <div class="sidebar-section tags">
-    <h3><i class="fas fa-tags"></i> Tags</h3>
+    <h3><i class="fas fa-tags"></i> <%- __('sidebar_tags') %></h3>
     <%- tagcloud({
       min_font: 12,
       max_font: 24,
@@ -36,25 +35,7 @@
       color: true,
       start_color: '#999',
       end_color: '#fff',
-      // 修改 url 属性，确保链接正确生成
       url: config.root + 'tags/'
     }) %>
   </div>
 </aside>
-
-<script>
-  function smoothScroll(event, target) {
-    event.preventDefault();
-    const targetId = target.substring(target.indexOf('#') + 1);
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 50, // 调整偏移量
-        behavior: 'smooth'
-      });
-    } else {
-      window.location.href = target;
-    }
-  }
-</script>

@@ -7,19 +7,19 @@
     <div class="explorer-section">
       <div class="section-header">
         <i class="fas fa-list"></i>
-        <span>TABLE OF CONTENTS</span>
+        <span><%- __('post_toc') %></span>
       </div>
       <div class="section-content">
         <%- toc(page.content, {list_number: false}) %>
       </div>
     </div>
-    
+
     <!-- 同分类文章 -->
     <% if (page.categories && page.categories.length) { %>
     <div class="explorer-section">
       <div class="section-header">
         <i class="fas fa-folder"></i>
-        <span>CATEGORY POSTS</span>
+        <span><%- __('post_category_posts') %></span>
       </div>
       <div class="section-content">
         <% 
@@ -45,7 +45,7 @@
     <div class="explorer-section">
       <div class="section-header">
         <i class="fas fa-tags"></i>
-        <span>ARTICLE TAGS</span>
+        <span><%- __('post_article_tags') %></span>
       </div>
       <div class="section-content">
         <% page.tags.each(function(tag){ %>

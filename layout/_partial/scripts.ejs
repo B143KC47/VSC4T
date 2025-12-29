@@ -42,9 +42,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 <!-- Scripts -->
 <script>
-  // 将语言文件中的翻译传递给前端
+  // 全局配置 - 包含 i18n 字符串和主题配置
   window.HEXO_CONFIG = {
     language: "<%= config.language || 'en' %>",
+    root: "<%= config.root || '/' %>",
+    <% if (theme.auto_theme_switch) { %>
+    theme_switch: {
+      enabled: <%= theme.auto_theme_switch.enabled || false %>,
+      light_start: "<%= theme.auto_theme_switch.light_start || '06:00' %>",
+      light_end: "<%= theme.auto_theme_switch.light_end || '18:00' %>"
+    },
+    <% } %>
+    // Search i18n strings
     search_placeholder: "<%- __('search_placeholder') %>",
     search_no_results: "<%- __('search_no_results') %>",
     search_result: "<%- __('search_result') %>",
@@ -74,7 +83,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     encrypt_again: "<%- __('encrypt_again') %>",
     encrypt_wrong_password: "<%- __('encrypt_wrong_password') %>",
     encrypt_show_password: "<%- __('encrypt_show_password') %>",
-    encrypt_hide_password: "<%- __('encrypt_hide_password') %>"
+    encrypt_hide_password: "<%- __('encrypt_hide_password') %>",
+    // Sidebar i18n strings
+    sidebar_about: "<%- __('sidebar_about') %>",
+    sidebar_categories: "<%- __('sidebar_categories') %>",
+    sidebar_tags: "<%- __('sidebar_tags') %>",
+    // Post page i18n strings
+    post_toc: "<%- __('post_toc') %>",
+    post_category_posts: "<%- __('post_category_posts') %>",
+    post_article_tags: "<%- __('post_article_tags') %>"
   };
 </script>
 
@@ -85,7 +102,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <% } %>
 
 <!-- 添加所有需要的脚本 -->
-<script src="<%- url_for('js/main.js') %>"></script>
 <script src="<%- url_for('js/search.js') %>"></script>
 <script src="<%- url_for('js/theme-switch.js') %>"></script>
 <% if (page.layout === 'categories'){ %>

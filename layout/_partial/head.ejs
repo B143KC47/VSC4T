@@ -2,7 +2,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><%= page.title %> | <%= config.title %></title>
-  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="<%- page.description || page.excerpt ? strip_html(page.excerpt).substring(0, 160) : (theme.description || config.description) %>">
+  <meta name="keywords" content="<%- page.tags && page.tags.length ? page.tags.map(t => t.name).join(',') : (config.keywords || '') %>">
+  <meta name="author" content="<%= config.author %>">
+  <link rel="canonical" href="<%- config.url %><%- url_for(page.path) %>">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="<%= page.title %> | <%= config.title %>">
+  <meta property="og:description" content="<%- page.description || page.excerpt ? strip_html(page.excerpt).substring(0, 160) : (theme.description || config.description) %>">
+  <meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>">
+  <meta property="og:url" content="<%- config.url %><%- url_for(page.path) %>">
+  <meta property="og:site_name" content="<%= config.title %>">
+  <% if (page.date) { %><meta property="article:published_time" content="<%= page.date.toISOString() %>"><% } %>
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%= page.title %> | <%= config.title %>">
+  <meta name="twitter:description" content="<%- page.description || page.excerpt ? strip_html(page.excerpt).substring(0, 160) : (theme.description || config.description) %>">
+
   <!-- Favicon 配置 -->
   <% if (theme.favicon) { %>
     <% if (theme.favicon.ico) { %>
@@ -21,17 +40,20 @@
       <link rel="apple-touch-icon" sizes="180x180" href="<%- url_for(theme.favicon.apple_touch_icon) %>">
     <% } %>
   <% } %>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+  <!-- 外部样式 - 统一使用 jsdelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- 代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+  <!-- Mermaid.js 库 (defer加载) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="<%- url_for('css/theme-colors.css') %>">
   <link rel="stylesheet" href="<%- url_for('css/main.css') %>">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- 添加代码高亮样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-  <!-- 添加highlight.js库 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <!-- 添加mermaid.js库 -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <link rel="stylesheet" href="<%- url_for('css/code.css') %>">
   <link rel="stylesheet" href="<%- url_for('css/code-custom.css') %>">
   <link rel="stylesheet" href="<%- url_for('css/code-languages.css') %>">
@@ -50,7 +72,6 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <%- partial('_partial/custom_head') %>
-  <script src="<%- url_for('js/explorer.js') %>"></script>
-  <script src="<%- url_for('js/code-copy.js') %>"></script>
-  <script src="<%- url_for('js/code-enhance.js') %>"></script>
+  <script defer src="<%- url_for('js/explorer.js') %>"></script>
+  <script defer src="<%- url_for('js/code-enhance.js') %>"></script>
 </head>
