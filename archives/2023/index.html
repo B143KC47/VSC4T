@@ -4,7 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title> | VSC4T</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A simple dark Hexo theme inspired by code.">
+  <meta name="keywords" content="">
+  <meta name="author" content="B143KC47">
+  <link rel="canonical" href="https://b143kc47.github.io/VSC4T">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content=" | VSC4T">
+  <meta property="og:description" content="A simple dark Hexo theme inspired by code.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://b143kc47.github.io/VSC4T">
+  <meta property="og:site_name" content="VSC4T">
   
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content=" | VSC4T">
+  <meta name="twitter:description" content="A simple dark Hexo theme inspired by code.">
+
   <!-- Favicon 配置 -->
   
     
@@ -23,24 +42,27 @@
       <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
     
   
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+  <!-- 外部样式 - 统一使用 jsdelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- 代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+  <!-- Mermaid.js 库 (defer加载) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../css/theme-colors.css">
   <link rel="stylesheet" href="../../css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- 添加代码高亮样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-  <!-- 添加highlight.js库 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <!-- 添加mermaid.js库 -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <link rel="stylesheet" href="../../css/code.css">
   <link rel="stylesheet" href="../../css/code-custom.css">
   <link rel="stylesheet" href="../../css/code-languages.css">
   <link rel="stylesheet" href="../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../css/vs-code.css">
-  <link rel="stylesheet" href="../../css/post.css">
+  <link rel="stylesheet" href="../../css/post.css?v=1769770104024">
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -53,9 +75,8 @@
 
   <!-- Add any custom head content here -->
 
-  <script src="../../js/explorer.js"></script>
-  <script src="../../js/code-copy.js"></script>
-  <script src="../../js/code-enhance.js"></script>
+  <script defer src="../../js/explorer.js"></script>
+  <script defer src="../../js/code-enhance.js"></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -182,15 +203,39 @@
           
           
         
+          
+          
+          
+        
+          
+          
+          
+        
         
         
           <div class="archive-year">
             <div class="folder">
               <i class="fas fa-folder"></i>
               <span>2025</span>
-              <span class="count">(2)</span>
+              <span class="count">(4)</span>
             </div>
             <div class="archive-posts">
+              
+                <div class="file ">
+                  <i class="fas fa-file-alt"></i>
+                  <a href="../../2025/11/28/Security_tutorial/">
+                    11-28 Hexo 文章密码保护教程 / Hexo Password Protection Tutorial
+                    
+                  </a>
+                </div>
+              
+                <div class="file ">
+                  <i class="fas fa-file-alt"></i>
+                  <a href="../../2025/11/20/Security/">
+                    11-20 🔐 我的秘密日记 / My Secret Diary (Password: 123456)
+                    
+                  </a>
+                </div>
               
                 <div class="file ">
                   <i class="fas fa-file-alt"></i>
@@ -221,20 +266,20 @@
               
                 <div class="file ">
                   <i class="fas fa-file-alt"></i>
-                  <a href="../../2023/06/15/VSC4T/">
-                    06-15 VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题
-                    
-                      <span class="sticky-indicator" title="Pinned Post">
-                        <i class="fas fa-thumbtack"></i>
-                      </span>
+                  <a href="../../2023/06/15/DEPLOYMENT/">
+                    06-15 VSC4T Blog Deploy Guide | VSC4T博客部署指南
                     
                   </a>
                 </div>
               
                 <div class="file ">
                   <i class="fas fa-file-alt"></i>
-                  <a href="../../2023/06/15/DEPLOYMENT/">
-                    06-15 VSC4T Blog Deploy Guide | VSC4T博客部署指南
+                  <a href="../../2023/06/15/VSC4T/">
+                    06-15 VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题
+                    
+                      <span class="sticky-indicator" title="Pinned Post">
+                        <i class="fas fa-thumbtack"></i>
+                      </span>
                     
                   </a>
                 </div>
@@ -261,7 +306,7 @@
           <i class="fas fa-archive"></i>
           Archives
         </h1>
-        <span class="archive-count">4 posts</span>
+        <span class="archive-count">6 posts</span>
       </div>
 
       <div class="timeline-container">
@@ -270,9 +315,63 @@
             <div class="year-header">
               <i class="fas fa-calendar-alt"></i>
               2025
-              <span class="year-count">(2 posts)</span>
+              <span class="year-count">(4 posts)</span>
             </div>
             <div class="year-posts">
+              
+                <div class="timeline-post">
+                  <div class="post-date">
+                    <i class="fas fa-clock"></i>
+                    11-28
+                  </div>
+                  <div class="post-info">
+                    <a href="../../2025/11/28/Security_tutorial/">
+                      Hexo 文章密码保护教程 / Hexo Password Protection Tutorial
+                      
+                    </a>
+                    <div class="post-meta">
+                      
+                        <span class="category">
+                          <i class="fas fa-folder"></i>
+                          <a class="category-link" href="../../categories/blog/">blog</a>, <a class="category-link" href="../../categories/blog/technical-guide/">technical-guide</a>
+                        </span>
+                      
+                      
+                        <span class="tags">
+                          <i class="fas fa-tags"></i>
+                          <a class="tag-none-link" href="../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../tags/password/" rel="tag">password</a>, <a class="tag-none-link" href="../../tags/security/" rel="tag">security</a>, <a class="tag-none-link" href="../../tags/tutorial/" rel="tag">tutorial</a>
+                        </span>
+                      
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="timeline-post">
+                  <div class="post-date">
+                    <i class="fas fa-clock"></i>
+                    11-20
+                  </div>
+                  <div class="post-info">
+                    <a href="../../2025/11/20/Security/">
+                      🔐 我的秘密日记 / My Secret Diary (Password: 123456)
+                      
+                    </a>
+                    <div class="post-meta">
+                      
+                        <span class="category">
+                          <i class="fas fa-folder"></i>
+                          <a class="category-link" href="../../categories/tests/">tests</a>
+                        </span>
+                      
+                      
+                        <span class="tags">
+                          <i class="fas fa-tags"></i>
+                          <a class="tag-none-link" href="../../tags/password/" rel="tag">password</a>, <a class="tag-none-link" href="../../tags/sample/" rel="tag">sample</a>, <a class="tag-none-link" href="../../tags/security/" rel="tag">security</a>
+                        </span>
+                      
+                    </div>
+                  </div>
+                </div>
               
                 <div class="timeline-post">
                   <div class="post-date">
@@ -345,6 +444,33 @@
                     06-15
                   </div>
                   <div class="post-info">
+                    <a href="../../2023/06/15/DEPLOYMENT/">
+                      VSC4T Blog Deploy Guide | VSC4T博客部署指南
+                      
+                    </a>
+                    <div class="post-meta">
+                      
+                        <span class="category">
+                          <i class="fas fa-folder"></i>
+                          <a class="category-link" href="../../categories/blog/">blog</a>, <a class="category-link" href="../../categories/blog/themes/">themes</a>
+                        </span>
+                      
+                      
+                        <span class="tags">
+                          <i class="fas fa-tags"></i>
+                          <a class="tag-none-link" href="../../tags/dark-mode/" rel="tag">dark-mode</a>, <a class="tag-none-link" href="../../tags/deploy/" rel="tag">deploy</a>, <a class="tag-none-link" href="../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../tags/responsive/" rel="tag">responsive</a>, <a class="tag-none-link" href="../../tags/theme/" rel="tag">theme</a>
+                        </span>
+                      
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="timeline-post">
+                  <div class="post-date">
+                    <i class="fas fa-clock"></i>
+                    06-15
+                  </div>
+                  <div class="post-info">
                     <a href="../../2023/06/15/VSC4T/">
                       VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题
                       
@@ -364,33 +490,6 @@
                         <span class="tags">
                           <i class="fas fa-tags"></i>
                           <a class="tag-none-link" href="../../tags/dark-mode/" rel="tag">dark-mode</a>, <a class="tag-none-link" href="../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../tags/responsive/" rel="tag">responsive</a>, <a class="tag-none-link" href="../../tags/theme/" rel="tag">theme</a>
-                        </span>
-                      
-                    </div>
-                  </div>
-                </div>
-              
-                <div class="timeline-post">
-                  <div class="post-date">
-                    <i class="fas fa-clock"></i>
-                    06-15
-                  </div>
-                  <div class="post-info">
-                    <a href="../../2023/06/15/DEPLOYMENT/">
-                      VSC4T Blog Deploy Guide | VSC4T博客部署指南
-                      
-                    </a>
-                    <div class="post-meta">
-                      
-                        <span class="category">
-                          <i class="fas fa-folder"></i>
-                          <a class="category-link" href="../../categories/blog/">blog</a>, <a class="category-link" href="../../categories/blog/themes/">themes</a>
-                        </span>
-                      
-                      
-                        <span class="tags">
-                          <i class="fas fa-tags"></i>
-                          <a class="tag-none-link" href="../../tags/dark-mode/" rel="tag">dark-mode</a>, <a class="tag-none-link" href="../../tags/deploy/" rel="tag">deploy</a>, <a class="tag-none-link" href="../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../tags/responsive/" rel="tag">responsive</a>, <a class="tag-none-link" href="../../tags/theme/" rel="tag">theme</a>
                         </span>
                       
                     </div>
@@ -418,7 +517,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-09-17
+      2026-01-30
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -431,23 +530,18 @@
   </div>
 </footer>
 
-    
-    <!-- 全局配置 -->
+
+    <!-- 搜索专用配置 (HEXO_CONFIG 在 scripts.ejs 中统一定义) -->
     <script>
-      window.HEXO_CONFIG = {
-        language: "en",
-        root: "/VSC4T/"
-      };
-      
-      // 特定于搜索的配置
       window.VSC4T_SEARCH = {
         root: "/VSC4T/"
       };
     </script>
-    
-    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+
+    <!-- 外部脚本 - 统一使用 jsdelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js" crossorigin="anonymous"></script>
     <script>hljs.highlightAll();</script>
     <!-- 这里可以放置自定义脚本 -->
 <script>
@@ -493,9 +587,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 <!-- Scripts -->
 <script>
-  // 将语言文件中的翻译传递给前端
+  // 全局配置 - 包含 i18n 字符串和主题配置
   window.HEXO_CONFIG = {
     language: "en",
+    root: "/VSC4T/",
+    
+    theme_switch: {
+      enabled: false,
+      light_start: "06:00",
+      light_end: "18:00"
+    },
+    
+    // Search i18n strings
     search_placeholder: "Type to search...",
     search_no_results: "No results found",
     search_result: "result",
@@ -510,16 +613,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
     search_recent: "Recent Searches",
     search_clear: "Clear",
     search_loading: "Loading...",
-    search_error: "Error loading search data"
+    search_error: "Error loading search data",
+    // Encryption i18n strings
+    encrypt_badge: "Protected",
+    encrypt_title: "Protected Content",
+    encrypt_description: "Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.",
+    encrypt_label: "Password",
+    encrypt_placeholder: "Enter password to unlock",
+    encrypt_button: "Unlock",
+    encrypt_button_loading: "Unlocking...",
+    encrypt_hint: "Press Enter to submit. Password will be remembered on this device.",
+    encrypt_success: "Content unlocked successfully!",
+    encrypt_unlocked_note: "Content unlocked. You can re-encrypt at any time.",
+    encrypt_again: "Re-encrypt",
+    encrypt_wrong_password: "Incorrect password. Please try again.",
+    encrypt_show_password: "Show password",
+    encrypt_hide_password: "Hide password",
+    // Sidebar i18n strings
+    sidebar_about: "About",
+    sidebar_categories: "Categories",
+    sidebar_tags: "Tags",
+    // Post page i18n strings
+    post_toc: "TABLE OF CONTENTS",
+    post_category_posts: "CATEGORY POSTS",
+    post_article_tags: "ARTICLE TAGS"
   };
 </script>
 
 
 
 <!-- 添加所有需要的脚本 -->
-<script src="../../js/main.js"></script>
 <script src="../../js/search.js"></script>
+<script src="../../js/theme-switch.js"></script>
 
+<script src="../../js/password-protect.js?v=1769770104025"></script>
 
     <script>
       // 移动端菜单切换

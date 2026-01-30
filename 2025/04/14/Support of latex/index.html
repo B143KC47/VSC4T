@@ -4,7 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南 | VSC4T</title>
-  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="">
+  <meta name="keywords" content="hexo,theme,markdown,latex,math">
+  <meta name="author" content="B143KC47">
+  <link rel="canonical" href="https://b143kc47.github.io/VSC4T">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南 | VSC4T">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://b143kc47.github.io/VSC4T">
+  <meta property="og:site_name" content="VSC4T">
+  <meta property="article:published_time" content="2025-04-13T16:00:00.000Z">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南 | VSC4T">
+  <meta name="twitter:description" content="">
+
   <!-- Favicon 配置 -->
   
     
@@ -23,24 +42,27 @@
       <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
     
   
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+  <!-- 外部样式 - 统一使用 jsdelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- 代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+  <!-- Mermaid.js 库 (defer加载) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../../../css/theme-colors.css">
   <link rel="stylesheet" href="../../../../css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- 添加代码高亮样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-  <!-- 添加highlight.js库 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <!-- 添加mermaid.js库 -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <link rel="stylesheet" href="../../../../css/code.css">
   <link rel="stylesheet" href="../../../../css/code-custom.css">
   <link rel="stylesheet" href="../../../../css/code-languages.css">
   <link rel="stylesheet" href="../../../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../../../css/vs-code.css">
-  <link rel="stylesheet" href="../../../../css/post.css">
+  <link rel="stylesheet" href="../../../../css/post.css?v=1769770104020">
   <link rel="stylesheet" href="../../../../css/tag.css">
   <link rel="stylesheet" href="../../../../css/categories.css">
   <link rel="stylesheet" href="../../../../css/archive.css">
@@ -53,9 +75,8 @@
 
   <!-- Add any custom head content here -->
 
-  <script src="../../../../js/explorer.js"></script>
-  <script src="../../../../js/code-copy.js"></script>
-  <script src="../../../../js/code-enhance.js"></script>
+  <script defer src="../../../../js/explorer.js"></script>
+  <script defer src="../../../../js/code-enhance.js"></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -280,7 +301,7 @@ mjx-container[display="true"] + br {
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LaTeX-Support-in-Hexo-Themes-Hexo%E4%B8%BB%E9%A2%98%E4%B8%AD%E7%9A%84LaTeX%E6%94%AF%E6%8C%81"><span class="toc-text">LaTeX Support in Hexo Themes | Hexo主题中的LaTeX支持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-text">Quick Start | 快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation-%E5%AE%89%E8%A3%85"><span class="toc-text">Installation | 安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage-Guide-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-text">Usage Guide | 使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KaTeX-Implementation-KaTeX%E5%AE%9E%E7%8E%B0"><span class="toc-text">KaTeX Implementation | KaTeX实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Basic-Example-%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B"><span class="toc-text">Basic Example | 基本示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Advanced-Usage-with-Options-%E5%B8%A6%E9%80%89%E9%A1%B9%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">Advanced Usage with Options | 带选项的高级用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MathJax-Implementation-MathJax%E5%AE%9E%E7%8E%B0"><span class="toc-text">MathJax Implementation | MathJax实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Basic-Example-%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B-1"><span class="toc-text">Basic Example | 基本示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration-%E9%85%8D%E7%BD%AE"><span class="toc-text">Configuration | 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Article-Level-Settings-%E6%96%87%E7%AB%A0%E7%BA%A7%E5%88%AB%E8%AE%BE%E7%BD%AE"><span class="toc-text">Article-Level Settings | 文章级别设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Global-Configuration-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">Global Configuration | 全局配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-LaTeX-Examples-%E5%B8%B8%E8%A7%81LaTeX%E7%A4%BA%E4%BE%8B"><span class="toc-text">Common LaTeX Examples | 常见LaTeX示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Inline-Math-%E8%A1%8C%E5%86%85%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="toc-text">Inline Math | 行内数学公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-Math-%E5%9D%97%E7%BA%A7%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="toc-text">Block Math | 块级数学公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrices-%E7%9F%A9%E9%98%B5"><span class="toc-text">Matrices | 矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSC4T-Specific-Tips-VSC4T%E7%89%B9%E5%AE%9A%E6%8F%90%E7%A4%BA"><span class="toc-text">VSC4T-Specific Tips | VSC4T特定提示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dark-Mode-Compatibility-%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-text">Dark Mode Compatibility | 暗色模式兼容性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Performance-Considerations-%E6%80%A7%E8%83%BD%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">Performance Considerations | 性能注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Troubleshooting-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="toc-text">Troubleshooting | 故障排除</span></a></li></ol></li></ol></li></ol>
       </div>
     </div>
-    
+
     <!-- 同分类文章 -->
     
     <div class="explorer-section">
@@ -289,6 +310,11 @@ mjx-container[display="true"] + br {
         <span>CATEGORY POSTS</span>
       </div>
       <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../../../11/28/Security_tutorial/">Hexo 文章密码保护教程 / Hexo Password Protection Tutorial</a>
+          </div>
         
           <div class="file">
             <i class="fas fa-file-code"></i>
@@ -316,7 +342,7 @@ mjx-container[display="true"] + br {
           <div class="tag-item">
             <i class="fas fa-tag"></i>
             <a href="../../../../tags/hexo/">hexo</a>
-            <span class="count">(4)</span>
+            <span class="count">(5)</span>
           </div>
         
           <div class="tag-item">
@@ -455,6 +481,11 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
         
         <nav class="post-nav">
           
+            <a class="prev" href="../../../11/20/Security/">
+              <i class="fas fa-chevron-left"></i>
+              🔐 我的秘密日记 / My Secret Diary (Password: 123456)
+            </a>
+          
           
             <a class="next" href="../../08/Overview%20On%20post%20content/">
               Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览
@@ -561,6 +592,47 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
       </div>
     
       <div class="vs-recommended-item" data-index="2" tabindex="0">
+        <a href="../../../11/28/Security_tutorial/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>Hexo 文章密码保护教程 / Hexo Password Protection Tutorial</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              Hexo 文章密码保护教程 &amp;#x2F; Hexo Password Protection Tutorial本教程将指导你如何为 Hexo 博客文章添加密码保护功能。通过这个功能，你可以将某些私密或特殊的文章设置为需要密码才能访问。This...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, password, security
+                  
+                    <span class="vs-more-tags">+1</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Nov 28
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  3 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="3" tabindex="0">
         <a href="../../../../2023/06/15/VSC4T/" class="vs-recommended-link">
           <!-- 文章信息 -->
           <div class="vs-recommended-content">
@@ -594,6 +666,45 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
                 <span class="vs-reading-time">
                   <i class="fas fa-clock"></i>
                   4 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="4" tabindex="0">
+        <a href="../../../11/20/Security/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>🔐 我的秘密日记 / My Secret Diary (Password: 123456)</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              这是一篇加密文章，展示 Hexo 密码保护功能的实际效果。摘要内容对所有访客可见，但完整内容需要密码才能查看。想知道里面写了什么吗？试试密码 123456 吧！
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  password, security, sample
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Nov 20
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  1 min
                 </span>
               </span>
             </div>
@@ -765,7 +876,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-09-17
+      2026-01-30
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -778,23 +889,18 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </footer>
 
-    
-    <!-- 全局配置 -->
+
+    <!-- 搜索专用配置 (HEXO_CONFIG 在 scripts.ejs 中统一定义) -->
     <script>
-      window.HEXO_CONFIG = {
-        language: "en",
-        root: "/VSC4T/"
-      };
-      
-      // 特定于搜索的配置
       window.VSC4T_SEARCH = {
         root: "/VSC4T/"
       };
     </script>
-    
-    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+
+    <!-- 外部脚本 - 统一使用 jsdelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js" crossorigin="anonymous"></script>
     <script>hljs.highlightAll();</script>
     <!-- 这里可以放置自定义脚本 -->
 <script>
@@ -840,9 +946,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 <!-- Scripts -->
 <script>
-  // 将语言文件中的翻译传递给前端
+  // 全局配置 - 包含 i18n 字符串和主题配置
   window.HEXO_CONFIG = {
     language: "en",
+    root: "/VSC4T/",
+    
+    theme_switch: {
+      enabled: false,
+      light_start: "06:00",
+      light_end: "18:00"
+    },
+    
+    // Search i18n strings
     search_placeholder: "Type to search...",
     search_no_results: "No results found",
     search_result: "result",
@@ -857,16 +972,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
     search_recent: "Recent Searches",
     search_clear: "Clear",
     search_loading: "Loading...",
-    search_error: "Error loading search data"
+    search_error: "Error loading search data",
+    // Encryption i18n strings
+    encrypt_badge: "Protected",
+    encrypt_title: "Protected Content",
+    encrypt_description: "Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.",
+    encrypt_label: "Password",
+    encrypt_placeholder: "Enter password to unlock",
+    encrypt_button: "Unlock",
+    encrypt_button_loading: "Unlocking...",
+    encrypt_hint: "Press Enter to submit. Password will be remembered on this device.",
+    encrypt_success: "Content unlocked successfully!",
+    encrypt_unlocked_note: "Content unlocked. You can re-encrypt at any time.",
+    encrypt_again: "Re-encrypt",
+    encrypt_wrong_password: "Incorrect password. Please try again.",
+    encrypt_show_password: "Show password",
+    encrypt_hide_password: "Hide password",
+    // Sidebar i18n strings
+    sidebar_about: "About",
+    sidebar_categories: "Categories",
+    sidebar_tags: "Tags",
+    // Post page i18n strings
+    post_toc: "TABLE OF CONTENTS",
+    post_category_posts: "CATEGORY POSTS",
+    post_article_tags: "ARTICLE TAGS"
   };
 </script>
 
 
 
 <!-- 添加所有需要的脚本 -->
-<script src="../../../../js/main.js"></script>
 <script src="../../../../js/search.js"></script>
+<script src="../../../../js/theme-switch.js"></script>
 
+<script src="../../../../js/password-protect.js?v=1769770104020"></script>
 
     <script>
       // 移动端菜单切换

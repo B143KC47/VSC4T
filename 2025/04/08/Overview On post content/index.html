@@ -4,7 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览 | VSC4T</title>
-  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="">
+  <meta name="keywords" content="hexo,theme,dark-mode,responsive,markdown">
+  <meta name="author" content="B143KC47">
+  <link rel="canonical" href="https://b143kc47.github.io/VSC4T">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览 | VSC4T">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://b143kc47.github.io/VSC4T">
+  <meta property="og:site_name" content="VSC4T">
+  <meta property="article:published_time" content="2025-04-07T16:00:00.000Z">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览 | VSC4T">
+  <meta name="twitter:description" content="">
+
   <!-- Favicon 配置 -->
   
     
@@ -23,24 +42,27 @@
       <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
     
   
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+  <!-- 外部样式 - 统一使用 jsdelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- 代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+  <!-- Mermaid.js 库 (defer加载) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../../../css/theme-colors.css">
   <link rel="stylesheet" href="../../../../css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- 添加代码高亮样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-  <!-- 添加highlight.js库 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <!-- 添加mermaid.js库 -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <link rel="stylesheet" href="../../../../css/code.css">
   <link rel="stylesheet" href="../../../../css/code-custom.css">
   <link rel="stylesheet" href="../../../../css/code-languages.css">
   <link rel="stylesheet" href="../../../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../../../css/vs-code.css">
-  <link rel="stylesheet" href="../../../../css/post.css">
+  <link rel="stylesheet" href="../../../../css/post.css?v=1769770104021">
   <link rel="stylesheet" href="../../../../css/tag.css">
   <link rel="stylesheet" href="../../../../css/categories.css">
   <link rel="stylesheet" href="../../../../css/archive.css">
@@ -53,9 +75,8 @@
 
   <!-- Add any custom head content here -->
 
-  <script src="../../../../js/explorer.js"></script>
-  <script src="../../../../js/code-copy.js"></script>
-  <script src="../../../../js/code-enhance.js"></script>
+  <script defer src="../../../../js/explorer.js"></script>
+  <script defer src="../../../../js/code-enhance.js"></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -280,7 +301,7 @@ mjx-container[display="true"] + br {
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-Elements-in-VSC4T-Theme-VSC4T%E4%B8%BB%E9%A2%98%E7%9A%84Markdown%E5%85%83%E7%B4%A0"><span class="toc-text">Markdown Elements in VSC4T Theme | VSC4T主题的Markdown元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Block-Elements-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">Block Elements | 块级元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Paragraphs-and-Line-Breaks-%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C"><span class="toc-text">Paragraphs and Line Breaks | 段落和换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Headers-%E6%A0%87%E9%A2%98"><span class="toc-text">Headers | 标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heading-1-%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 1 | 一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heading-2-%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 2 | 二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Heading-3-%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 3 | 三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Heading-4-%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 4 | 四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Heading-5-%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 5 | 五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Heading-6-%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">Heading 6 | 六级标题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blockquotes-%E5%BC%95%E7%94%A8%E5%9D%97"><span class="toc-text">Blockquotes | 引用块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lists-%E5%88%97%E8%A1%A8"><span class="toc-text">Lists | 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Blocks-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">Code Blocks | 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tables-%E8%A1%A8%E6%A0%BC"><span class="toc-text">Tables | 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-Rules-%E5%88%86%E9%9A%94%E7%BA%BF"><span class="toc-text">Horizontal Rules | 分隔线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inline-Elements-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-text">Inline Elements | 行内元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Links-%E9%93%BE%E6%8E%A5"><span class="toc-text">Links | 链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emphasis-%E5%BC%BA%E8%B0%83"><span class="toc-text">Emphasis | 强调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-%E4%BB%A3%E7%A0%81"><span class="toc-text">Code | 代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Images-%E5%9B%BE%E7%89%87"><span class="toc-text">Images | 图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Miscellaneous-Elements-%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0"><span class="toc-text">Miscellaneous Elements | 其他元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Strikethrough-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-text">Strikethrough | 删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automatic-Links-%E8%87%AA%E5%8A%A8%E9%93%BE%E6%8E%A5"><span class="toc-text">Automatic Links | 自动链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backslash-Escapes-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">Backslash Escapes | 转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inline-HTML-%E5%86%85%E8%81%94HTML"><span class="toc-text">Inline HTML | 内联HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math-Equations-LaTeX-LaTeX%E5%85%AC%E5%BC%8F"><span class="toc-text">Math Equations (LaTeX) | LaTeX公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG-Graphics-SVG%E5%9B%BE%E5%BD%A2"><span class="toc-text">SVG Graphics | SVG图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mermaid-Diagrams-Mermaid-%E5%9B%BE%E8%A1%A8"><span class="toc-text">Mermaid Diagrams | Mermaid 图表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSC4T-Specific-Features-VSC4T%E7%89%B9%E6%9C%89%E5%8A%9F%E8%83%BD"><span class="toc-text">VSC4T-Specific Features | VSC4T特有功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Highlighting-with-Line-Numbers-%E5%B8%A6%E8%A1%8C%E5%8F%B7%E7%9A%84%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="toc-text">Code Highlighting with Line Numbers | 带行号的代码高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Search-Support-%E6%90%9C%E7%B4%A2%E6%94%AF%E6%8C%81"><span class="toc-text">Search Support | 搜索支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Responsiveness-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-text">Mobile Responsiveness | 移动端响应式</span></a></li></ol></li></ol></li></ol>
       </div>
     </div>
-    
+
     <!-- 同分类文章 -->
     
     <div class="explorer-section">
@@ -289,6 +310,11 @@ mjx-container[display="true"] + br {
         <span>CATEGORY POSTS</span>
       </div>
       <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../../../11/28/Security_tutorial/">Hexo 文章密码保护教程 / Hexo Password Protection Tutorial</a>
+          </div>
         
           <div class="file">
             <i class="fas fa-file-code"></i>
@@ -316,7 +342,7 @@ mjx-container[display="true"] + br {
           <div class="tag-item">
             <i class="fas fa-tag"></i>
             <a href="../../../../tags/hexo/">hexo</a>
-            <span class="count">(4)</span>
+            <span class="count">(5)</span>
           </div>
         
           <div class="tag-item">
@@ -472,7 +498,7 @@ function test() {
 <h3 id="Code-代码"><a href="#Code-代码" class="headerlink" title="Code | 代码"></a>Code | 代码</h3><p>Use the <code>console.log()</code> function to print messages.<br>使用<code>console.log()</code>函数打印信息。</p>
 <h3 id="Images-图片"><a href="#Images-图片" class="headerlink" title="Images | 图片"></a>Images | 图片</h3><p><img src="https://cdn.pixabay.com/photo/2015/09/29/13/47/cat-963931_1280.jpg" alt="BlackCat | 黑猫"></p>
 <h2 id="Miscellaneous-Elements-其他元素"><a href="#Miscellaneous-Elements-其他元素" class="headerlink" title="Miscellaneous Elements | 其他元素"></a>Miscellaneous Elements | 其他元素</h2><h3 id="Strikethrough-删除线"><a href="#Strikethrough-删除线" class="headerlink" title="Strikethrough | 删除线"></a>Strikethrough | 删除线</h3><p><del>This is strikethrough text | 这是删除线文本</del></p>
-<h3 id="Automatic-Links-自动链接"><a href="#Automatic-Links-自动链接" class="headerlink" title="Automatic Links | 自动链接"></a>Automatic Links | 自动链接</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#97;&#100;&#x64;&#114;&#101;&#115;&#115;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;">address@example.com</a></p>
+<h3 id="Automatic-Links-自动链接"><a href="#Automatic-Links-自动链接" class="headerlink" title="Automatic Links | 自动链接"></a>Automatic Links | 自动链接</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#97;&#x64;&#x64;&#114;&#101;&#115;&#115;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">address@example.com</a></p>
 <h3 id="Backslash-Escapes-转义字符"><a href="#Backslash-Escapes-转义字符" class="headerlink" title="Backslash Escapes | 转义字符"></a>Backslash Escapes | 转义字符</h3><p>*This is not italic*<br>*这不是斜体* </p>
 <h3 id="Inline-HTML-内联HTML"><a href="#Inline-HTML-内联HTML" class="headerlink" title="Inline HTML | 内联HTML"></a>Inline HTML | 内联HTML</h3><p><span style="color: red;">This is red text | 这是红色文本</span></p>
 <h3 id="Math-Equations-LaTeX-LaTeX公式"><a href="#Math-Equations-LaTeX-LaTeX公式" class="headerlink" title="Math Equations (LaTeX) | LaTeX公式"></a>Math Equations (LaTeX) | LaTeX公式</h3><p>Mathjax: </p>
@@ -529,8 +555,8 @@ C --&gt; E[End]</pre>
             </a>
           
           
-            <a class="next" href="../../../../2023/06/15/VSC4T/">
-              VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题
+            <a class="next" href="../../../../2023/06/15/DEPLOYMENT/">
+              VSC4T Blog Deploy Guide | VSC4T博客部署指南
               <i class="fas fa-chevron-right"></i>
             </a>
           
@@ -667,6 +693,86 @@ C --&gt; E[End]</pre>
                 <span class="vs-reading-time">
                   <i class="fas fa-clock"></i>
                   2 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="3" tabindex="0">
+        <a href="../../../11/28/Security_tutorial/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>Hexo 文章密码保护教程 / Hexo Password Protection Tutorial</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              Hexo 文章密码保护教程 &amp;#x2F; Hexo Password Protection Tutorial本教程将指导你如何为 Hexo 博客文章添加密码保护功能。通过这个功能，你可以将某些私密或特殊的文章设置为需要密码才能访问。This...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, password, security
+                  
+                    <span class="vs-more-tags">+1</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Nov 28
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  3 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="4" tabindex="0">
+        <a href="../../../11/20/Security/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>🔐 我的秘密日记 / My Secret Diary (Password: 123456)</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              这是一篇加密文章，展示 Hexo 密码保护功能的实际效果。摘要内容对所有访客可见，但完整内容需要密码才能查看。想知道里面写了什么吗？试试密码 123456 吧！
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  password, security, sample
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Nov 20
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  1 min
                 </span>
               </span>
             </div>
@@ -838,7 +944,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2025-09-17
+      2026-01-30
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -851,23 +957,18 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </footer>
 
-    
-    <!-- 全局配置 -->
+
+    <!-- 搜索专用配置 (HEXO_CONFIG 在 scripts.ejs 中统一定义) -->
     <script>
-      window.HEXO_CONFIG = {
-        language: "en",
-        root: "/VSC4T/"
-      };
-      
-      // 特定于搜索的配置
       window.VSC4T_SEARCH = {
         root: "/VSC4T/"
       };
     </script>
-    
-    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+
+    <!-- 外部脚本 - 统一使用 jsdelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js" crossorigin="anonymous"></script>
     <script>hljs.highlightAll();</script>
     <!-- 这里可以放置自定义脚本 -->
 <script>
@@ -913,9 +1014,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 <!-- Scripts -->
 <script>
-  // 将语言文件中的翻译传递给前端
+  // 全局配置 - 包含 i18n 字符串和主题配置
   window.HEXO_CONFIG = {
     language: "en",
+    root: "/VSC4T/",
+    
+    theme_switch: {
+      enabled: false,
+      light_start: "06:00",
+      light_end: "18:00"
+    },
+    
+    // Search i18n strings
     search_placeholder: "Type to search...",
     search_no_results: "No results found",
     search_result: "result",
@@ -930,16 +1040,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
     search_recent: "Recent Searches",
     search_clear: "Clear",
     search_loading: "Loading...",
-    search_error: "Error loading search data"
+    search_error: "Error loading search data",
+    // Encryption i18n strings
+    encrypt_badge: "Protected",
+    encrypt_title: "Protected Content",
+    encrypt_description: "Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.",
+    encrypt_label: "Password",
+    encrypt_placeholder: "Enter password to unlock",
+    encrypt_button: "Unlock",
+    encrypt_button_loading: "Unlocking...",
+    encrypt_hint: "Press Enter to submit. Password will be remembered on this device.",
+    encrypt_success: "Content unlocked successfully!",
+    encrypt_unlocked_note: "Content unlocked. You can re-encrypt at any time.",
+    encrypt_again: "Re-encrypt",
+    encrypt_wrong_password: "Incorrect password. Please try again.",
+    encrypt_show_password: "Show password",
+    encrypt_hide_password: "Hide password",
+    // Sidebar i18n strings
+    sidebar_about: "About",
+    sidebar_categories: "Categories",
+    sidebar_tags: "Tags",
+    // Post page i18n strings
+    post_toc: "TABLE OF CONTENTS",
+    post_category_posts: "CATEGORY POSTS",
+    post_article_tags: "ARTICLE TAGS"
   };
 </script>
 
 
 
 <!-- 添加所有需要的脚本 -->
-<script src="../../../../js/main.js"></script>
 <script src="../../../../js/search.js"></script>
+<script src="../../../../js/theme-switch.js"></script>
 
+<script src="../../../../js/password-protect.js?v=1769770104021"></script>
 
     <script>
       // 移动端菜单切换

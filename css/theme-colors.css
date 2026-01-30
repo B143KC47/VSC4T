@@ -106,7 +106,7 @@
   --vscode-sidebar-shadow: transparent; /* 移除侧边栏阴影 */
 }
 
-/* 默认使用暗色主题 */
+/* 默认使用暗色主题 - 继承 [data-theme="dark"] 的所有变量 */
 :root {
   /* 基础颜色 */
   --vscode-bg: #1e1e1e;
@@ -118,14 +118,14 @@
   --vscode-highlight: #264f78;
   --vscode-border: #474747;
   --vscode-border-light: #404040;
-  
+
   /* 强调色 */
   --vscode-accent: #0078d4;
   --vscode-accent-light: #3794ff;
   --vscode-selection: rgba(38, 79, 120, 0.6);
   --vscode-line-highlight: rgba(255, 255, 255, 0.04);
   --vscode-shadow: rgba(0, 0, 0, 0.24);
-  
+
   /* 语义化颜色 */
   --vscode-link: #569cd6;
   --vscode-link-hover: #78b8ff;
@@ -133,7 +133,7 @@
   --vscode-warning: #dcb67a;
   --vscode-error: #f48771;
   --vscode-info: #569cd6;
-  
+
   /* 代码颜色 */
   --vscode-code-bg: #2d2d30;
   --vscode-code-border: #404040;
@@ -147,10 +147,14 @@
   --vscode-code-copy-btn-text: #9d9d9d;
   --vscode-code-copy-btn-hover: #3c3c3c;
   --vscode-code-copy-btn-hover-text: #d4d4d4;
-  
+
   /* 特殊元素 */
   --vscode-header-bg: #1e1e1e;
   --vscode-header-border: #2d2d2d;
   --vscode-footer-bg: #1e1e1e;
   --vscode-scrollbar: #474747;
+
+  /* 深色主题专用阴影 (默认值) */
+  --vscode-header-shadow: rgba(0, 0, 0, 0.24);
+  --vscode-sidebar-shadow: rgba(0, 0, 0, 0.3);
 }

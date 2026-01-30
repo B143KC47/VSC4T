@@ -59,10 +59,20 @@
 /* Sidebar Grouping */
 .tag-sidebar-list {
   padding-left: 10px; /* Indent the whole list slightly */
+  padding-bottom: 60px; /* 确保底部内容不被截断 */
+  max-height: none; /* 允许内容完全展开 */
+  overflow-y: visible; /* 让父容器处理滚动 */
 }
 
 .tag-group-sidebar {
   margin-bottom: 0.8rem;
+}
+
+/* 修复标签页侧边栏滚动问题 */
+.sidebar-explorer .section-content.tag-sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px; /* 足够的底部间距，确保最后的内容可见 */
 }
 
 .tag-group-header-sidebar {

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hexo 文章密码保护教程 / Hexo Password Protection Tutorial | VSC4T</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A simple dark Hexo theme inspired by code.">
+  <meta name="keywords" content="hexo,password,security,tutorial">
+  <meta name="author" content="B143KC47">
+  <link rel="canonical" href="https://b143kc47.github.io/VSC4T">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Hexo 文章密码保护教程 / Hexo Password Protection Tutorial | VSC4T">
+  <meta property="og:description" content="A simple dark Hexo theme inspired by code.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://b143kc47.github.io/VSC4T">
+  <meta property="og:site_name" content="VSC4T">
+  <meta property="article:published_time" content="2025-11-27T16:00:00.000Z">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hexo 文章密码保护教程 / Hexo Password Protection Tutorial | VSC4T">
+  <meta name="twitter:description" content="A simple dark Hexo theme inspired by code.">
+
+  <!-- Favicon 配置 -->
+  
+    
+      <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    
+    
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../../favicon-16x16.png">
+    
+    
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32x32.png">
+    
+    
+      <link rel="icon" type="image/png" sizes="192x192" href="../../../../favicon-192x192.png">
+    
+    
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
+    
+  
+
+  <!-- 外部样式 - 统一使用 jsdelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- 代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+  <!-- Mermaid.js 库 (defer加载) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+
+  <!-- 主题样式 -->
+  <link rel="stylesheet" href="../../../../css/theme-colors.css">
+  <link rel="stylesheet" href="../../../../css/main.css">
+  <link rel="stylesheet" href="../../../../css/code.css">
+  <link rel="stylesheet" href="../../../../css/code-custom.css">
+  <link rel="stylesheet" href="../../../../css/code-languages.css">
+  <link rel="stylesheet" href="../../../../css/mermaid.css">
+
+  <link rel="stylesheet" href="../../../../css/vs-code.css">
+  <link rel="stylesheet" href="../../../../css/post.css?v=1769770104018">
+  <link rel="stylesheet" href="../../../../css/tag.css">
+  <link rel="stylesheet" href="../../../../css/categories.css">
+  <link rel="stylesheet" href="../../../../css/archive.css">
+  <link rel="stylesheet" href="../../../../css/search.css">
+  <link rel="stylesheet" href="../../../../css/mobile.css">  <link rel="stylesheet" href="../../../../css/responsive.css">
+  <link rel="stylesheet" href="../../../../css/elements.css">
+
+  <!-- 添加 JetBrains Mono 字体 -->  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Add any custom head content here -->
+
+  <script defer src="../../../../js/explorer.js"></script>
+  <script defer src="../../../../js/code-enhance.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <div class="wrapper">
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <header class="vs-header">
+  <nav class="vs-nav">
+    <div class="nav-left">
+      <a href="/VSC4T/" class="nav-brand">
+        <i class="fas fa-terminal"></i>
+        VSC4T
+      </a>
+    </div>
+    
+    <div class="nav-right">
+      <a href="/VSC4T/" class="nav-item ">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="/VSC4T/archives/" class="nav-item ">
+        <i class="fas fa-archive"></i>
+        <span>Archives</span>
+      </a>
+      <a href="/VSC4T/categories/" class="nav-item ">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="/VSC4T/tags/" class="nav-item ">
+        <i class="fas fa-tags"></i>
+        <span>Tags</span>
+      </a>
+      <a href="/VSC4T/search/" class="nav-item ">
+        <i class="fas fa-search"></i>
+        <span>Search</span>
+      </a>
+      <a href="/VSC4T/about/" class="nav-item ">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function smoothScroll(event, target) {
+    event.preventDefault();
+    const targetId = target.substring(target.indexOf('#') + 1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50, // 调整偏移量
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = target;
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.vs-header');
+    const nav = document.querySelector('.vs-nav');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+    
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 添加标签页切换动画
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('nav-ripple');
+      this.appendChild(ripple);
+      
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      setTimeout(() => ripple.remove(), 1000);
+    });
+  });
+</script>
+
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <!-- TOC导航 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="section-content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E6%96%87%E7%AB%A0%E5%AF%86%E7%A0%81%E4%BF%9D%E6%8A%A4%E6%95%99%E7%A8%8B-Hexo-Password-Protection-Tutorial"><span class="toc-text">Hexo 文章密码保护教程 &#x2F; Hexo Password Protection Tutorial</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6-Step-1-Install-the-Plugin"><span class="toc-text">步骤 1：安装插件 &#x2F; Step 1: Install the Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E9%85%8D%E7%BD%AE%E7%AB%99%E7%82%B9-config-yml-Step-2-Configure-Site-config-yml"><span class="toc-text">步骤 2：配置站点 _config.yml &#x2F; Step 2: Configure Site _config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E4%B8%BA%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E5%AF%86%E7%A0%81-Step-3-Add-Password-to-Posts"><span class="toc-text">步骤 3：为文章添加密码 &#x2F; Step 3: Add Password to Posts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%8E%E9%AA%8C%E8%AF%81-Step-4-Build-and-Verify"><span class="toc-text">步骤 4：构建与验证 &#x2F; Step 4: Build and Verify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7-Advanced-Tips"><span class="toc-text">高级技巧 &#x2F; Advanced Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%BA%E6%95%B4%E4%B8%AA%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-Set-Password-for-Entire-Tag"><span class="toc-text">1. 为整个标签设置密码 &#x2F; Set Password for Entire Tag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F-Customize-Styles"><span class="toc-text">2. 自定义样式 &#x2F; Customize Styles</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%AE-Security-Recommendations"><span class="toc-text">3. 安全建议 &#x2F; Security Recommendations</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5-Troubleshooting"><span class="toc-text">故障排查 &#x2F; Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-1%EF%BC%9A%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E8%A7%A3%E9%94%81-Issue-1-Cannot-Unlock-After-Entering-Password"><span class="toc-text">问题 1：输入密码后无法解锁 &#x2F; Issue 1: Cannot Unlock After Entering Password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2%EF%BC%9A%E5%8A%A0%E5%AF%86%E5%8A%9F%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88-Issue-2-Encryption-Not-Working"><span class="toc-text">问题 2：加密功能不生效 &#x2F; Issue 2: Encryption Not Working</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-3%EF%BC%9A%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-Pages-%E5%90%8E%E5%A4%B1%E6%95%88-Issue-3-Not-Working-After-Deploying-to-GitHub-Pages"><span class="toc-text">问题 3：部署到 GitHub Pages 后失效 &#x2F; Issue 3: Not Working After Deploying to GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E6%BC%94%E7%A4%BA-Example-Demo"><span class="toc-text">示例演示 &#x2F; Example Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-Summary"><span class="toc-text">总结 &#x2F; Summary</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+    <!-- 同分类文章 -->
+    
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-folder"></i>
+        <span>CATEGORY POSTS</span>
+      </div>
+      <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../../../04/14/Support%20of%20latex/">Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南</a>
+          </div>
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../../../04/08/Overview%20On%20post%20content/">Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览</a>
+          </div>
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../../../../2023/06/15/DEPLOYMENT/">VSC4T Blog Deploy Guide | VSC4T博客部署指南</a>
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <!-- 标签列表 -->
+    
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-tags"></i>
+        <span>ARTICLE TAGS</span>
+      </div>
+      <div class="section-content">
+        
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="../../../../tags/hexo/">hexo</a>
+            <span class="count">(5)</span>
+          </div>
+        
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="../../../../tags/password/">password</a>
+            <span class="count">(2)</span>
+          </div>
+        
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="../../../../tags/security/">security</a>
+            <span class="count">(2)</span>
+          </div>
+        
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="../../../../tags/tutorial/">tutorial</a>
+            <span class="count">(1)</span>
+          </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-file-alt"></i>
+        <span>Hexo 文章密码保护教程 / Hexo Password Protection Tutorial.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <article class="post-content">
+        <div class="post-header">
+          <h1>Hexo 文章密码保护教程 / Hexo Password Protection Tutorial</h1>
+          <div class="post-meta">
+            <span class="date">
+              <i class="fas fa-calendar-alt"></i>
+              2025-11-28
+            </span>            
+              <span class="categories">
+                <i class="fas fa-folder"></i>
+                <div class="categories-list">
+                  <ul class="category-item-post-list"><li class="category-item-post-list-item"><a class="category-item-post-list-link" href="../../../../categories/blog/">blog</a><ul class="category-item-post-list-child"><li class="category-item-post-list-item"><a class="category-item-post-list-link" href="../../../../categories/blog/technical-guide/">technical-guide</a></li></ul></li></ul>
+                </div>
+              </span>
+            
+            
+              <span class="tags">
+                <i class="fas fa-tags"></i>
+                <div class="tags-list">
+                  <ul class="tag-item-post-list" itemprop="keywords"><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/hexo/" rel="tag">hexo</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/password/" rel="tag">password</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/security/" rel="tag">security</a></li><li class="tag-item-post-list-item"><a class="tag-item-post-list-link" href="../../../../tags/tutorial/" rel="tag">tutorial</a></li></ul>
+                </div>
+              </span>
+            
+          </div>
+        </div>
+        
+        <div class="post-body vscode-markdown">
+          <h2 id="Hexo-文章密码保护教程-Hexo-Password-Protection-Tutorial"><a href="#Hexo-文章密码保护教程-Hexo-Password-Protection-Tutorial" class="headerlink" title="Hexo 文章密码保护教程 &#x2F; Hexo Password Protection Tutorial"></a>Hexo 文章密码保护教程 &#x2F; Hexo Password Protection Tutorial</h2><p>本教程将指导你如何为 Hexo 博客文章添加密码保护功能。通过这个功能，你可以将某些私密或特殊的文章设置为需要密码才能访问。<br>This tutorial shows you how to add password protection to your Hexo blog posts. With this feature, you can restrict access to private or special articles.</p>
+<h3 id="步骤-1：安装插件-Step-1-Install-the-Plugin"><a href="#步骤-1：安装插件-Step-1-Install-the-Plugin" class="headerlink" title="步骤 1：安装插件 &#x2F; Step 1: Install the Plugin"></a>步骤 1：安装插件 &#x2F; Step 1: Install the Plugin</h3><ul>
+<li><strong>中文</strong>：在 Hexo 博客根目录运行以下命令安装 <code>hexo-blog-encrypt</code> 插件。</li>
+<li><strong>EN</strong>: Run the command below in your Hexo blog root directory to install the <code>hexo-blog-encrypt</code> plugin.</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install hexo<span class="hljs-literal">-blog-encrypt</span> <span class="hljs-literal">--save</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="步骤-2：配置站点-config-yml-Step-2-Configure-Site-config-yml"><a href="#步骤-2：配置站点-config-yml-Step-2-Configure-Site-config-yml" class="headerlink" title="步骤 2：配置站点 _config.yml &#x2F; Step 2: Configure Site _config.yml"></a>步骤 2：配置站点 <code>_config.yml</code> &#x2F; Step 2: Configure Site <code>_config.yml</code></h3><ul>
+<li><strong>中文</strong>：在站点级 <code>_config.yml</code> 文件末尾添加插件配置，设置全局提示文本与模板。</li>
+<li><strong>EN</strong>: Append the plugin configuration to your site-level <code>_config.yml</code>, customizing global prompts and template.</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">encrypt:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">abstract:</span> <span class="hljs-string">&quot;这是一篇受保护的文章，请输入密码访问。&quot;</span><br>    <span class="hljs-attr">message:</span> <span class="hljs-string">&quot;请输入密码&quot;</span><br>    <span class="hljs-attr">tags:</span><br>        <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">&quot;tagName&quot;</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">&quot;password&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>配置说明 &#x2F; Configuration Details</strong>:</p>
+<ul>
+<li><code>enable</code>: 是否启用加密功能 &#x2F; Enable encryption feature</li>
+<li><code>abstract</code>: 未解锁时显示的摘要文本 &#x2F; Text shown before unlocking</li>
+<li><code>message</code>: 密码输入框的提示信息 &#x2F; Password input prompt</li>
+<li><code>tags</code>: 可以为特定标签的所有文章设置统一密码 &#x2F; Set unified password for all posts with specific tags</li>
+</ul>
+<h3 id="步骤-3：为文章添加密码-Step-3-Add-Password-to-Posts"><a href="#步骤-3：为文章添加密码-Step-3-Add-Password-to-Posts" class="headerlink" title="步骤 3：为文章添加密码 &#x2F; Step 3: Add Password to Posts"></a>步骤 3：为文章添加密码 &#x2F; Step 3: Add Password to Posts</h3><ul>
+<li><strong>中文</strong>：在需要保护的文章 Front-matter 中加入 <code>password</code>、<code>abstract</code>、<code>message</code> 字段。</li>
+<li><strong>EN</strong>: Include <code>password</code>, <code>abstract</code>, and <code>message</code> fields in the front-matter of posts you want to protect.</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 我的秘密文章<br>date: 2025-11-20<br>password: 123456<br>abstract: 这是一段摘要，所有人可见。<br><span class="hljs-section">message: 请输入访问密码</span><br><span class="hljs-section">---</span><br><br>这里是受保护的内容，只有输入正确密码才能看到。<br></code></pre></td></tr></table></figure>
+
+<p><strong>Front-matter 字段说明 &#x2F; Field Descriptions</strong>:</p>
+<ul>
+<li><code>password</code>: 访问文章所需的密码（必填）&#x2F; Password required to access the post (required)</li>
+<li><code>abstract</code>: 可选，覆盖全局设置的摘要 &#x2F; Optional, overrides global abstract</li>
+<li><code>message</code>: 可选，覆盖全局设置的提示信息 &#x2F; Optional, overrides global message</li>
+</ul>
+<h3 id="步骤-4：构建与验证-Step-4-Build-and-Verify"><a href="#步骤-4：构建与验证-Step-4-Build-and-Verify" class="headerlink" title="步骤 4：构建与验证 &#x2F; Step 4: Build and Verify"></a>步骤 4：构建与验证 &#x2F; Step 4: Build and Verify</h3><ul>
+<li><strong>中文</strong>：运行以下命令清理缓存、生成静态文件并启动本地服务器，然后访问文章测试密码保护功能。</li>
+<li><strong>EN</strong>: Run these commands to clean cache, generate files, and start the local server, then test the password protection.</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo clean<br>hexo generate<br>hexo server<br></code></pre></td></tr></table></figure>
+
+<p>在浏览器中访问受保护的文章，输入设置的密码即可查看完整内容。<br>Visit the protected post in your browser and enter the password to view the full content.</p>
+<h3 id="高级技巧-Advanced-Tips"><a href="#高级技巧-Advanced-Tips" class="headerlink" title="高级技巧 &#x2F; Advanced Tips"></a>高级技巧 &#x2F; Advanced Tips</h3><h4 id="1-为整个标签设置密码-Set-Password-for-Entire-Tag"><a href="#1-为整个标签设置密码-Set-Password-for-Entire-Tag" class="headerlink" title="1. 为整个标签设置密码 &#x2F; Set Password for Entire Tag"></a>1. 为整个标签设置密码 &#x2F; Set Password for Entire Tag</h4><p>如果你想为某个标签下的所有文章设置相同的密码，可以在站点配置中使用 <code>tags</code> 选项：<br>To set the same password for all posts with a specific tag, use the <code>tags</code> option in site config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">encrypt:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">tags:</span><br>        <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">&quot;secret&quot;</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">&quot;mySecret123&quot;</span>&#125;<br>        <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">&quot;private&quot;</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">&quot;private456&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-自定义样式-Customize-Styles"><a href="#2-自定义样式-Customize-Styles" class="headerlink" title="2. 自定义样式 &#x2F; Customize Styles"></a>2. 自定义样式 &#x2F; Customize Styles</h4><p>如果想调整密码输入框的样式，可以修改主题的 CSS 文件：<br>To customize the password input box style, modify your theme’s CSS file:</p>
+<ul>
+<li>文件位置 &#x2F; File location: <code>source/css/post.css</code> 或主题的相关 CSS 文件 &#x2F; or theme’s related CSS file</li>
+<li>可以调整颜色、边框、字体等样式 &#x2F; You can adjust colors, borders, fonts, etc.</li>
+</ul>
+<h4 id="3-安全建议-Security-Recommendations"><a href="#3-安全建议-Security-Recommendations" class="headerlink" title="3. 安全建议 &#x2F; Security Recommendations"></a>3. 安全建议 &#x2F; Security Recommendations</h4><ul>
+<li>✅ 使用强密码，包含字母、数字和特殊字符 &#x2F; Use strong passwords with letters, numbers, and special characters</li>
+<li>✅ 不同文章使用不同密码 &#x2F; Use different passwords for different posts</li>
+<li>⚠️ 这种加密是前端加密，不适合保护高度敏感信息 &#x2F; This is front-end encryption, not suitable for highly sensitive information</li>
+<li>⚠️ 密码会以加密形式存储在生成的 HTML 中 &#x2F; Password is stored in encrypted form in generated HTML</li>
+</ul>
+<h3 id="故障排查-Troubleshooting"><a href="#故障排查-Troubleshooting" class="headerlink" title="故障排查 &#x2F; Troubleshooting"></a>故障排查 &#x2F; Troubleshooting</h3><h4 id="问题-1：输入密码后无法解锁-Issue-1-Cannot-Unlock-After-Entering-Password"><a href="#问题-1：输入密码后无法解锁-Issue-1-Cannot-Unlock-After-Entering-Password" class="headerlink" title="问题 1：输入密码后无法解锁 &#x2F; Issue 1: Cannot Unlock After Entering Password"></a>问题 1：输入密码后无法解锁 &#x2F; Issue 1: Cannot Unlock After Entering Password</h4><p><strong>解决方法 &#x2F; Solution</strong>:</p>
+<ol>
+<li>清理浏览器缓存 &#x2F; Clear browser cache</li>
+<li>运行 <code>hexo clean</code> 清理 Hexo 缓存 &#x2F; Run <code>hexo clean</code> to clear Hexo cache</li>
+<li>检查站点 <code>_config.yml</code> 中插件配置是否正确 &#x2F; Verify plugin config in site <code>_config.yml</code></li>
+<li>确认密码拼写正确，注意大小写 &#x2F; Confirm password spelling, case-sensitive</li>
+</ol>
+<h4 id="问题-2：加密功能不生效-Issue-2-Encryption-Not-Working"><a href="#问题-2：加密功能不生效-Issue-2-Encryption-Not-Working" class="headerlink" title="问题 2：加密功能不生效 &#x2F; Issue 2: Encryption Not Working"></a>问题 2：加密功能不生效 &#x2F; Issue 2: Encryption Not Working</h4><p><strong>解决方法 &#x2F; Solution</strong>:</p>
+<ol>
+<li>确认已正确安装 <code>hexo-blog-encrypt</code> 插件 &#x2F; Confirm <code>hexo-blog-encrypt</code> is installed</li>
+<li>检查 Front-matter 格式是否正确 &#x2F; Check Front-matter format</li>
+<li>重新运行 <code>hexo clean &amp;&amp; hexo generate</code> &#x2F; Re-run <code>hexo clean &amp;&amp; hexo generate</code></li>
+</ol>
+<h4 id="问题-3：部署到-GitHub-Pages-后失效-Issue-3-Not-Working-After-Deploying-to-GitHub-Pages"><a href="#问题-3：部署到-GitHub-Pages-后失效-Issue-3-Not-Working-After-Deploying-to-GitHub-Pages" class="headerlink" title="问题 3：部署到 GitHub Pages 后失效 &#x2F; Issue 3: Not Working After Deploying to GitHub Pages"></a>问题 3：部署到 GitHub Pages 后失效 &#x2F; Issue 3: Not Working After Deploying to GitHub Pages</h4><p><strong>解决方法 &#x2F; Solution</strong>:</p>
+<ol>
+<li>确保部署前运行了 <code>hexo generate</code> &#x2F; Ensure <code>hexo generate</code> was run before deployment</li>
+<li>检查 <code>public</code> 目录中的文件是否包含加密内容 &#x2F; Check if files in <code>public</code> directory contain encrypted content</li>
+<li>清除 CDN 缓存（如果使用）&#x2F; Clear CDN cache (if using)</li>
+</ol>
+<h3 id="示例演示-Example-Demo"><a href="#示例演示-Example-Demo" class="headerlink" title="示例演示 &#x2F; Example Demo"></a>示例演示 &#x2F; Example Demo</h3><p>想要查看实际效果？请访问这篇<a href="/2025/11/20/Security/">加密文章示例</a>（密码：123456）。<br>Want to see it in action? Check out this <a href="/2025/11/20/Security/">encrypted post example</a> (password: 123456).</p>
+<h3 id="总结-Summary"><a href="#总结-Summary" class="headerlink" title="总结 &#x2F; Summary"></a>总结 &#x2F; Summary</h3><p>Hexo 文章密码保护功能让你可以轻松地为特定文章添加访问限制。虽然这不是军事级别的加密，但对于保护个人博客中的私密内容来说已经足够了。<br>Hexo password protection allows you to easily restrict access to specific posts. While not military-grade encryption, it’s sufficient for protecting private content on personal blogs.</p>
+<p>记住：始终使用强密码，并定期更新！<br>Remember: Always use strong passwords and update them regularly!</p>
+
+        </div>
+        
+        <!-- 文章导航 - 只在同分类有多篇文章时显示 -->
+        
+        
+        
+        <nav class="post-nav">
+          
+          
+            <a class="next" href="../../20/Security/">
+              🔐 我的秘密日记 / My Secret Diary (Password: 123456)
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          
+        </nav>
+        
+        
+        <!-- 推荐文章 -->
+        
+
+
+<div class="vs-recommended-posts">
+  <div class="vs-recommended-header">
+    <div class="section-header">
+      <i class="fas fa-lightbulb"></i>
+      <span>RELATED POSTS</span>
+    </div>
+  </div>
+  
+  <div class="vs-recommended-grid">
+    
+      <div class="vs-recommended-item" data-index="0" tabindex="0">
+        <a href="../../../04/14/Support%20of%20latex/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>Complete Guide to LaTeX Support in VSC4T | VSC4T中LaTeX支持完全指南</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              LaTeX Support in Hexo Themes | Hexo主题中的LaTeX支持 Original reference | 原始参考: hexo-math GitHub Repository Quick Start | 快速开始...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, theme, markdown
+                  
+                    <span class="vs-more-tags">+2</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Apr 14
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  2 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="1" tabindex="0">
+        <a href="../../../../2023/06/15/DEPLOYMENT/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>VSC4T Blog Deploy Guide | VSC4T博客部署指南</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              VSC4T Deployment Guide | VSC4T 部署指南This article provides a complete deployment process for Hexo blogs using the VSC4T th...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, theme, dark-mode
+                  
+                    <span class="vs-more-tags">+2</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Jun 15
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  3 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="2" tabindex="0">
+        <a href="../../../04/08/Overview%20On%20post%20content/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>Overview of VSC4T Theme Markdown Elements | VSC4T主题Markdown元素概览</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              Markdown Elements in VSC4T Theme | VSC4T主题的Markdown元素This article will showcase all Markdown elements supported by the V...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, theme, dark-mode
+                  
+                    <span class="vs-more-tags">+2</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Apr 08
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  3 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="3" tabindex="0">
+        <a href="../../20/Security/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>🔐 我的秘密日记 / My Secret Diary (Password: 123456)</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              这是一篇加密文章，展示 Hexo 密码保护功能的实际效果。摘要内容对所有访客可见，但完整内容需要密码才能查看。想知道里面写了什么吗？试试密码 123456 吧！
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  password, security, sample
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Nov 20
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  1 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      <div class="vs-recommended-item" data-index="4" tabindex="0">
+        <a href="../../../../2023/06/15/VSC4T/" class="vs-recommended-link">
+          <!-- 文章信息 -->
+          <div class="vs-recommended-content">
+            <div class="vs-recommended-title">
+              <i class="fas fa-file-code"></i>
+              <span>VSC4T - A Dark and Elegant Hexo Theme | VSC4T - 优雅的暗色Hexo主题</span>
+            </div>
+            
+            <div class="vs-recommended-excerpt">
+              VSCat Hexo Theme | VSCat Hexo主题An elegant and minimalist Hexo theme featuring dark color scheme and code-style design ae...
+            </div>
+            
+            <div class="vs-recommended-meta">
+              
+              
+              
+                <span class="vs-tags-preview">
+                  <i class="fas fa-tags"></i>
+                  hexo, theme, dark-mode
+                  
+                    <span class="vs-more-tags">+1</span>
+                  
+                </span>
+              
+              
+              <span class="vs-meta-info">
+                <span class="vs-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Jun 15
+                </span>
+                <span class="vs-reading-time">
+                  <i class="fas fa-clock"></i>
+                  4 min
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+  </div>
+  
+  <!-- 查看更多 -->
+  <div class="vs-recommended-footer">
+    <a href="../../../../archives/" class="vs-view-more">
+      <i class="fas fa-folder-open"></i>
+      <span>View More Posts</span>
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+</div>
+
+<script>
+// 键盘导航支持
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.vs-recommended-item');
+  let currentIndex = -1;
+  
+  // 键盘事件
+  document.addEventListener('keydown', function(e) {
+    if (!items.length) return;
+    
+    if (e.key === 'Tab') {
+      // Tab键导航由浏览器处理
+      return;
+    }
+    
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      
+      // 移除当前高亮
+      if (currentIndex >= 0) {
+        items[currentIndex].classList.remove('vs-focused');
+      }
+      
+      // 更新索引
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % items.length;
+      } else {
+        currentIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
+      }
+      
+      // 添加新高亮
+      items[currentIndex].classList.add('vs-focused');
+      items[currentIndex].focus();
+    }
+    
+    if (e.key === 'Enter' && currentIndex >= 0) {
+      const link = items[currentIndex].querySelector('a');
+      if (link) link.click();
+    }
+  });
+  
+  // 鼠标悬停时更新当前索引
+  items.forEach((item, index) => {
+    item.addEventListener('mouseenter', function() {
+      currentIndex = index;
+      items.forEach(i => i.classList.remove('vs-focused'));
+      item.classList.add('vs-focused');
+    });
+  });
+});
+</script>
+
+        
+        <!-- 评论区 -->
+        
+  <div class="vs-comments-section">
+    <div class="section-header">
+      <i class="fas fa-comments"></i>
+      <span>COMMENTS</span>
+    </div>
+    
+    
+      <!-- Waline 评论系统 -->
+      <div id="waline"></div>
+      <script>
+        // 加载 Waline CSS
+        const walineCSS = document.createElement('link');
+        walineCSS.rel = 'stylesheet';
+        walineCSS.href = 'https://unpkg.com/@waline/client@v3/dist/waline.css';
+        document.head.appendChild(walineCSS);
+        
+        // 加载 Waline JS
+        const walineScript = document.createElement('script');
+        walineScript.type = 'module';
+        walineScript.onload = function() {
+          // 确保 Waline 加载后再初始化
+          import('https://unpkg.com/@waline/client@v3/dist/waline.js').then(({ init }) => {
+            const waline = init({
+              el: '#waline',
+              serverURL: 'https://vsc4tblackcat1337.vercel.app/',
+              lang: 'zh-CN',
+              locale: {},
+              emoji: ["https://unpkg.com/@waline/emojis@1.2.0/weibo","https://unpkg.com/@waline/emojis@1.2.0/alus"],
+              requiredMeta: [],
+              login: 'disable',
+              wordLimit: 0,
+              pageSize: 10,
+              imageUploader: false,
+              highlighter: true,
+              texRenderer: false,
+              search: false,
+              pageview: false,
+              comment: true,
+              copyright: false,
+              
+              // 自动适配主题
+              dark: document.documentElement.getAttribute('data-theme') === 'dark' ? 'auto' : false,
+              
+              // 评论框占位符
+              placeholder: 'Feel free to leave a comment, no login required!',
+              
+              // 元数据配置
+              meta: ['nick', 'mail', 'link'],
+              
+              // 表情配置
+              emojiCDN: 'https://unpkg.com/@waline/emojis@1.2.0/',
+            });
+            
+            // 监听主题变化
+            const observer = new MutationObserver((mutations) => {
+              mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                  // Waline 会自动处理主题切换
+                  if (waline) {
+                    waline.update({ dark: isDark ? 'auto' : false });
+                  }
+                }
+              });
+            });
+            
+            observer.observe(document.documentElement, {
+              attributes: true,
+              attributeFilter: ['data-theme']
+            });
+          });
+        };
+        walineScript.src = 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+        document.body.appendChild(walineScript);
+      </script>
+    
+    
+  </div>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <footer class="footer">
+  <div class="status-bar">
+    <div class="status-item">
+      <i class="fas fa-code-branch"></i>
+      master
+    </div>
+    <div class="status-item">
+      <i class="fas fa-sync"></i>
+      B143KC47
+    </div>
+    <div class="status-item">
+      <i class="fas fa-clock"></i>
+      2026-01-30
+    </div>
+    <div class="status-item">
+      Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
+    </div>
+    <div class="status-item github">
+      <a href="#" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- 搜索专用配置 (HEXO_CONFIG 在 scripts.ejs 中统一定义) -->
+    <script>
+      window.VSC4T_SEARCH = {
+        root: "/VSC4T/"
+      };
+    </script>
+
+    <!-- 外部脚本 - 统一使用 jsdelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js" crossorigin="anonymous"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- 这里可以放置自定义脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Apply smooth scroll to non-TOC anchor links
+  document.querySelectorAll('a[href^="#"]:not(.toc-link)').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Check if querySelector is valid before using it
+      try {
+        const targetSelector = this.getAttribute('href');
+        // Basic check for potentially invalid selectors (though not exhaustive)
+        if (targetSelector && targetSelector.length > 1) { 
+          const targetElement = document.querySelector(targetSelector);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          } else {
+            console.warn('Smooth scroll target not found:', targetSelector);
+          }
+        } else {
+           console.warn('Invalid href for smooth scroll:', targetSelector);
+        }
+      } catch (error) {
+        console.error('Error during smooth scroll:', error, 'Selector:', this.getAttribute('href'));
+        // Fallback or alternative behavior if needed
+        // For example, try getElementById if it's just an ID
+        const targetId = this.getAttribute('href').slice(1);
+        try {
+            const targetElementById = document.getElementById(decodeURIComponent(targetId));
+            if (targetElementById) {
+                targetElementById.scrollIntoView({ behavior: 'smooth' });
+            }
+        } catch (idError) {
+             console.error('Fallback getElementById also failed:', idError);
+        }
+      }
+    });
+  });
+});
+</script>
+
+<!-- Scripts -->
+<script>
+  // 全局配置 - 包含 i18n 字符串和主题配置
+  window.HEXO_CONFIG = {
+    language: "en",
+    root: "/VSC4T/",
+    
+    theme_switch: {
+      enabled: false,
+      light_start: "06:00",
+      light_end: "18:00"
+    },
+    
+    // Search i18n strings
+    search_placeholder: "Type to search...",
+    search_no_results: "No results found",
+    search_result: "result",
+    search_results: "results",
+    search_results_found: "Found undefined results",
+    search_in: "Search in",
+    search_in_title: "Title",
+    search_in_content: "Content",
+    search_in_tags: "Tags",
+    search_in_categories: "Categories",
+    search_filters: "Search Filters",
+    search_recent: "Recent Searches",
+    search_clear: "Clear",
+    search_loading: "Loading...",
+    search_error: "Error loading search data",
+    // Encryption i18n strings
+    encrypt_badge: "Protected",
+    encrypt_title: "Protected Content",
+    encrypt_description: "Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.",
+    encrypt_label: "Password",
+    encrypt_placeholder: "Enter password to unlock",
+    encrypt_button: "Unlock",
+    encrypt_button_loading: "Unlocking...",
+    encrypt_hint: "Press Enter to submit. Password will be remembered on this device.",
+    encrypt_success: "Content unlocked successfully!",
+    encrypt_unlocked_note: "Content unlocked. You can re-encrypt at any time.",
+    encrypt_again: "Re-encrypt",
+    encrypt_wrong_password: "Incorrect password. Please try again.",
+    encrypt_show_password: "Show password",
+    encrypt_hide_password: "Hide password",
+    // Sidebar i18n strings
+    sidebar_about: "About",
+    sidebar_categories: "Categories",
+    sidebar_tags: "Tags",
+    // Post page i18n strings
+    post_toc: "TABLE OF CONTENTS",
+    post_category_posts: "CATEGORY POSTS",
+    post_article_tags: "ARTICLE TAGS"
+  };
+</script>
+
+
+
+<!-- 添加所有需要的脚本 -->
+<script src="../../../../js/search.js"></script>
+<script src="../../../../js/theme-switch.js"></script>
+
+<script src="../../../../js/password-protect.js?v=1769770104019"></script>
+
+    <script>
+      // 移动端菜单切换
+      $(document).ready(function() {
+        $('.mobile-menu-toggle').click(function() {
+          $('.sidebar-explorer').toggleClass('show');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -248,17 +248,17 @@ pre.scrolled::before {
   align-items: flex-start; /* 确保不拉伸内部元素 */
   min-height: 0; /* 确保能够正确计算高度 */
   box-sizing: border-box;
-  background: var(--vscode-code-container-bg);
+  background: var(--vscode-bg); /* 统一使用最深的背景色 */
   padding: 0; /* 确保没有默认内边距 */
   margin: 0; /* 确保没有默认外边距 */
   position: relative; /* 约束滚动指示伪元素的定位范围 */
 }
 
 /* 行号区域宽度自适应 */
-.line-numbers-pre {
+.line-num {
   width: auto;
   flex: 0 0 auto;
-  padding: 4px 6px; /* 减小垂直内边距与code.css保持一致 */
+  padding: 0 12px;
   margin: 0;
   box-sizing: border-box; /* 确保边框盒模型一致 */
 }
@@ -266,17 +266,17 @@ pre.scrolled::before {
 /* 代码内容区域自适应 */
 .code-content {
   flex: 1;
-  width: 0; /* 初始宽度为0，通过flex-grow伸展 */
+  width: 100%;
   min-width: 0; /* 允许内容区域收缩 */
   overflow-x: auto;
-  padding: 4px 8px !important; /* 减小垂直内边距与code.css保持一致 */
+  padding: 0 !important;
   margin: 0;
   box-sizing: border-box; /* 确保边框盒模型一致 */
 }
 
 /* 提高代码可读性 */
 .hljs {
-  background: var(--vscode-code-bg) !important;
+  background: transparent !important;
   color: var(--vscode-text) !important;
   max-width: 100%; /* 确保不会超出父容器 */
   box-sizing: border-box; /* 确保padding不会导致宽度计算问题 */
@@ -311,12 +311,16 @@ pre.scrolled::before {
 
 /* 在小屏幕上优化显示 */
 @media (max-width: 768px) {
-  .line-numbers-pre {
-    padding: 4px 6px; /* 与非移动版保持一致 */
+  .line-num {
+    padding: 0 8px;
   }
   
   .code-content {
-    padding: 4px 8px !important; /* 与非移动版保持一致 */
+    padding: 0 !important;
+  }
+  
+  .line-code {
+    padding: 0 8px;
   }
 }
 
