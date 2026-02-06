@@ -11,7 +11,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   min-height: calc(100vh - 30px);
@@ -995,6 +995,41 @@ h1, h2, h3, h4, h5, h6 {
 /* Utterances iframe 样式 */
 .utterances {
   width: 100%;
+}
+
+/* ========================================
+   Sidebar Tag Cloud - Pinyin Sorted
+   ======================================== */
+.tagcloud-pinyin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.tagcloud-pinyin .tag-cloud-link {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background-color: var(--vscode-active);
+  border: 1px solid var(--vscode-border);
+  border-radius: 3px;
+  color: var(--vscode-text-light);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tagcloud-pinyin .tag-cloud-link:hover {
+  background-color: var(--vscode-accent);
+  border-color: var(--vscode-accent);
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.tagcloud-pinyin .tag-cloud-link:active {
+  transform: translateY(0);
 }
 
 /* 响应式优化 */

@@ -65,7 +65,7 @@
 
 .vscode-markdown p {
   margin: 1em 0 1.2em; /* 增加段落间的垂直空间，特别是底部空间 */
-  max-width: 70ch; /* 限制理想的行宽，大约为70个字符宽度，提高可读性 */
+  max-width: 100%; /* 全宽显示，充分利用屏幕空间 */
 }
 
 .vscode-markdown a {
