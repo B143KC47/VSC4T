@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../css/mermaid.css">
 
   <link rel="stylesheet" href="../css/vs-code.css">
-  <link rel="stylesheet" href="../css/post.css?v=1770468950706">
+  <link rel="stylesheet" href="../css/post.css?v=1770563415264">
   <link rel="stylesheet" href="../css/tag.css">
   <link rel="stylesheet" href="../css/categories.css">
   <link rel="stylesheet" href="../css/archive.css">
@@ -69,9 +69,11 @@
 
   <body>
     <div class="wrapper">
-      <div class="mobile-menu-toggle">
+      <div class="mobile-menu-toggle" aria-label="Toggle sidebar menu" role="button" tabindex="0">
         <i class="fas fa-bars"></i>
       </div>
+      <!-- 移动端侧边栏遮罩层 -->
+      <div class="sidebar-overlay" aria-hidden="true"></div>
       <header class="vs-header">
   <nav class="vs-nav">
     <div class="nav-left">
@@ -729,7 +731,7 @@
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2026-02-07
+      2026-02-08
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -860,13 +862,55 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 <script src="../js/categories-toggle.js"></script>
 
-<script src="../js/password-protect.js?v=1770468950707"></script>
+<script src="../js/password-protect.js?v=1770563415265"></script>
 
     <script>
       // 移动端菜单切换
       $(document).ready(function() {
-        $('.mobile-menu-toggle').click(function() {
-          $('.sidebar-explorer').toggleClass('show');
+        var $body = $('body');
+        var $sidebar = $('.sidebar-explorer');
+        var $overlay = $('.sidebar-overlay');
+        var $toggle = $('.mobile-menu-toggle');
+
+        function openSidebar() {
+          $sidebar.addClass('show');
+          $overlay.addClass('show');
+          $toggle.addClass('active');
+          $body.addClass('sidebar-open');
+        }
+
+        function closeSidebar() {
+          $sidebar.removeClass('show');
+          $overlay.removeClass('show');
+          $toggle.removeClass('active');
+          $body.removeClass('sidebar-open');
+        }
+
+        // 汉堡按钮点击切换
+        $toggle.on('click', function(e) {
+          e.stopPropagation();
+          if ($sidebar.hasClass('show')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
+        });
+
+        // 点击遮罩层关闭
+        $overlay.on('click', function() {
+          closeSidebar();
+        });
+
+        // ESC 键关闭
+        $(document).on('keydown', function(e) {
+          if (e.key === 'Escape' && $sidebar.hasClass('show')) {
+            closeSidebar();
+          }
+        });
+
+        // 点击侧边栏内的链接时自动关闭侧边栏，确保锚点跳转正常
+        $sidebar.on('click', 'a', function() {
+          closeSidebar();
         });
       });
     </script>

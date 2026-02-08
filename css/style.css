@@ -272,12 +272,32 @@
 
 /* 响应式设计优化 */
 @media (max-width: 768px) {
+  /* 导航栏适配汉堡菜单 */
+  .vs-nav {
+    padding: 0 8px 0 48px; /* 左侧为汉堡按钮留出空间 */
+  }
+
+  .nav-brand {
+    font-size: 1em;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .nav-brand i {
+    font-size: 0.9em;
+  }
+
   .nav-item span {
     display: none;
   }
   
   .nav-item {
-    padding: 6px 10px;
+    padding: 8px 10px;
+    min-height: 36px;
+    min-width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .nav-item i {

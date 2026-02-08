@@ -10,22 +10,29 @@
 
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
+    /* 核心：全寽布局——消除左右留白 */
+    .wrapper {
+        max-width: 100% !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .vs-nav {
+        max-width: 100% !important;
+    }
+
     .vscode-container {
         flex-direction: column;
     }
 
-    .sidebar-explorer {
-        width: 100%;
-        max-height: 300px;
-        overflow-y: auto;
-    }
+    /* 侧边栏在移动端由 mobile.css 控制为滑出面板，这里不设置 */
 
     .editor-content {
         width: 100%;
     }
 
     .post-card {
-        margin: 10px 0;
+        margin: 8px 0;
         min-height: auto;
     }
 

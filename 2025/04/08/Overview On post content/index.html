@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../../../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../../../css/vs-code.css">
-  <link rel="stylesheet" href="../../../../css/post.css?v=1770468950711">
+  <link rel="stylesheet" href="../../../../css/post.css?v=1770563415267">
   <link rel="stylesheet" href="../../../../css/tag.css">
   <link rel="stylesheet" href="../../../../css/categories.css">
   <link rel="stylesheet" href="../../../../css/archive.css">
@@ -181,9 +181,11 @@ mjx-container[display="true"] + br {
 
   <body>
     <div class="wrapper">
-      <div class="mobile-menu-toggle">
+      <div class="mobile-menu-toggle" aria-label="Toggle sidebar menu" role="button" tabindex="0">
         <i class="fas fa-bars"></i>
       </div>
+      <!-- 移动端侧边栏遮罩层 -->
+      <div class="sidebar-overlay" aria-hidden="true"></div>
       <header class="vs-header">
   <nav class="vs-nav">
     <div class="nav-left">
@@ -500,7 +502,7 @@ function test() {
 <h3 id="Code-代码"><a href="#Code-代码" class="headerlink" title="Code | 代码"></a>Code | 代码</h3><p>Use the <code>console.log()</code> function to print messages.<br>使用<code>console.log()</code>函数打印信息。</p>
 <h3 id="Images-图片"><a href="#Images-图片" class="headerlink" title="Images | 图片"></a>Images | 图片</h3><p><img src="https://cdn.pixabay.com/photo/2015/09/29/13/47/cat-963931_1280.jpg" alt="BlackCat | 黑猫"></p>
 <h2 id="Miscellaneous-Elements-其他元素"><a href="#Miscellaneous-Elements-其他元素" class="headerlink" title="Miscellaneous Elements | 其他元素"></a>Miscellaneous Elements | 其他元素</h2><h3 id="Strikethrough-删除线"><a href="#Strikethrough-删除线" class="headerlink" title="Strikethrough | 删除线"></a>Strikethrough | 删除线</h3><p><del>This is strikethrough text | 这是删除线文本</del></p>
-<h3 id="Automatic-Links-自动链接"><a href="#Automatic-Links-自动链接" class="headerlink" title="Automatic Links | 自动链接"></a>Automatic Links | 自动链接</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#x61;&#x64;&#100;&#x72;&#101;&#x73;&#115;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;">address@example.com</a></p>
+<h3 id="Automatic-Links-自动链接"><a href="#Automatic-Links-自动链接" class="headerlink" title="Automatic Links | 自动链接"></a>Automatic Links | 自动链接</h3><p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a><br><a href="mailto:&#97;&#x64;&#100;&#x72;&#101;&#x73;&#x73;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">address@example.com</a></p>
 <h3 id="Backslash-Escapes-转义字符"><a href="#Backslash-Escapes-转义字符" class="headerlink" title="Backslash Escapes | 转义字符"></a>Backslash Escapes | 转义字符</h3><p>*This is not italic*<br>*这不是斜体* </p>
 <h3 id="Inline-HTML-内联HTML"><a href="#Inline-HTML-内联HTML" class="headerlink" title="Inline HTML | 内联HTML"></a>Inline HTML | 内联HTML</h3><p><span style="color: red;">This is red text | 这是红色文本</span></p>
 <h3 id="Math-Equations-LaTeX-LaTeX公式"><a href="#Math-Equations-LaTeX-LaTeX公式" class="headerlink" title="Math Equations (LaTeX) | LaTeX公式"></a>Math Equations (LaTeX) | LaTeX公式</h3><p>Mathjax: </p>
@@ -948,7 +950,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="status-item">
       <i class="fas fa-clock"></i>
-      2026-02-07
+      2026-02-08
     </div>
     <div class="status-item">
       Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
@@ -1077,13 +1079,55 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="../../../../js/search.js"></script>
 <script src="../../../../js/theme-switch.js"></script>
 
-<script src="../../../../js/password-protect.js?v=1770468950711"></script>
+<script src="../../../../js/password-protect.js?v=1770563415267"></script>
 
     <script>
       // 移动端菜单切换
       $(document).ready(function() {
-        $('.mobile-menu-toggle').click(function() {
-          $('.sidebar-explorer').toggleClass('show');
+        var $body = $('body');
+        var $sidebar = $('.sidebar-explorer');
+        var $overlay = $('.sidebar-overlay');
+        var $toggle = $('.mobile-menu-toggle');
+
+        function openSidebar() {
+          $sidebar.addClass('show');
+          $overlay.addClass('show');
+          $toggle.addClass('active');
+          $body.addClass('sidebar-open');
+        }
+
+        function closeSidebar() {
+          $sidebar.removeClass('show');
+          $overlay.removeClass('show');
+          $toggle.removeClass('active');
+          $body.removeClass('sidebar-open');
+        }
+
+        // 汉堡按钮点击切换
+        $toggle.on('click', function(e) {
+          e.stopPropagation();
+          if ($sidebar.hasClass('show')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
+        });
+
+        // 点击遮罩层关闭
+        $overlay.on('click', function() {
+          closeSidebar();
+        });
+
+        // ESC 键关闭
+        $(document).on('keydown', function(e) {
+          if (e.key === 'Escape' && $sidebar.hasClass('show')) {
+            closeSidebar();
+          }
+        });
+
+        // 点击侧边栏内的链接时自动关闭侧边栏，确保锚点跳转正常
+        $sidebar.on('click', 'a', function() {
+          closeSidebar();
         });
       });
     </script>
