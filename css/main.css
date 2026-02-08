@@ -11,7 +11,7 @@ body {
 }
 
 .wrapper {
-  max-width: 100%;
+  max-width: 85%;
   margin: 0 auto;
   padding: 20px;
   min-height: calc(100vh - 30px);

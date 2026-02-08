@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../css/vs-code.css">
-  <link rel="stylesheet" href="../../css/post.css?v=1770395467645">
+  <link rel="stylesheet" href="../../css/post.css?v=1770468950718">
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -220,26 +220,65 @@
     </div>
     
     <div class="content-area">
-      <div class="category-detail">
-        <div class="category-header">
-          <i class="fas fa-folder"></i>
-          <h2>tests</h2>
-          <span class="count">1 posts</span>
-        </div>
-        <div class="category-posts">
+      
+
+      <!-- 分类 Hero 横幅 -->
+      <div class="category-detail-hero">
+        
+        <div class="category-detail-hero-overlay"></div>
+        <div class="category-detail-hero-content">
+          <div class="category-detail-hero-icon">
+            <i class="fas fa-folder-open"></i>
+          </div>
+          <h1 class="category-detail-hero-title">tests</h1>
           
-            <div class="post-item">
+          <div class="category-detail-hero-meta">
+            <span class="category-detail-hero-count">
               <i class="fas fa-file-alt"></i>
-              <div class="post-info">
-                <a href="../../2025/11/20/Security/">🔐 我的秘密日记 / My Secret Diary (Password: 123456)</a>
-                <span class="date">
-                  <i class="fas fa-calendar-alt"></i>
-                  2025-11-20
-                </span>
-              </div>
-            </div>
-          
+              1 posts
+            </span>
+          </div>
         </div>
+      </div>
+
+      <!-- 文章列表 -->
+      <div class="category-detail-posts">
+        
+          
+          <a href="../../2025/11/20/Security/" class="category-detail-card">
+            <div class="category-detail-card-body">
+              <div class="category-detail-card-header">
+                <i class="fas fa-file-alt"></i>
+                <span class="category-detail-card-title">🔐 我的秘密日记 / My Secret Diary (Password: 123456)</span>
+                
+              </div>
+              <div class="category-detail-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> 2025-11-20</span>
+                
+                  <span class="category-detail-card-tags">
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 密码保护</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> password</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 安全</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> security</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 示例文章</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> sample</span>
+                    
+                  </span>
+                
+              </div>
+              <p class="category-detail-card-excerpt">
+                这是一篇加密文章，展示 Hexo 密码保护功能的实际效果。摘要内容对所有访客可见，但完整内容需要密码才能查看。想知道里面写了什么吗？试试密码 123456 吧！...
+              </p>
+            </div>
+            
+          </a>
+        
       </div>
     </div>
   </div>
@@ -387,7 +426,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="../../js/search.js"></script>
 <script src="../../js/theme-switch.js"></script>
 
-<script src="../../js/password-protect.js?v=1770395467645"></script>
+<script src="../../js/password-protect.js?v=1770468950719"></script>
 
     <script>
       // 移动端菜单切换

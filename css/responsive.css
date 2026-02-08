@@ -26,6 +26,12 @@
 
     .post-card {
         margin: 10px 0;
+        min-height: auto;
+    }
+
+    .post-thumbnail {
+        width: 90px;
+        height: 60px;
     }
 
     .pagination-container {

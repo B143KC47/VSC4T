@@ -114,15 +114,25 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  background: var(--vscode-bg);
+  background: var(--vscode-sidebar);
   border-right: 1px solid var(--vscode-border);
   font-size: 13px;
+  color: var(--vscode-text-light);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  user-select: none;
+  border-top: 1px solid transparent;
+}
+
+.tab:hover {
   color: var(--vscode-text);
+  background: var(--vscode-bg-light);
 }
 
 .tab.active {
   background: var(--vscode-bg);
   border-top: 1px solid var(--vscode-accent);
+  color: var(--vscode-text);
 }
 
 .tab i {
@@ -142,10 +152,69 @@
   border: 1px solid var(--vscode-border);
   border-radius: 4px;
   transition: transform 0.2s ease;
+  min-height: 180px;
 }
 
 .post-card:hover {
   transform: translateY(-2px);
+}
+
+/* 文章卡片内容区 */
+.post-card-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card-content .post-excerpt {
+  flex: 1;
+}
+
+.post-card-content .post-footer {
+  margin-top: auto;
+}
+
+/* 文章卡片顶部区域：标题/meta + 缩略图水平排列 */
+.post-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.post-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 文章缩略图（小预览图） */
+.post-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.post-thumbnail a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--vscode-border);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.post-thumbnail img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
 .post-header {
